@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.AnV_Software.driver.AnyAppleUSBKeyboard</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>AnyAppleUSBKeyboard</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>8.8.8</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>Any Wired Keyboard ISO 1</key>
+		<dict>
+			<key>1idProduct</key>
+			<integer>1</integer>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleUSBHIDKeyboard</string>
+			<key>DebuggingOn</key>
+			<false/>
+			<key>FWCapsLockDelay</key>
+			<true/>
+			<key>HIDDefaultBehavior</key>
+			<string></string>
+			<key>IOClass</key>
+			<string>AppleUSBHIDKeyboard</string>
+			<key>IOKitDebug</key>
+			<integer>0</integer>
+			<key>IOProviderClass</key>
+			<string>IOUSBInterface</string>
+			<key>bConfigurationValue</key>
+			<integer>1</integer>
+			<key>bInterfaceNumber</key>
+			<integer>0</integer>
+			<key>idVendor</key>
+			<integer>9610</integer>
+		</dict>
+		<key>Any Wired Keyboard ISO 2</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleUSBHIDKeyboard</string>
+			<key>DebuggingOn</key>
+			<false/>
+			<key>HIDDefaultBehavior</key>
+			<string></string>
+			<key>IOClass</key>
+			<string>AppleUSBHIDKeyboard</string>
+			<key>IOKitDebug</key>
+			<integer>0</integer>
+			<key>IOProviderClass</key>
+			<string>IOUSBInterface</string>
+			<key>bConfigurationValue</key>
+			<integer>1</integer>
+			<key>bInterfaceNumber</key>
+			<integer>1</integer>
+			<key>idProduct</key>
+			<integer>1</integer>
+			<key>idVendor</key>
+			<integer>9610</integer>
+		</dict>
+		<key>Fake_Apple_Keyboard_Device</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleUSBMergeNub</string>
+			<key>IOClass</key>
+			<string>AppleUSBMergeNub</string>
+			<key>IOProviderClass</key>
+			<string>IOUSBDevice</string>
+			<key>IOProviderMergeProperties</key>
+			<dict>
+				<key>USB Product Name</key>
+				<string>Apple Keyboard</string>
+				<key>USB Vendor Name</key>
+				<string>Apple, Inc</string>
+				<key>bcdDevice</key>
+				<integer>105</integer>
+				<key>idProduct</key>
+				<integer>545</integer>
+				<key>idVendor</key>
+				<integer>1452</integer>
+			</dict>
+			<key>idProduct</key>
+			<integer>1</integer>
+			<key>idVendor</key>
+			<integer>9610</integer>
+		</dict>
+		<key>Fake_Apple_Keyboard_Interface</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleUSBMergeNub</string>
+			<key>IOClass</key>
+			<string>AppleUSBMergeNub</string>
+			<key>IOProviderClass</key>
+			<string>IOUSBInterface</string>
+			<key>IOProviderMergeProperties</key>
+			<dict>
+				<key>bcdDevice</key>
+				<integer>105</integer>
+				<key>idProduct</key>
+				<integer>545</integer>
+				<key>idVendor</key>
+				<integer>1452</integer>
+			</dict>
+			<key>bConfigurationValue</key>
+			<string>*</string>
+			<key>bInterfaceNumber</key>
+			<string>*</string>
+			<key>idProduct</key>
+			<integer>5635</integer>
+			<key>idVendor</key>
+			<integer>4673</integer>
+		</dict>
+	</dict>
+	<key>OSBundleRequired</key>
+	<string>Console</string>
+</dict>
+</plist>
