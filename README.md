@@ -58,6 +58,7 @@ If you were using UEFI, delete boot drivers32 drivers64 folder is recommend.
   - [holoto/ec-471g](https://github.com/holoto/ec-471g)
   - [Fix-Hotkey-Brightness](http://www.insanelymac.com/forum/topic/305030-guide-how-to-fix-brightness-hotkeys-in-dsdt/)
 
+
 #### For More
 
   - [Clover-Wiki](https://clover-wiki.zetam.org)
