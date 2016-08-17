@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geekbench Score</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    
+    <style type="text/css">/*
+  Copyright (C) 2004-2016 Primate Labs Inc.  All rights reserved.
+*/
+
+html, body, div,
+span, object, iframe,
+h1, h2, h3,
+h4, h5, h6,
+p, blockquote, pre,
+abbr, address, cite,
+code, del, dfn,
+em, img, ins,
+kbd, q, samp,
+small, strong, sub,
+sup, var, b,
+i, dl, dt,
+dd, ol, ul, l
+i, fieldset, form,
+label, legend, table,
+caption, tbody, tfoot,
+thead, tr, th,
+td, article, aside,
+dialog, figure, footer,
+header, hgroup, menu,
+nav, section, time,
+mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1.5;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+}
+
+table, td, th {
+  vertical-align: middle;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+}
+
+blockquote, q {
+  quotes: "" "";
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted rgb(0,0,0);
+  cursor: help;
+}
+
+sup, sub {
+  line-height: 0;
+  position: relative;
+  font-size: 80%;
+}
+
+sup {
+  top: -3px;
+}
+
+sub {
+  bottom: -1px;
+}
+
+/* === HTML 5 === */
+
+article, aside, dialog,
+figure, footer, header,
+hgroup, nav, section {
+  display: block;
+}
+
+/* === P.I.E. float clearing === */
+
+.clearfix:after {
+  content: " ";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  display: block;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+.clearfix {
+  display: block;
+}
+</style>
+    <style type="text/css">/*
+  Copyright (C) 2004-2016 Primate Labs Inc.  All rights reserved.
+*/
+
+body {
+  color: rgb(86,96,106);
+  background: rgb(240, 240, 240);
+  font: 14px/1.5em "Roboto", Helvetica, Arial, sans-serif;
+}
+
+p {
+  margin: 0 0 1.5em 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* === Containers === */
+
+.container {
+  position: relative;
+  margin: 0px auto;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+
+  .container {
+    padding: 10px 10px 0 10px;
+  }
+
+}
+
+/* === Platform === */
+
+.platform-info {
+  clear: both;
+  border-top: #dfdfdf 1px solid;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 12px;
+}
+
+.platform-info .model {
+  float: left;
+}
+
+.platform-info .platform {
+  float: right;
+}
+
+/* === Tables === */
+
+.table-wrapper {
+  position: relative;
+  margin: 0;
+  background: rgb(253,253,253);
+  border-bottom: 1px solid rgb(227,227,227);
+}
+
+@media screen and (min-width: 768px) {
+
+  .table-wrapper {
+    margin: 0 0 20px 0;
+    border: 1px solid rgb(227,227,227);
+  }
+
+}
+
+.table-wrapper-inner {
+  padding: 0;
+}
+
+.heading {
+  background: #067FC0;
+  width: 100%;
+  height: 46px;
+  display: block;
+  padding: 0 0 0 0;
+}
+
+.heading h1 {
+  padding: 0 0 0 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  color: rgb(255,255,255);
+  line-height: 46px;
+}
+
+table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.table {
+  font-size: 14px;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.table, .table * th, .table * tr, .table * td {
+  border: none;
+}
+
+.table * th {
+  background-color: #efefef;
+  line-height: 1.5em;
+  padding: 8px 12px 8px 12px;
+  font-weight: bold;
+}
+
+.table * td {
+  line-height: 1.2em;
+  padding: 8px 12px 8px 12px;
+}
+
+.table * tr {
+  border-top: #dfdfdf 1px solid;
+  border-bottom: #dfdfdf 1px solid;
+}
+
+.table * tr:last-child {
+  border-bottom: none;
+}
+
+.table * .name {
+  float: left;
+  text-align: left;
+  font-weight: bold;
+}
+
+.table * .value {
+  float: right;
+  text-align: right;
+}
+
+.table .system-table {
+  display: block;
+  overflow-x: auto;
+}
+
+.system-table * .system-name {
+  display: block;
+  width: 130px;
+  font-weight: bold;
+}
+
+.benchmark-table * .data {
+  width: 250px;
+}
+
+.benchmark-table * .data .name {
+  float: left;
+  text-align: left;
+}
+
+.benchmark-table * .data .score {
+  float: right;
+  text-align: right;
+}
+
+.benchmark-table * .graph,
+.benchmark-table * .graph .benchmark-bar {
+  display: none;
+}
+
+.score-container {
+  float: left;
+  width: 100%;
+}
+
+.score-container .score {
+  font-family: "HelveticaNeue-Light", "Roboto", "Segoe UI", sans-serif;
+  text-align: center;
+  font-size: 64px;
+  line-height: 64px;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+.score-container:last-of-type .score {
+  margin-top: 0px;
+}
+
+.compute .score-container .score {
+  margin-top: 32px;
+}
+
+.score-container .battery, .score-container .ips {
+  font-family: "HelveticaNeue-Light", "Roboto", "Segoe UI", sans-serif;
+  text-align: center;
+  font-size: 32px;
+  line-height: 32px;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+.score-container .note {
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 32px;
+  text-align: center;
+  color: #707070;
+}
+
+@media screen and (min-width: 768px) {
+
+  .table {
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .table th, .table td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid rgb(220, 220, 220);
+  }
+
+  .table th {
+    background-color: #efefef;
+    font-weight: bold;
+  }
+
+  .table thead th {
+    vertical-align: bottom;
+  }
+
+  .table caption + thead tr:first-child th,
+  .table caption + thead tr:first-child td,
+  .table colgroup + thead tr:first-child th,
+  .table colgroup + thead tr:first-child td,
+  .table thead:first-child tr:first-child th,
+  .table thead:first-child tr:first-child td {
+    border-top: 0;
+  }
+
+  .table tbody + tbody {
+    border-top: 2px solid #dddddd;
+  }
+
+  .table-striped tbody tr:nth-child(odd) td,
+  .table-striped tbody tr:nth-child(odd) th {
+    background-color: #f9f9f9;
+  }
+
+  .score-container {
+    float: left;
+    width: 50%;
+  }
+
+  .compute .score-container {
+    float: left;
+    width: 100%;
+  }
+
+  .score-container:last-of-type .score {
+    margin-top: 32px;
+  }
+
+  .table.system-table {
+    display: table;
+    overflow-x: hidden;
+  }
+
+  .system-table .system-name {
+    display: table-cell;
+    width: 250px;
+  }
+
+  .benchmark-desc {
+    font-size: 10px;
+  }
+
+  .benchmark-name {
+    width: 200px;
+    background-image: none;
+  }
+
+  .benchmark-graph {
+    vertical-align: center;
+  }
+
+  .benchmark-bar {
+    background-color: #44a4f0;
+    height: 30px;
+  }
+
+  .benchmark-desc {
+    font-size: 10px;
+  }
+
+  .benchmark-desc {
+    font-weight: normal;
+    color: #777;
+  }
+
+  .benchmark-table * .graph{
+    display: table-cell;
+  }
+  .benchmark-table * .graph .benchmark-bar {
+    display: block;
+  }
+
+  .system-table, .benchmark-table, .summary-table {
+    margin-bottom: 0;
+  }
+
+  .summary-explanation {
+    font-size: 120px;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+
+  .summary-table * th, .system-table * th, .benchmark-table * th {
+    padding: 8px;
+    line-height: 1.5em;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .summary-table * td, .system-table * td, .benchmark-table * td {
+    padding: 8px;
+    line-height: 1.2em;
+  }
+
+  .summary-table * th {
+    background-color: rgb(240, 240, 240);
+  }
+
+  .summary-table * .section-name {
+    width: 20%;
+  }
+
+  .summary-table * .section-score {
+    width: 15%;
+    text-align: right;
+  }
+
+  .summary-table * .section-data {
+    width: 250px;
+  }
+
+  .summary-table * .section-data .name {
+    float: left;
+    text-align: left;
+  }
+
+  .summary-table * .section-data .score {
+    float: right;
+    text-align: right;
+  }
+
+  .summary-table * td.overall-score {
+    font-family: "HelveticaNeue-Light", Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    font-size: 36pt;
+    text-align: center;
+    vertical-align: middle;
+    padding: 15px 0 10px 0;
+    line-height: 1.0em;
+  }
+
+}
+
+.battery-table * .timestamp {
+  text-align: left;
+  width: 30%;
+}
+
+.battery-table * .duty-cycle, .battery-table * .level {
+  text-align: right;
+  width: 35%;
+}
+
+.thermal-table * .frequency, .thermal-table * .timestamp {
+  text-align: right;
+}
+
+.chart-container {
+  margin: 0px auto;
+  padding: 157px 0 0 0;
+  position: relative;
+}
+
+.chart-wrapper {
+  padding: 10px 10px 0 10px;
+}
+
+.chart-scroll-screen {
+  margin: 0;
+  padding: 10px 10px 0 10px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 20;
+  background: rgb(240,240,240);
+}
+
+.heading-bg {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  padding: 0;
+  padding-bottom: 10px;
+  position: fixed;
+  background: rgb(253, 253, 253);
+  z-index: 25;
+}
+
+.heading-bg.border {
+  top: 10px;
+  left: 15px;
+  right: 10px;
+  border: 1px solid rgb(227,227,227);
+}
+
+.heading-bg.borderless {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  border-bottom: 1px solid rgb(227,227,227);
+}
+
+.chart-header {
+  height: 36px;
+  border-bottom: 1px solid rgb(109, 122, 134);
+  margin-bottom: 5px;
+}
+
+.device-left {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  height: 34px;
+  float: left;
+}
+
+.device-right {
+  float: right;
+  height: 34px;
+}
+
+.device-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.device-processor {
+  font-weight: normal;
+  font-size: 14px;
+  color: rgb(109, 122, 134);
+}
+
+.device-score {
+  font-family: "HelveticaNeue-Light", "Roboto", "Segoe UI", sans-serif;
+  font-size: 28px;
+  padding-top: 10px;
+}
+
+.chart-body {
+  height: 30px;
+  position: relative;
+  margin-bottom: 10px;
+  clear: both;
+
+}
+
+.segmented-chart {
+  height: 30px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: #44a4f0;
+}
+
+.float-segment, .memory-segment {
+  height: 40px;
+  float: right;
+}
+</style>
+  </head>
+  <body>
+    <div class="container border">
+      <div class="table-wrapper border">
+       <div class="heading">
+         <h1>Geekbench Score</h1>
+       </div>
+        <div class="score-container desktop">
+          <div class="score">2547</div>
+          <div class="note">Single-Core Score</div>
+        </div>
+        <div class="score-container desktop">
+          <div class="score">4781</div>
+          <div class="note">Multi-Core Score</div>
+        </div>
+        <div class="platform-info">
+          Geekbench 4.0.0.b1 Tryout for Mac OS X x86 (64-bit)
+        </div>
+      </div><!-- END .table-wrapper -->
+
+      <div class="table-wrapper border">
+        <div class="heading">
+         <h1>System Information</h1>
+        </div>
+        <table class="table system-table">
+          <thead>
+            <tr>
+              <th colspan="2">MacBookPro9,2</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+                <td class="system-name">Operating System</td>
+                <td class="system-value">Mac OS X 10.11.6 (Build 15G31)</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">Model</td>
+                <td class="system-value">MacBookPro9,2</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">Model ID</td>
+                <td class="system-value">MacBookPro9,2</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">Motherboard</td>
+                <td class="system-value">Apple Inc. Mac-6F01561E16C75D06 MacBookPro9,2</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">Processor</td>
+                <td class="system-value">Intel Core i5-3230M @ 2.59 GHz<br />1 Processor, 2 Cores, 4 Threads</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">Processor ID</td>
+                <td class="system-value">GenuineIntel Family 6 Model 58 Stepping 9</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">L1 Instruction Cache</td>
+                <td class="system-value">32.0 KB x 2</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">L1 Data Cache</td>
+                <td class="system-value">32.0 KB x 2</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">L2 Cache</td>
+                <td class="system-value">256 KB x 2</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">L3 Cache</td>
+                <td class="system-value">3.00 MB</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">Memory</td>
+                <td class="system-value">12.0 GB 1600 MHz DDR3</td>
+            </tr>
+            
+            <tr>
+                <td class="system-name">BIOS</td>
+                <td class="system-value">Apple Inc. MBP91.88Z.00D3.B00.1203211536</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div><!-- END .table-wrapper -->
+
+    
+      <div class="table-wrapper border">
+        <div class="heading">
+          <h1>Single-Core</h1>
+        </div>
+        <table class="table benchmark-table">
+          <thead>
+            <tr>
+              <th class="data">
+                <div class="name">Single-Core Score</div>
+                <div class="score">2547</div>
+              </th>
+              <th class="graph"></th>
+            </tr>
+            <tr>
+              <th class="data">
+                <div class="name">Multi-Core Score</div>
+                <div class="score">4781</div>
+              </th>
+              <th class="graph"></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  AES<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2160<br /><span class="benchmark-desc">1.57 GB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 27%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  LZMA<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2696<br /><span class="benchmark-desc">12.5 MB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 34%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  JPEG<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2971<br /><span class="benchmark-desc">23.3 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 37%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Canny<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2657<br /><span class="benchmark-desc">35.9 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 33%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Lua<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">1978<br /><span class="benchmark-desc">1.95 MB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 25%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Dijkstra<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">3102<br /><span class="benchmark-desc">2.04 MTE/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 39%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  SQLite<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2202<br /><span class="benchmark-desc">61.8 Krows/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 28%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  HTML5 Parse<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2199<br /><span class="benchmark-desc">9.54 MB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 28%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  HTML5 DOM<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2899<br /><span class="benchmark-desc">2.62 MElements/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 37%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Histogram Equalization<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2185<br /><span class="benchmark-desc">234.1 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 27%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  PDF Rendering<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2594<br /><span class="benchmark-desc">68.1 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 33%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  LLVM<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2965<br /><span class="benchmark-desc">197.9 functions/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 37%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Camera<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2950<br /><span class="benchmark-desc">7.97 images/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 37%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  SGEMM<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">1396<br /><span class="benchmark-desc">29.5 Gflops</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 17%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  SFFT<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">3225<br /><span class="benchmark-desc">7.14 Gflops</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 41%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  N-Body Physics<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2433<br /><span class="benchmark-desc">1.80 Mpairs/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 31%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Ray Tracing<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2249<br /><span class="benchmark-desc">331.3 Kpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 28%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Rigid Body Physics<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">3155<br /><span class="benchmark-desc">9210.5 FPS</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 40%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  HDR<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2722<br /><span class="benchmark-desc">9.76 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 34%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Gaussian Blur<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2569<br /><span class="benchmark-desc">45.7 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 32%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Speech Recognition<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2705<br /><span class="benchmark-desc">22.7 Words/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 34%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Face Detection<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2591<br /><span class="benchmark-desc">743.0 Ksubwindows/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 33%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Memory Copy<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2597<br /><span class="benchmark-desc">6.57 GB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 33%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Memory Latency<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">3573<br /><span class="benchmark-desc">13.7 Moperations/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 45%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Memory Bandwidth<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">1942<br /><span class="benchmark-desc">9.73 GB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 24%">&nbsp;</div>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div> <!-- END .table-wrapper -->
+      
+      <div class="table-wrapper border">
+        <div class="heading">
+          <h1>Multi-Core</h1>
+        </div>
+        <table class="table benchmark-table">
+          <thead>
+            <tr>
+              <th class="data">
+                <div class="name">Single-Core Score</div>
+                <div class="score">4781</div>
+              </th>
+              <th class="graph"></th>
+            </tr>
+            <tr>
+              <th class="data">
+                <div class="name">Multi-Core Score</div>
+                <div class="score">4781</div>
+              </th>
+              <th class="graph"></th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  AES<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">4191<br /><span class="benchmark-desc">3.05 GB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 53%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  LZMA<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">6110<br /><span class="benchmark-desc">28.4 MB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 78%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  JPEG<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">7344<br /><span class="benchmark-desc">57.5 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 93%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Canny<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">6082<br /><span class="benchmark-desc">82.2 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 77%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Lua<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">4704<br /><span class="benchmark-desc">4.63 MB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 60%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Dijkstra<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">6733<br /><span class="benchmark-desc">4.42 MTE/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 86%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  SQLite<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">4540<br /><span class="benchmark-desc">127.3 Krows/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 58%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  HTML5 Parse<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">4917<br /><span class="benchmark-desc">21.3 MB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 62%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  HTML5 DOM<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">3362<br /><span class="benchmark-desc">3.04 MElements/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 42%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Histogram Equalization<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">4814<br /><span class="benchmark-desc">515.8 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 61%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  PDF Rendering<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">5241<br /><span class="benchmark-desc">137.6 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 67%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  LLVM<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">6235<br /><span class="benchmark-desc">416.0 functions/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 79%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Camera<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">6968<br /><span class="benchmark-desc">18.8 images/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 89%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  SGEMM<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2504<br /><span class="benchmark-desc">52.9 Gflops</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 32%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  SFFT<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">6501<br /><span class="benchmark-desc">14.4 Gflops</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 83%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  N-Body Physics<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">5270<br /><span class="benchmark-desc">3.89 Mpairs/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 67%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Ray Tracing<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">5136<br /><span class="benchmark-desc">756.6 Kpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 65%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Rigid Body Physics<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">7820<br /><span class="benchmark-desc">22826.7 FPS</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 100%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  HDR<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">6395<br /><span class="benchmark-desc">22.9 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 81%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Gaussian Blur<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">5197<br /><span class="benchmark-desc">92.5 Mpixels/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 66%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Speech Recognition<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">5060<br /><span class="benchmark-desc">42.5 Words/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 64%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Face Detection<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">5829<br /><span class="benchmark-desc">1.67 Msubwindows/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 74%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Memory Copy<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">2668<br /><span class="benchmark-desc">6.75 GB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 34%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Memory Latency<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">3520<br /><span class="benchmark-desc">13.5 Moperations/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 45%">&nbsp;</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="data">
+                <div class="name">
+                  Memory Bandwidth<br /><span class="benchmark-desc">1</span>
+                </div>
+                <div class="score">1854<br /><span class="benchmark-desc">9.29 GB/sec</span>
+                </div>
+              </td>
+              <td class="graph">
+                <div class="benchmark-bar" style="width: 23%">&nbsp;</div>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div> <!-- END .table-wrapper -->
+      
+    </div> <!-- END .containter -->
+  </body>
+</html>

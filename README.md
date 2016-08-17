@@ -23,7 +23,7 @@
 - [ ] SDHCI
 - [x] AppleUSBMouse
 - [x] AppleUSBKeyboard
-- [x] Fn (Except Backlight)
+- [x] Fn
 
 
 
@@ -49,13 +49,14 @@ If you were using UEFI, delete boot drivers32 drivers64 folder is recommend.
   - [HDAEnablers](https://github.com/Mirone/HDAEnablers)（DSDT injected layout-id, Not needed.）
   - [Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)
   - [ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver)
-  - [Intel-Backlight](https://github.com/RehabMan/OS-X-Intel-Backlight)
+  - [Intel-Backlight](https://github.com/RehabMan/OS-X-Intel-Backlight)（DSDT injected, Not needed.）
   - [Realtek-Network](https://github.com/RehabMan/OS-X-Realtek-Network)
   - [AnyiSightCam](https://github.com/javenxww/E1-471g-MAC-10.11.5-clover/tree/master/EFI/CLOVER/kexts/10.11/)
   - [Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)
   - [Tonymacx86.com](http://www.tonymacx86.com/)
   - [javenxww/E1-471g-MAC-10.11.5-clover](https://github.com/javenxww/E1-471g-MAC-10.11.5-clover)
   - [holoto/ec-471g](https://github.com/holoto/ec-471g)
+  - [Fix-Hotkey-Brightness](http://www.insanelymac.com/forum/topic/305030-guide-how-to-fix-brightness-hotkeys-in-dsdt/)
 
 #### For More
 

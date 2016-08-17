@@ -1,0 +1,9 @@
+_Q8F //Fn+Left Arrow
+_Q8E //Fn+Right Arrow
+
+_Q0E //Fn+F5
+_Q0F //Fn+F5
+_Q9E //Fn+F6
+_Q9D //Fn+F6
+_Q06 //Fn+F7 (Enable Trackpad)
+_Q05 //Fn+F7 (Disable Trackpad)
