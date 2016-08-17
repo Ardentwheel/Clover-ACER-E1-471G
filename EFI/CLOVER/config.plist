@@ -76,6 +76,8 @@
 				<string>MCFG</string>
 			</dict>
 		</array>
+		<key>HaltEnabler</key>
+		<true/>
 		<key>ResetAddress</key>
 		<string>0000000000000CF9</string>
 		<key>ResetValue</key>
@@ -83,7 +85,7 @@
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
-			<false/>
+			<true/>
 			<key>Generate</key>
 			<false/>
 			<key>PluginType</key>
@@ -198,7 +200,7 @@
 			<key>Linux</key>
 			<false/>
 			<key>Tool</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>Theme</key>
 		<string>YosemiteLogin</string>
@@ -214,6 +216,8 @@
 			<key>NVidia</key>
 			<false/>
 		</dict>
+		<key>LoadVBios</key>
+		<true/>
 		<key>NvidiaSingle</key>
 		<false/>
 		<key>ig-platform-id</key>
@@ -243,34 +247,18 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003, port 0205</string>
+				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
-				AgUAAAAEAAAHBAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Replace</key>
-				<data>
-				AgUAAAAIAAAGAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.2/10.10.3</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				QYjE6xE=
+				AQAAdRc=
 				</data>
 				<key>Name</key>
 				<string>IOGraphicsFamily</string>
 				<key>Replace</key>
 				<data>
-				QYjE6zE=
+				AQAA6xc=
 				</data>
 			</dict>
 			<dict>
@@ -291,34 +279,34 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003, port 0304</string>
+				<string>Boot graphics glitch, 10.10.2/10.10.3</string>
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
 				<data>
-				AwQAAAAEAACBAAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Replace</key>
-				<data>
-				AwQAAAAIAAAGAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQAAdRc=
+				QYjE6xE=
 				</data>
 				<key>Name</key>
 				<string>IOGraphicsFamily</string>
 				<key>Replace</key>
 				<data>
-				AQAA6xc=
+				QYjE6zE=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio HD4000 0x01660003, port 0205</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				AgUAAAAEAAAHBAAA
+				</data>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
+				<key>Replace</key>
+				<data>
+				AgUAAAAIAAAGAAAA
 				</data>
 			</dict>
 			<dict>
@@ -335,6 +323,22 @@
 				<key>Replace</key>
 				<data>
 				AAAAAAAAAAAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio HD4000 0x01660003, port 0304</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				AwQAAAAEAACBAAAA
+				</data>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
+				<key>Replace</key>
+				<data>
+				AwQAAAAIAAAGAAAA
 				</data>
 			</dict>
 		</array>
