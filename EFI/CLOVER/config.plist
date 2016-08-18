@@ -73,6 +73,18 @@
 			</dict>
 			<dict>
 				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0Ist</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>CpuPm</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
 				<string>MCFG</string>
 			</dict>
 		</array>
@@ -121,7 +133,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>slide=0 nv_disable=1 kext-dev-mode=1</string>
+		<string>-v slide=0 nv_disable=1 kext-dev-mode=1</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -247,6 +259,22 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>HDMI-audio HD4000 0x01660003, port 0304</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				AwQAAAAEAACBAAAA
+				</data>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
+				<key>Replace</key>
+				<data>
+				AwQAAAAIAAAGAAAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
 				<key>Disabled</key>
 				<false/>
@@ -279,6 +307,22 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Enable TRIM for SSD</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AEFQUExFIFNTRAA=
+				</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>
+				AAAAAAAAAAAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Boot graphics glitch, 10.10.2/10.10.3</string>
 				<key>Disabled</key>
 				<true/>
@@ -307,38 +351,6 @@
 				<key>Replace</key>
 				<data>
 				AgUAAAAIAAAGAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable TRIM for SSD</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AEFQUExFIFNTRAA=
-				</data>
-				<key>Name</key>
-				<string>IOAHCIBlockStorage</string>
-				<key>Replace</key>
-				<data>
-				AAAAAAAAAAAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003, port 0304</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AwQAAAAEAACBAAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Replace</key>
-				<data>
-				AwQAAAAIAAAGAAAA
 				</data>
 			</dict>
 		</array>
