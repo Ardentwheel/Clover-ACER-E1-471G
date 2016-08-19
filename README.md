@@ -63,3 +63,4 @@ If you were using UEFI, delete boot drivers32 drivers64 folder is recommend.
 
   - [Clover-Wiki](https://clover-wiki.zetam.org)
   - [Speed-Up-Restart](http://www.yekki.me/speed-up-restart/) 
+  - [Wireless-AR5B22](https://github.com/matthew728960/Clover-ACER-E1-471G/raw/master/Tools/AR5B22/wireless_ar5b22_command.command.zip) (Buggy, see [install-mac-os-x-on-chromebook-c720](http://www.omgchrome.com/install-mac-os-x-on-chromebook-c720/)) 
