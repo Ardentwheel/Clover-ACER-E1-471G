@@ -4,105 +4,8 @@
 <dict>
 	<key>ACPI</key>
 	<dict>
-		<key>DSDT</key>
-		<dict>
-			<key>Debug</key>
-			<false/>
-			<key>DropOEM_DSM</key>
-			<false/>
-			<key>Fixes</key>
-			<dict>
-				<key>NewWay_80000000</key>
-				<true/>
-			</dict>
-			<key>Name</key>
-			<string>DSDT.aml</string>
-			<key>Patches</key>
-			<array>
-				<dict>
-					<key>Comment</key>
-					<string>change _OSI to XOSI</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					X09TSQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WE9TSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC1 to EH01</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC2 to EH02</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMg==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMg==
-					</data>
-				</dict>
-			</array>
-			<key>ReuseFFFF</key>
-			<false/>
-		</dict>
-		<key>DropTables</key>
-		<array>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>Cpu0Ist</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>CpuPm</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>MCFG</string>
-			</dict>
-		</array>
-		<key>HaltEnabler</key>
-		<true/>
-		<key>ResetAddress</key>
-		<string>0000000000000CF9</string>
-		<key>ResetValue</key>
-		<string>06</string>
-		<key>SSDT</key>
-		<dict>
-			<key>DropOem</key>
-			<true/>
-			<key>Generate</key>
-			<false/>
-			<key>PluginType</key>
-			<integer>1</integer>
-		</dict>
+		<key>SortedOrder-Comment</key>
+		<string>This is the original order supported by Clover prior to build v3062.  You can trim it as necessary.</string>
 		<key>SortedOrder</key>
 		<array>
 			<string>SSDT.aml</string>
@@ -129,17 +32,130 @@
 			<string>SSDT-XOSI.aml</string>
 			<string>SSDT-LPC.aml</string>
 		</array>
+		<key>DSDT</key>
+		<dict>
+			<key>DropOEM_DSM</key>
+			<true/>
+			<key>Fixes</key>
+			<dict>
+				<key>FixRegions_10000000</key>
+				<false/>
+				<key>NewWay_80000000</key>
+				<true/>
+			</dict>
+			<key>Name</key>
+			<string>DSDT.aml</string>
+			<key>Patches</key>
+			<array>
+				<dict>
+					<key>Comment</key>
+					<string>change _OSI to XOSI</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>X09TSQ==</data>
+					<key>Replace</key>
+					<data>WE9TSQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change EHC1 to EH01</string>
+					<key>Find</key>
+					<data>RUhDMQ==</data>
+					<key>Replace</key>
+					<data>RUgwMQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change EHC2 to EH02</string>
+					<key>Find</key>
+					<data>RUhDMg==</data>
+					<key>Replace</key>
+					<data>RUgwMg==</data>
+				</dict>
+			</array>
+		</dict>
+		<key>DropTables</key>
+		<array>
+			<dict>
+				<key>Signature</key>
+				<string>#MCFG</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>DMAR</string>
+			</dict>
+		</array>
+		<key>#DropTables</key>
+		<array>
+			<dict>
+				<key>Signature</key>
+				<string>MCFG</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>DMAR</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>CpuPm</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0Cst</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0Ist</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>ApCst</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>ApIst</string>
+			</dict>
+		</array>
+		<key>ResetAddress</key>
+		<string>0000000000000CF9</string>
+		<key>ResetValue</key>
+		<string>06</string>
+		<key>SSDT</key>
+		<dict>
+			<key>DropOem</key>
+			<true/>
+			<key>Generate</key>
+			<dict>
+				<key>CStates</key>
+				<false/>
+				<key>PStates</key>
+				<false/>
+			</dict>
+			<key>PluginType</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v slide=0 nv_disable=1 kext-dev-mode=1</string>
-		<key>Debug</key>
-		<false/>
+		<string>kext-dev-mode=1 slide=0 nv_disable=1 -xcpm</string>
 		<key>DefaultVolume</key>
 		<string>Macintosh HD</string>
 		<key>Legacy</key>
 		<string>LegacyBiosDefault</string>
+		<key>Log</key>
+		<false/>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
@@ -149,18 +165,18 @@
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
-	<key>CPU</key>
-	<dict>
-		<key>UseARTFrequency</key>
-		<false/>
-	</dict>
 	<key>Devices</key>
 	<dict>
+		<key>Audio</key>
+		<dict>
+			<key>Inject</key>
+			<integer>0</integer>
+		</dict>
 		<key>USB</key>
 		<dict>
-			<key>AddClockID</key>
-			<true/>
 			<key>FixOwnership</key>
+			<true/>
+			<key>AddClockID</key>
 			<true/>
 			<key>Inject</key>
 			<true/>
@@ -177,16 +193,10 @@
 			<key>Entries</key>
 			<array>
 				<dict>
-					<key>Disabled</key>
-					<false/>
 					<key>FullTitle</key>
 					<string>UEFI internal</string>
 					<key>Hidden</key>
 					<string>Always</string>
-					<key>Ignore</key>
-					<false/>
-					<key>NoCaches</key>
-					<false/>
 					<key>Type</key>
 					<string>Other</string>
 				</dict>
@@ -194,14 +204,8 @@
 		</dict>
 		<key>Mouse</key>
 		<dict>
-			<key>DoubleClick</key>
-			<integer>500</integer>
 			<key>Enabled</key>
 			<false/>
-			<key>Mirror</key>
-			<false/>
-			<key>Speed</key>
-			<integer>8</integer>
 		</dict>
 		<key>Scan</key>
 		<dict>
@@ -209,16 +213,18 @@
 			<true/>
 			<key>Legacy</key>
 			<false/>
-			<key>Linux</key>
-			<false/>
 			<key>Tool</key>
 			<false/>
 		</dict>
+		<key>#ScreenResolution</key>
+		<string>1366x768</string>
 		<key>Theme</key>
 		<string>YosemiteLogin</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
+		<key>ig-platform-id</key>
+		<string>0x01660003</string>
 		<key>Inject</key>
 		<dict>
 			<key>ATI</key>
@@ -228,50 +234,84 @@
 			<key>NVidia</key>
 			<false/>
 		</dict>
-		<key>LoadVBios</key>
-		<true/>
-		<key>NvidiaSingle</key>
+		<key>InjectEDID</key>
 		<false/>
-		<key>ig-platform-id</key>
-		<string>0x01660003</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
-		<key>AppleRTC</key>
-		<true/>
 		<key>AsusAICPUPM</key>
 		<true/>
-		<key>Debug</key>
-		<false/>
-		<key>ForceKextsToLoad</key>
-		<array>
-			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
-		</array>
-		<key>KernelCpu</key>
-		<false/>
-		<key>KernelHaswellE</key>
-		<false/>
+		<key>AppleRTC</key>
+		<true/>
 		<key>KernelLapic</key>
 		<true/>
 		<key>KernelPm</key>
 		<true/>
+		<key>ForceKextsToLoad</key>
+		<array>
+			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
+		</array>
 		<key>KextsToPatch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio HD4000 0x01660003, port 0205</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
+				<key>Find</key>
+				<data>AgUAAAAEAAAHBAAA</data>
+				<key>Replace</key>
+				<data>AgUAAAAIAAAGAAAA</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>HDMI-audio HD4000 0x01660003, port 0304</string>
 				<key>Disabled</key>
 				<true/>
-				<key>Find</key>
-				<data>
-				AwQAAAAEAACBAAAA
-				</data>
 				<key>Name</key>
 				<string>AppleIntelFramebufferCapri</string>
+				<key>Find</key>
+				<data>AwQAAAAEAACBAAAA</data>
 				<key>Replace</key>
-				<data>
-				AwQAAAAIAAAGAAAA
-				</data>
+				<data>AwQAAAAIAAAGAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio HD4000 0x01660003, port 0406</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
+				<key>Find</key>
+				<data>BAYAAAAEAACBAAAA</data>
+				<key>Replace</key>
+				<data>BAYAAAAIAAAGAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable TRIM for SSD</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Find</key>
+				<data>AEFQUExFIFNTRAA=</data>
+				<key>Replace</key>
+				<data>AAAAAAAAAAAAAAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.10.2/10.10.3</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Name</key>
+				<string>IOGraphicsFamily</string>
+				<key>Find</key>
+				<data>QYjE6xE=</data>
+				<key>Replace</key>
+				<data>QYjE6zE=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -279,79 +319,11 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>
-				AQAAdRc=
-				</data>
+				<data>AQAAdRc=</data>
 				<key>Name</key>
 				<string>IOGraphicsFamily</string>
 				<key>Replace</key>
-				<data>
-				AQAA6xc=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003, port 0406</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				BAYAAAAEAACBAAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Replace</key>
-				<data>
-				BAYAAAAIAAAGAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable TRIM for SSD</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AEFQUExFIFNTRAA=
-				</data>
-				<key>Name</key>
-				<string>IOAHCIBlockStorage</string>
-				<key>Replace</key>
-				<data>
-				AAAAAAAAAAAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.2/10.10.3</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				QYjE6xE=
-				</data>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				QYjE6zE=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003, port 0205</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AgUAAAAEAAAHBAAA
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Replace</key>
-				<data>
-				AgUAAAAIAAAGAAAA
-				</data>
+				<data>AQAA6xc=</data>
 			</dict>
 		</array>
 	</dict>
@@ -361,8 +333,10 @@
 		<string>0x28</string>
 		<key>CsrActiveConfig</key>
 		<string>0x67</string>
+		<key>MLB</key>
+		<string>C02334501OPF5021M</string>
 		<key>ROM</key>
-		<string>UseMacAddr0</string>
+		<string>089e0166a45b</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
@@ -376,6 +350,8 @@
 		<string>Mac-6F01561E16C75D06</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string>C02334501OPF5021M</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>ChassisAssetTag</key>
@@ -393,9 +369,11 @@
 		<key>ProductName</key>
 		<string>MacBookPro9,2</string>
 		<key>SerialNumber</key>
-		<string>C02L3HTFDTY3</string>
+		<string>C02L78JIDTY3</string>
+		<key>SmUUID</key>
+		<string>C4CC9614-883B-4366-B0C6-D2C36B666D98</string>
 		<key>Trust</key>
-		<false/>
+		<true/>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>

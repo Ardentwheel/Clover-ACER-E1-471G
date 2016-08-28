@@ -12,7 +12,7 @@
 ---
 
 #### Functional
-- [X] CPU Turbo
+- [X] CPU Speedstep
 - [x] Audio
 - [x] Battery Management
 - [x] Backlight
@@ -24,7 +24,13 @@
 - [x] AppleUSBMouse
 - [x] AppleUSBKeyboard
 - [x] Fn
-
+- [x] Usb Built In
+- [x] Wired Network Built In
+- [x] Wake Up (Usb Driver)
+- [ ] Wake Up (PS/2 Keyboard)
+- [ ] Power Nap
+- [x] HDMI (Video And Audio)
+- [ ] VGA
 
 
 #### How To Use
