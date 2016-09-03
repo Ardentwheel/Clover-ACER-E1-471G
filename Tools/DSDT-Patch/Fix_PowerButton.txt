@@ -1,0 +1,20 @@
+#Maintained by: Matthew
+#Fix_PowerButton.txt
+
+
+into device label PWRB code_regex Name\s+\(_HID,\s+([^\)].*)\).* replace_matched
+begin
+Name (_CID, EisaId ("PNP0C0C"))\n
+end;
+
+into method label _STA parent_label PWRB remove_entry;
+into device label PWRB insert
+begin
+Name (_UID, 0xAA)\n
+Method (_STA, 0, NotSerialized)\n
+{\n
+    Return (0x0B)\n
+}\n
+end;
+
+

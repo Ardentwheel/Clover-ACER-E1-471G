@@ -1,3 +1,7 @@
+#Maintained by: Matthew
+#Fix-Hotkey-Brightness-ACER-E1-471G.txt
+
+
 into method label _Q8F replace_content
 begin
 // Brightness Down\n

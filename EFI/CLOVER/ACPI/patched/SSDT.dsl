@@ -26,7 +26,7 @@ DefinitionBlock ("ssdt.aml", "SSDT", 1, "APPLE ", "CpuPm", 0x00015600)
     {
         Method (_INI, 0, NotSerialized)
         {
-            Store ("ssdtPRGen version....: 15.6 / Mac OS X 10.11.6 (15G31)", Debug)
+            Store ("ssdtPRGen version....: 15.6 / Mac OS X 10.11.6 (15G1004)", Debug)
             Store ("target processor.....: i5-3230M", Debug)
             Store ("running processor....: Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz", Debug)
             Store ("baseFrequency........: 1200", Debug)
@@ -37,7 +37,6 @@ DefinitionBlock ("ssdt.aml", "SSDT", 1, "APPLE ", "CpuPm", 0x00015600)
             Store ("packageLength........: 21", Debug)
             Store ("turboStates..........: 6", Debug)
             Store ("maxTurboFrequency....: 3200", Debug)
-            Store ("IvyWorkArounds.......: 3", Debug)
             Store ("machdep.xcpm.mode....: 1", Debug)
         }
 

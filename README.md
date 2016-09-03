@@ -14,22 +14,19 @@
 #### Functional
 - [X] CPU Speedstep
 - [x] Audio
+- [x] HDMI (Video And Audio)
 - [x] Battery Management
 - [x] Backlight
-- [x] Wried Network
+- [x] Wried Network (Built In)
 - [ ] Wireless Network
 - [ ] Bluetooth
 - [x] WebCam
 - [ ] SDHCI
-- [x] AppleUSBMouse
-- [x] AppleUSBKeyboard
 - [x] Fn
-- [x] Usb Built In
-- [x] Wired Network Built In
+- [x] Usb (Built In)
 - [x] Wake Up (Usb Driver)
 - [ ] Wake Up (PS/2 Keyboard)
-- [ ] Power Nap
-- [x] HDMI (Video And Audio)
+- [x] Power Nap
 - [ ] VGA
 
 

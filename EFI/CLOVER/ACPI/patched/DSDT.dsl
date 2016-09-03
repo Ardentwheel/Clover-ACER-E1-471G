@@ -11222,7 +11222,12 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
         Device (PWRB)
         {
-            Name (_HID, EisaId ("PNP0C0C"))  // _HID: Hardware ID
+            Name (_CID, EisaId ("PNP0C0C"))  // _HID: Hardware ID
+            Name (_UID, 0xAA)
+            Method (_STA, 0, NotSerialized)
+            {
+                Return (0x0B)
+            }
         }
 
         Device (SLPB)

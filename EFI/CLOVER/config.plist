@@ -34,8 +34,6 @@
 		</array>
 		<key>DSDT</key>
 		<dict>
-			<key>DropOEM_DSM</key>
-			<true/>
 			<key>Fixes</key>
 			<dict>
 				<key>FixRegions_10000000</key>
@@ -149,7 +147,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>kext-dev-mode=1 slide=0 nv_disable=1 -xcpm</string>
+		<string>kext-dev-mode=1 slide=0 nv_disable=1 -xcpm </string>
 		<key>DefaultVolume</key>
 		<string>Macintosh HD</string>
 		<key>Legacy</key>
@@ -257,7 +255,7 @@
 				<key>Comment</key>
 				<string>HDMI-audio HD4000 0x01660003, port 0205</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Name</key>
 				<string>AppleIntelFramebufferCapri</string>
 				<key>Find</key>
@@ -329,60 +327,22 @@
 	</dict>
 	<key>RtVariables</key>
 	<dict>
-		<key>BooterConfig</key>
-		<string>0x28</string>
 		<key>CsrActiveConfig</key>
 		<string>0x67</string>
-		<key>MLB</key>
-		<string>C02334501OPF5021M</string>
-		<key>ROM</key>
-		<string>089e0166a45b</string>
+		<key>BooterConfig</key>
+		<string>0x28</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
-		<key>BiosReleaseDate</key>
-		<string>21/03/12</string>
-		<key>BiosVendor</key>
-		<string>Apple Inc.</string>
-		<key>BiosVersion</key>
-		<string>MBP91.88Z.00D3.B00.1203211536</string>
-		<key>Board-ID</key>
-		<string>Mac-6F01561E16C75D06</string>
-		<key>BoardManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>BoardSerialNumber</key>
-		<string>C02334501OPF5021M</string>
-		<key>BoardType</key>
-		<integer>10</integer>
-		<key>ChassisAssetTag</key>
-		<string>MacBook-Aluminum</string>
-		<key>ChassisManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>ChassisType</key>
-		<string>08</string>
-		<key>Family</key>
-		<string>MacBook Pro</string>
-		<key>Manufacturer</key>
-		<string>Apple Inc.</string>
-		<key>Mobile</key>
-		<true/>
 		<key>ProductName</key>
-		<string>MacBookPro9,2</string>
-		<key>SerialNumber</key>
-		<string>C02L78JIDTY3</string>
-		<key>SmUUID</key>
-		<string>C4CC9614-883B-4366-B0C6-D2C36B666D98</string>
+		<string>MacBookPro10,1</string>
 		<key>Trust</key>
 		<true/>
-		<key>Version</key>
-		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
 		<key>InjectKexts</key>
 		<string>Yes</string>
-		<key>InjectSystemID</key>
-		<true/>
 	</dict>
 </dict>
 </plist>
