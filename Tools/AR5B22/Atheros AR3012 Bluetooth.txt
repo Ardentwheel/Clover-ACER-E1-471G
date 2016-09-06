@@ -1,0 +1,4 @@
+# Atheros AR3012 Bluetooth
+
+Product ID: 0xe04e >> 57422
+Vendor ID: 0x0489 >> 1161

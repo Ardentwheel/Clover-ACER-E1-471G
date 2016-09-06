@@ -1,0 +1,22 @@
+# Maintained by: Matthew
+# Fix_LPC
+# Fix the LPC Device
+# For Acer E1-471G : pci8086,1e57
+# For Generic Series 7 : pci8086,1e44
+
+# inject "compatible" with recognized series-7 LPC device-id
+into method label _DSM parent_adr 0x001F0000 remove_entry;
+into device name_adr 0x001F0000 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "device-id", Buffer() { 0x57, 0x1e, 0x00, 0x00 },\n
+        "compatible", "pci8086,1e57",\n
+    })\n
+}\n
+end;
+
+

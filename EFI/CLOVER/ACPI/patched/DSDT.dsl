@@ -5,40 +5,74 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of iASL1VeVbG.aml, Sun Aug 28 21:38:45 2016
+ * Disassembly of DSDT.aml, Tue Sep  6 19:07:18 2016
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x0000BB64 (47972)
+ *     Length           0x0000B2BF (45759)
  *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
- *     Checksum         0x93
+ *     Checksum         0x51
  *     OEM ID           "ACRSYS"
  *     OEM Table ID     "ACRPRDCT"
  *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20160422 (538313762)
+ *     Compiler ID      "1025"
+ *     Compiler Version 0x00040000 (262144)
  */
 DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 {
-    External (_PR_.CPU0._PPC, IntObj)    // (from opcode)
-    External (_SB_.PCI0.IEIT.EITV, MethodObj)    // 0 Arguments (from opcode)
-    External (_SB_.PCI0.PEG0.LNKD, FieldUnitObj)    // (from opcode)
-    External (_SB_.PCI0.PEG0.PEGP.BRNV, MethodObj)    // 1 Arguments (from opcode)
-    External (_SB_.PCI0.PEG0.PEGP.DD01, UnknownObj)    // (from opcode)
-    External (CFGD, IntObj)    // (from opcode)
-    External (HDOS, MethodObj)    // 0 Arguments (from opcode)
-    External (HNOT, MethodObj)    // 1 Arguments (from opcode)
-    External (HWID, IntObj)    // (from opcode)
-    External (IDAB, MethodObj)    // 0 Arguments (from opcode)
-    External (PDC0, IntObj)    // (from opcode)
-    External (PDC1, IntObj)    // (from opcode)
-    External (PDC2, IntObj)    // (from opcode)
-    External (PDC3, IntObj)    // (from opcode)
-    External (PDC4, IntObj)    // (from opcode)
-    External (PDC5, IntObj)    // (from opcode)
-    External (PDC6, IntObj)    // (from opcode)
-    External (PDC7, IntObj)    // (from opcode)
-    External (TNOT, MethodObj)    // 0 Arguments (from opcode)
+    /*
+     * iASL Warning: There were 15 external control methods found during
+     * disassembly, but only 9 were resolved (6 unresolved). Additional
+     * ACPI tables may be required to properly disassemble the code. This
+     * resulting disassembler output file may not compile because the
+     * disassembler did not know how many arguments to assign to the
+     * unresolved methods. Note: SSDTs can be dynamically loaded at
+     * runtime and may or may not be available via the host OS.
+     *
+     * In addition, the -fe option can be used to specify a file containing
+     * control method external declarations with the associated method
+     * argument counts. Each line of the file must be of the form:
+     *     External (<method pathname>, MethodObj, <argument count>)
+     * Invocation:
+     *     iasl -fe refs.txt -d dsdt.aml
+     *
+     * The following methods were unresolved and many not compile properly
+     * because the disassembler had to guess at the number of arguments
+     * required for each:
+     */
+    /*
+     * External declarations were imported from
+     * a reference file -- refs.txt
+     */
+
+    External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
+    External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
+    External (_PR_.CPU0._PPC, IntObj)
+    External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.IEIT.EITV, MethodObj)    // Warning: Unknown method, guessing 0 arguments
+    External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
+    External (_SB_.PCI0.PEG0.LNKD, FieldUnitObj)
+    External (_SB_.PCI0.PEG0.PEGP.BRNV, MethodObj)    // Warning: Unknown method, guessing 1 arguments
+    External (_SB_.PCI0.PEG0.PEGP.DD01, UnknownObj)
+    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
+    External (_SB_.PCI0.SATA.SDSM, MethodObj)    // Imported: 4 Arguments
+    External (_SB_.PCI0.SAT1.SDSM, MethodObj)    // Imported: 4 Arguments
+    External (CFGD, UnknownObj)    // Warning: Unknown object
+    External (HDOS, MethodObj)    // Warning: Unknown method, guessing 0 arguments
+    External (HNOT, MethodObj)    // Warning: Unknown method, guessing 1 arguments
+    External (HWID, IntObj)    // Warning: Unknown object
+    External (IDAB, MethodObj)    // Warning: Unknown method, guessing 0 arguments
+    External (MDBG, MethodObj)    // Imported: 1 Arguments
+    External (PDC0, UnknownObj)    // Warning: Unknown object
+    External (PDC1, UnknownObj)    // Warning: Unknown object
+    External (PDC2, UnknownObj)    // Warning: Unknown object
+    External (PDC3, UnknownObj)    // Warning: Unknown object
+    External (PDC4, UnknownObj)    // Warning: Unknown object
+    External (PDC5, UnknownObj)    // Warning: Unknown object
+    External (PDC6, UnknownObj)    // Warning: Unknown object
+    External (PDC7, UnknownObj)    // Warning: Unknown object
+    External (TNOT, MethodObj)    // Warning: Unknown method, guessing 0 arguments
 
     Name (SS1, Zero)
     Name (SS2, Zero)
@@ -137,7 +171,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
     Name (PDBR, 0x4D)
     Name (DPPB, 0xFED98000)
     Name (DPPL, 0x8000)
-    OperationRegion (GNVS, SystemMemory, 0x96FBDC98, 0x0203)
+    OperationRegion (GNVS, SystemMemory, 0x96FBDC98, 0x00000203)
     Field (GNVS, AnyAcc, Lock, Preserve)
     {
         OSYS,   16, 
@@ -374,7 +408,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
         ALAT,   32
     }
 
-    OperationRegion (OGNS, SystemMemory, 0x96FBC618, 0x057E)
+    OperationRegion (OGNS, SystemMemory, 0x96FBC618, 0x0000057E)
     Field (OGNS, AnyAcc, Lock, Preserve)
     {
         D2DF,   8, 
@@ -1431,14 +1465,14 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     CreateQWordField (BUF0, \_SB.PCI0._Y0F._LEN, M2LN)  // _LEN: Length
                     CreateQWordField (BUF0, \_SB.PCI0._Y0F._MIN, M2MN)  // _MIN: Minimum Base Address
                     CreateQWordField (BUF0, \_SB.PCI0._Y0F._MAX, M2MX)  // _MAX: Maximum Base Address
-                    Store (Zero, M2LN)
+                    Store (0x00000000, M2LN)
                     If (LGreaterEqual (TUUD, 0x1000))
                     {
                         ShiftLeft (TUUD, 0x14, M2MN)
                     }
                     Else
                     {
-                        Store (Zero, M2MN)
+                        Store (0x00000000, M2MN)
                     }
 
                     Subtract (Add (M2MN, M2LN), One, M2MX)
@@ -1461,7 +1495,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 {
                     Return (^XHC.POSC (Arg1, Arg2, Arg3))
                 }
-                ElseIf (LOr (_OSI ("Darwin"), _OSI ("Windows 2012")))
+                ElseIf (_OSI ("Windows 2012"))
                 {
                     If (LEqual (XCNT, Zero))
                     {
@@ -2255,7 +2289,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         SMST,   8, 
                         SMAD,   8, 
                         SMCM,   8, 
-                        SMDX,   256, 
+                        SMD0,   256, 
                         BCNT,   8, 
                         SMAA,   8, 
                         BATD,   16, 
@@ -3023,14 +3057,56 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
                     Method (_Q8E, 0, NotSerialized)  // _Qxx: EC Query
                     {
-                        Notify (PS2K, 0x0206)
-                        Notify (PS2K, 0x0286)
+                        If (LOr (LLess (OSYS, 0x07D6), LEqual (LINX, One)))
+                        {
+                            If (LLess (BLVL, 0x09))
+                            {
+                                BRXP ()
+                            }
+                        }
+                        ElseIf (LOr (LEqual (SGST, 0x04), LEqual (SGST, Zero)))
+                        {
+                            Notify (^^^GFX0.DD02, 0x86)
+                        }
+                        Else
+                        {
+                            Notify (^^^PEG0.PEGP.DD01, 0x86)
+                        }
+
+                        Store (0x04, Index (^^^WMID.FEBC, Zero))
+                        Store (BLVL, Index (^^^WMID.FEBC, One))
+                        Store (BLVL, Index (^^^WMID.FEBC, 0x02))
+                        Notify (WMID, 0xBC)
+                        // Brightness Up
+                        Notify(\_SB.PCI0.LPCB.PS2K, 0x0206)
+                        Notify(\_SB.PCI0.LPCB.PS2K, 0x0286)
                     }
 
                     Method (_Q8F, 0, NotSerialized)  // _Qxx: EC Query
                     {
-                        Notify (PS2K, 0x0205)
-                        Notify (PS2K, 0x0285)
+                        If (LOr (LLess (OSYS, 0x07D6), LEqual (LINX, One)))
+                        {
+                            If (LGreater (BLVL, Zero))
+                            {
+                                BRXP ()
+                            }
+                        }
+                        ElseIf (LOr (LEqual (SGST, 0x04), LEqual (SGST, Zero)))
+                        {
+                            Notify (^^^GFX0.DD02, 0x87)
+                        }
+                        Else
+                        {
+                            Notify (^^^PEG0.PEGP.DD01, 0x87)
+                        }
+
+                        Store (0x04, Index (^^^WMID.FEBC, Zero))
+                        Store (BLVL, Index (^^^WMID.FEBC, One))
+                        Store (BLVL, Index (^^^WMID.FEBC, 0x02))
+                        Notify (WMID, 0xBC)
+                        // Brightness Down
+                        Notify(\_SB.PCI0.LPCB.PS2K, 0x0205)
+                        Notify(\_SB.PCI0.LPCB.PS2K, 0x0285)
                     }
 
                     Method (_Q90, 0, NotSerialized)  // _Qxx: EC Query
@@ -3081,7 +3157,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             {
                                 ECMD (0x65)
                                 Sleep (0x07D0)
-                                Notify (SAT0, 0x85)
+                                Notify (SATA, 0x85)
                             }
                             Else
                             {
@@ -3089,6 +3165,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
                             Return (Zero)
                         }
+                        Return (Zero)
                     }
 
                     Method (_Q01, 0, NotSerialized)  // _Qxx: EC Query
@@ -3272,59 +3349,6 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             Store (0xB3, SSMP)
                         }
                     }
-
-                    Method (RE1B, 1, NotSerialized)
-                    {
-                        OperationRegion (ERAM, EmbeddedControl, Arg0, One)
-                        Field (ERAM, ByteAcc, NoLock, Preserve)
-                        {
-                            BYTE,   8
-                        }
-
-                        Return (BYTE)
-                    }
-
-                    Method (RECB, 2, Serialized)
-                    {
-                        ShiftRight (Arg1, 0x03, Arg1)
-                        Name (TEMP, Buffer (Arg1) {})
-                        Add (Arg0, Arg1, Arg1)
-                        Store (Zero, Local0)
-                        While (LLess (Arg0, Arg1))
-                        {
-                            Store (RE1B (Arg0), Index (TEMP, Local0))
-                            Increment (Arg0)
-                            Increment (Local0)
-                        }
-
-                        Return (TEMP)
-                    }
-
-                    Method (WE1B, 2, NotSerialized)
-                    {
-                        OperationRegion (ERAM, EmbeddedControl, Arg0, One)
-                        Field (ERAM, ByteAcc, NoLock, Preserve)
-                        {
-                            BYTE,   8
-                        }
-
-                        Store (Arg1, BYTE)
-                    }
-
-                    Method (WECB, 3, Serialized)
-                    {
-                        ShiftRight (Arg1, 0x03, Arg1)
-                        Name (TEMP, Buffer (Arg1) {})
-                        Store (Arg2, TEMP)
-                        Add (Arg0, Arg1, Arg1)
-                        Store (Zero, Local0)
-                        While (LLess (Arg0, Arg1))
-                        {
-                            WE1B (Arg0, DerefOf (Index (TEMP, Local0)))
-                            Increment (Arg0)
-                            Increment (Local0)
-                        }
-                    }
                 }
 
                 Device (DMAC)
@@ -3377,18 +3401,54 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 {
                     Name (_HID, EisaId ("PNP0103"))  // _HID: Hardware ID
                     Name (_UID, Zero)  // _UID: Unique ID
-                    Name (BUF0, ResourceTemplate ()
-                    {
-                        IRQNoFlags ()
-                            {0,8,11,15}
+                    Name (BUF0, ResourceTemplate()
+{
+    IRQNoFlags() { 0, 8, 11, 15 }
+
                         Memory32Fixed (ReadWrite,
                             0xFED00000,         // Address Base
                             0x00000400,         // Address Length
-                            )
+                            _Y10)
                     })
-                    Name (_STA, 0x0F)  // _STA: Status
-                    Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+
+                    Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
+                        If (LGreaterEqual (OSYS, 0x07D1))
+                        {
+                            If (HPAE)
+                            {
+                                Return (0x0F)
+                            }
+                        }
+                        ElseIf (HPAE)
+                        {
+                            Return (0x0B)
+                        }
+
+                        Return (Zero)
+                    }
+
+                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+                    {
+                        If (HPAE)
+                        {
+                            CreateDWordField (BUF0, \_SB.PCI0.LPCB.HPET._Y10._BAS, HPT0)  // _BAS: Base Address
+                            If (LEqual (HPAS, One))
+                            {
+                                Store (0xFED01000, HPT0)
+                            }
+
+                            If (LEqual (HPAS, 0x02))
+                            {
+                                Store (0xFED02000, HPT0)
+                            }
+
+                            If (LEqual (HPAS, 0x03))
+                            {
+                                Store (0xFED03000, HPT0)
+                            }
+                        }
+
                         Return (BUF0)
                     }
                 }
@@ -3500,6 +3560,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             0x01,               // Alignment
                             0x02,               // Length
                             )
+                        
                     })
                 }
 
@@ -3647,6 +3708,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             0x01,               // Alignment
                             0x02,               // Length
                             )
+                        
                     })
                 }
 
@@ -3667,6 +3729,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                             0x10,               // Alignment
                             0x04,               // Length
                             )
+                        
                     })
                 }
 
@@ -3820,6 +3883,14 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                                 {12}
                         }
                         EndDependentFn ()
+                    })
+                }
+                Method (_DSM, 4, NotSerialized)
+                {
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "compatible", "pci8086,1e57",
                     })
                 }
             }
@@ -4863,7 +4934,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 })
                 Method (EVBC, 0, Serialized)
                 {
-                    Name (T_0, Zero)
+                    Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     Store (Zero, Index (FEBC, 0x06))
                     Store (Zero, Index (FEBC, 0x07))
                     Store (DerefOf (Index (FEBC, Zero)), Local0)
@@ -5242,10 +5313,13 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     }
                 }
             }
-
             Device (IMEI)
             {
-                Name (_ADR, 0x00160000)  // _ADR: Address
+                Name (_ADR, 0x00160000)
+            }
+            Device (MCHC)
+            {
+                Name (_ADR, Zero)
             }
         }
     }
@@ -5358,11 +5432,6 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
     Method (_WAK, 1, Serialized)  // _WAK: Wake
     {
-        If (LOr (LLess (Arg0, One), LGreater (Arg0, 0x05)))
-        {
-            Store (0x03, Arg0)
-        }
-
         Store (Zero, P80D)
         If (IGDS)
         {
@@ -5692,7 +5761,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     Store (0x07D9, OSYS)
                 }
 
-                If (LOr (_OSI ("Darwin"), _OSI ("Windows 2012")))
+                If (_OSI ("Windows 2012"))
                 {
                     Store (0x07DC, OSYS)
                 }
@@ -5760,14 +5829,10 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
                     0x00004000,         // Address Length
-                    _Y10)
+                    _Y11)
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
                     0x00008000,         // Address Length
-                    _Y12)
-                Memory32Fixed (ReadWrite,
-                    0x00000000,         // Address Base
-                    0x00001000,         // Address Length
                     _Y13)
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
@@ -5775,8 +5840,12 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     _Y14)
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
-                    0x00000000,         // Address Length
+                    0x00001000,         // Address Length
                     _Y15)
+                Memory32Fixed (ReadWrite,
+                    0x00000000,         // Address Base
+                    0x00000000,         // Address Length
+                    _Y16)
                 Memory32Fixed (ReadWrite,
                     0xFED20000,         // Address Base
                     0x00020000,         // Address Length
@@ -5796,29 +5865,29 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Memory32Fixed (ReadWrite,
                     0x00000000,         // Address Base
                     0x00001000,         // Address Length
-                    _Y11)
+                    _Y12)
             })
             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y10._BAS, RBR0)  // _BAS: Base Address
+                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y11._BAS, RBR0)  // _BAS: Base Address
                 ShiftLeft (^^LPCB.RCBA, 0x0E, RBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y11._BAS, TBR0)  // _BAS: Base Address
+                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y12._BAS, TBR0)  // _BAS: Base Address
                 Store (TBAB, TBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y11._LEN, TBLN)  // _LEN: Length
+                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y12._LEN, TBLN)  // _LEN: Length
                 If (LEqual (TBAB, Zero))
                 {
                     Store (Zero, TBLN)
                 }
 
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y12._BAS, MBR0)  // _BAS: Base Address
+                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y13._BAS, MBR0)  // _BAS: Base Address
                 ShiftLeft (MHBR, 0x0F, MBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y13._BAS, DBR0)  // _BAS: Base Address
+                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y14._BAS, DBR0)  // _BAS: Base Address
                 ShiftLeft (DIBR, 0x0C, DBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y14._BAS, EBR0)  // _BAS: Base Address
+                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y15._BAS, EBR0)  // _BAS: Base Address
                 ShiftLeft (EPBR, 0x0C, EBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y15._BAS, XBR0)  // _BAS: Base Address
+                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y16._BAS, XBR0)  // _BAS: Base Address
                 ShiftLeft (PXBR, 0x1A, XBR0)
-                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y15._LEN, XSZ0)  // _LEN: Length
+                CreateDWordField (BUF0, \_SB.PCI0.PDRC._Y16._LEN, XSZ0)  // _LEN: Length
                 ShiftRight (0x10000000, PXSZ, XSZ0)
                 Return (BUF0)
             }
@@ -6650,54 +6719,6 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 0x0D, 
                 0x03
             })
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-            {
-                If (LEqual (Arg2, Zero))
-                {
-                    Return (Buffer (One)
-                    {
-                         0x03                                           
-                    })
-                }
-
-                Return (Package (0x12)
-                {
-                    "AAPL,clock-id", 
-                    Buffer (One)
-                    {
-                         0x01                                           
-                    }, 
-
-                    "built-in", 
-                    Buffer (One)
-                    {
-                         0x00                                           
-                    }, 
-
-                    "subsystem-id", 
-                    Buffer (0x04)
-                    {
-                         0x70, 0x72, 0x00, 0x00                         
-                    }, 
-
-                    "subsystem-vendor-id", 
-                    Buffer (0x04)
-                    {
-                         0x86, 0x80, 0x00, 0x00                         
-                    }, 
-
-                    "AAPL,current-available", 
-                    0x0834, 
-                    "AAPL,current-extra", 
-                    0x0898, 
-                    "AAPL,current-extra-in-sleep", 
-                    0x0640, 
-                    "AAPL,device-internal", 
-                    0x02, 
-                    "AAPL,max-port-current-in-sleep", 
-                    0x0834
-                })
-            }
         }
 
         Device (EHC2)
@@ -6867,54 +6888,6 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 0x0D, 
                 0x03
             })
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-            {
-                If (LEqual (Arg2, Zero))
-                {
-                    Return (Buffer (One)
-                    {
-                         0x03                                           
-                    })
-                }
-
-                Return (Package (0x12)
-                {
-                    "AAPL,clock-id", 
-                    Buffer (One)
-                    {
-                         0x01                                           
-                    }, 
-
-                    "built-in", 
-                    Buffer (One)
-                    {
-                         0x00                                           
-                    }, 
-
-                    "subsystem-id", 
-                    Buffer (0x04)
-                    {
-                         0x70, 0x72, 0x00, 0x00                         
-                    }, 
-
-                    "subsystem-vendor-id", 
-                    Buffer (0x04)
-                    {
-                         0x86, 0x80, 0x00, 0x00                         
-                    }, 
-
-                    "AAPL,current-available", 
-                    0x0834, 
-                    "AAPL,current-extra", 
-                    0x0898, 
-                    "AAPL,current-extra-in-sleep", 
-                    0x0640, 
-                    "AAPL,device-internal", 
-                    0x02, 
-                    "AAPL,max-port-current-in-sleep", 
-                    0x0834
-                })
-            }
         }
 
         Device (XHC)
@@ -7181,54 +7154,6 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 0x0D, 
                 0x03
             })
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-            {
-                If (LEqual (Arg2, Zero))
-                {
-                    Return (Buffer (One)
-                    {
-                         0x03                                           
-                    })
-                }
-
-                Return (Package (0x12)
-                {
-                    "AAPL,clock-id", 
-                    Buffer (One)
-                    {
-                         0x02                                           
-                    }, 
-
-                    "built-in", 
-                    Buffer (One)
-                    {
-                         0x00                                           
-                    }, 
-
-                    "subsystem-id", 
-                    Buffer (0x04)
-                    {
-                         0x70, 0x72, 0x00, 0x00                         
-                    }, 
-
-                    "subsystem-vendor-id", 
-                    Buffer (0x04)
-                    {
-                         0x86, 0x80, 0x00, 0x00                         
-                    }, 
-
-                    "AAPL,current-available", 
-                    0x0834, 
-                    "AAPL,current-extra", 
-                    0x0898, 
-                    "AAPL,current-extra-in-sleep", 
-                    0x0640, 
-                    "AAPL,device-internal", 
-                    0x02, 
-                    "AAPL,max-port-current-in-sleep", 
-                    0x0834
-                })
-            }
         }
 
         Device (HDEF)
@@ -7255,32 +7180,14 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     0x04
                 })
             }
-
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (_DSM, 4, NotSerialized)
             {
-                If (LEqual (Arg2, Zero))
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
                 {
-                    Return (Buffer (One)
-                    {
-                         0x03                                           
-                    })
-                }
-
-                Return (Package (0x06)
-                {
-                    "layout-id", 
-                    Buffer (0x04)
-                    {
-                         0x03, 0x00, 0x00, 0x00                         
-                    }, 
-
-                    "PinConfigurations", 
-                    Buffer (Zero) {}, 
-                    "hda-gfx", 
-                    Buffer (0x0A)
-                    {
-                        "onboard-1"
-                    }
+                    "layout-id", Buffer() { 0x03, 0x00, 0x00, 0x00 },
+                    "PinConfigurations", Buffer(Zero) {},
+                    "hda-gfx", Buffer() { "onboard-1" },
                 })
             }
         }
@@ -7633,14 +7540,49 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 PMSX,   1
             }
 
-            Device (PXSX)
+            Device (GIGE)
             {
-                Name (_ADR, Zero)  // _ADR: Address
-                Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
+                
+                Name (_ADR, Zero)
+                Name (_PRW, Package (0x02) { 0x09, 0x04 })
+                Method (_DSM, 4, NotSerialized)
                 {
-                    0x09, 
-                    0x04
-                })
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "AAPL,slot-name", Buffer() { "Ethernet" },
+                        "built-in", Buffer () {0x01},
+                        "location",  Buffer () { "1" },
+                        "device-id", Buffer() { 0x68, 0x81, 0x00, 0x00 },
+                        "revision-id", Buffer() { 0x0a, 0x00, 0x00, 0x00 },
+                        "subsystem-id", Buffer() { 0x32, 0x07, 0x00, 0x00 },
+                        "subsystem-vendor-id", Buffer() { 0x25, 0x10, 0x00, 0x00 },
+                        "device_type", Buffer (0x14) { "Ethernet Controller" },
+                        "model",  Buffer() { "Realtek RTL8168/8111 Gigabit Ethernet" },
+                    })
+                }
+
+            }
+
+            Device (SDHC)
+            {
+                Name (_ADR, 0x02)
+                Name (_PRW, Package (0x02) { 0x09, 0x03 })
+                Method (_RMV, 0, NotSerialized) { Return (Zero) }
+                Method (_DSM, 4, NotSerialized)
+                {
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "AAPL,slot-name", Buffer () { "Built In" },
+                        "Built In", Buffer () { 0x00 },
+                        "model", Buffer () { "Realtek RTS5289 PCI Express Card Reader" },
+                        "name", Buffer () { "Realtek RTS5289 PCI Express Card Reader" },
+                        "compatible", Buffer () { "pci10ec,5209" },
+                        "IOName", Buffer () {"pci10ec,5209" },
+                        "device_type", Buffer () { "Mass Storage" }
+                    })
+                }
             }
 
             Method (HPME, 0, Serialized)
@@ -7661,7 +7603,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         }
                     }
 
-                    Notify (PXSX, 0x02)
+                    Notify (GIGE, 0x02)
                 }
             }
 
@@ -7751,6 +7693,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
                 Return (PR07)
             }
+
         }
 
         Device (RP04)
@@ -8413,14 +8356,28 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 PMSX,   1
             }
 
-            Device (PXSX)
+            Device (ARPT)
             {
-                Name (_ADR, Zero)  // _ADR: Address
-                Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
+                
+                Name (_ADR, Zero)
+                Name (_PRW, Package (0x02) { 0x09, 0x04 })
+                Method (_DSM, 4, NotSerialized)
                 {
-                    0x09, 
-                    0x04
-                })
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "AAPL,slot-name", Buffer() { "Airport" },
+                        "built-in", Buffer () {0x01},
+                        "location", Buffer () { "2" },
+                        "device-id", Buffer() { 0x04, 0x00, 0x00, 0x00 },
+                        "revision-id", Buffer() { 0x01, 0x00, 0x00, 0x00 },
+                        "subsystem-id", Buffer() { 0x52, 0xe0, 0x00, 0x00 },
+                        "subsystem-vendor-id", Buffer() { 0x5b, 0x10, 0x00, 0x00 },
+                        "device_type", Buffer() { "Airport" },
+                        "model", Buffer() { "Atheros 9462 802.11 a/b/g/n Wireless Network Adapter" },
+                    })
+                }
+
             }
 
             Method (HPME, 0, Serialized)
@@ -8441,7 +8398,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         }
                     }
 
-                    Notify (PXSX, 0x02)
+                    Notify (ARPT, 0x02)
                 }
             }
 
@@ -8533,9 +8490,26 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             }
         }
 
-        Device (SAT0)
+        Device (SATA)
         {
             Name (_ADR, 0x001F0002)  // _ADR: Address
+            Method (_DSM, 4, NotSerialized)
+            {
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "AAPL,slot-name", "Built In",
+                    "name", "Intel AHCI Controller",
+                    "model", Buffer () { "Intel 7 Series Chipset Family SATA Controller" },
+                    "device_type", Buffer () { "AHCI Controller" },
+                    "compatible", Buffer () { "pci8086,1e03" },
+                    "IOName", Buffer () { "pci8086,1e03" },
+                    "device-id", Buffer () { 0x03, 0x1E, 0x00, 0x00 },
+                    "vendor-id", Buffer () {0x86, 0x80, 0x00, 0x00 },
+                    "subsystem-id", Buffer () {0x32, 0x07, 0x00, 0x00 },
+                    "subsystem-vendor-id", Buffer () {0x25, 0x10, 0x00, 0x00 }
+                })
+            }
         }
 
         Device (SAT1)
@@ -8878,30 +8852,18 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 Or (HCON, 0x02, HCON)
                 Or (HSTS, 0xFF, HSTS)
             }
-
             Device (BUS0)
             {
-                Name (_CID, "smbus")  // _CID: Compatible ID
-                Name (_ADR, Zero)  // _ADR: Address
+                Name (_CID, "smbus")
+                Name (_ADR, Zero)
                 Device (DVL0)
                 {
-                    Name (_ADR, 0x57)  // _ADR: Address
-                    Name (_CID, "diagsvault")  // _CID: Compatible ID
-                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                    Name (_ADR, 0x57)
+                    Name (_CID, "diagsvault")
+                    Method (_DSM, 4, NotSerialized)
                     {
-                        If (LEqual (Arg2, Zero))
-                        {
-                            Return (Buffer (One)
-                            {
-                                 0x03                                           
-                            })
-                        }
-
-                        Return (Package (0x02)
-                        {
-                            "address", 
-                            0x57
-                        })
+                        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                        Return (Package() { "address", 0x57 })
                     }
                 }
             }
@@ -8944,7 +8906,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
     Name (BUFN, Zero)
     Name (MBUF, Buffer (0x1000) {})
-    OperationRegion (MDBG, SystemMemory, 0x96FB8018, 0x1004)
+    OperationRegion (MDBG, SystemMemory, 0x96FB8018, 0x00001004)
     Field (MDBG, AnyAcc, Lock, Preserve)
     {
         MDG0,   32768
@@ -9063,15 +9025,21 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
         Return (Local0)
     }
 
-    Scope (_SB.PCI0.SAT0)
+    Scope (_SB.PCI0.SATA)
     {
+        Method (_HPP, 0, NotSerialized)
+        {
+            Return (Package () { 0x08, 0x40, One, Zero})
+        }
+        
         Device (PRT5)
         {
             Name (_ADR, 0x0005FFFF)  // _ADR: Address
+            Method (_EJ0, 1, NotSerialized) {}
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (T_1, Zero)
-                Name (T_0, Zero)
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, ToUUID ("bdfaef30-aebb-11de-8a39-0800200c9a66")))
                 {
                     While (One)
@@ -10821,291 +10789,179 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 }
             }
 
-            OperationRegion (RMPC, PCI_Config, 0x10, 0x04)
+            
+            OperationRegion (RMPC, PCI_Config, 0x10, 4)
             Field (RMPC, AnyAcc, NoLock, Preserve)
             {
-                BAR1,   32
+                BAR1,32,
             }
-
             Device (PNLF)
             {
-                Name (_ADR, Zero)  // _ADR: Address
-                Name (_HID, EisaId ("APP0002"))  // _HID: Hardware ID
-                Name (_CID, "backlight")  // _CID: Compatible ID
-                Name (_UID, 0x0A)  // _UID: Unique ID
-                Name (_STA, 0x0B)  // _STA: Status
-                OperationRegion (BRIT, SystemMemory, And (BAR1, 0xFFFFFFF0), 0x000E1184)
+                // normal PNLF declares (note some of this probably not necessary)
+                Name (_ADR, Zero)
+                Name (_HID, EisaId ("APP0002"))
+                Name (_CID, "backlight")
+                Name (_UID, 10)
+                Name (_STA, 0x0B)
+                //define hardware register access for brightness
+                // lower nibble of BAR1 is status bits and not part of the address
+                OperationRegion (BRIT, SystemMemory, And(^BAR1, Not(0xF)), 0xe1184)
                 Field (BRIT, AnyAcc, Lock, Preserve)
                 {
-                    Offset (0x48250), 
-                    LEV2,   32, 
-                    LEVL,   32, 
-                    Offset (0x70040), 
-                    P0BL,   32, 
-                    Offset (0xC8250), 
-                    LEVW,   32, 
-                    LEVX,   32, 
-                    Offset (0xE1180), 
-                    PCHL,   32
+                    Offset(0x48250),
+                    LEV2, 32,
+                    LEVL, 32,
+                    Offset(0x70040),
+                    P0BL, 32,
+                    Offset(0xc8250),
+                    LEVW, 32,
+                    LEVX, 32,
+                    Offset(0xe1180),
+                    PCHL, 32,
                 }
-
-                Name (LMAX, 0x0710)
-                Name (KMAX, 0x0710)
-                Name (KPCH, Ones)
-                Method (_INI, 0, NotSerialized)  // _INI: Initialize
+                // DEB1 special for setting KLVX at runtime...
+                //Method (DEB1, 1, NotSerialized)
+                //{
+                //    Store(Arg0, KLVX)
+                //}
+                // LMAX: use 0x710 to force OS X value
+                //       or use any arbitrary value
+                //       or use 0 to capture BIOS setting
+                Name (LMAX, 0x710)
+                // KMAX: defines the unscaled range in the _BCL table below
+                Name (KMAX, 0x710)
+                // KPCH: saved value for PCHL
+                //   use Ones if PCHL does not need to be set (normal)
+                //   use Zero if your laptop nees PCHL set on every brightness set
+                //   you can also use a custom value (not Ones, not Zero)
+                Name(KPCH, Ones)
+                // _INI deals with differences between native setting and desired
+                Method (_INI, 0, NotSerialized)
                 {
-                    If (LNot (KPCH))
+                    // save value of PCHL for later
+                    If (LNot(KPCH)) { Store(PCHL, KPCH) }
+                    // determine LMAX to use
+                    If (LNot(LMAX)) { Store(ShiftRight(LEVX,16), LMAX) }
+                    If (LNot(LMAX)) { Store(KMAX, LMAX) }
+                    Store(ShiftLeft(LMAX,16), KLVX)
+                    If (LNotEqual(LMAX, KMAX))
                     {
-                        Store (PCHL, KPCH)
-                    }
-
-                    If (LNot (LMAX))
-                    {
-                        Store (ShiftRight (LEVX, 0x10), LMAX)
-                    }
-
-                    If (LNot (LMAX))
-                    {
-                        Store (KMAX, LMAX)
-                    }
-
-                    Store (ShiftLeft (LMAX, 0x10), KLVX)
-                    If (LNotEqual (LMAX, KMAX))
-                    {
-                        Store (Zero, Local0)
-                        While (LLess (Local0, SizeOf (_BCL)))
+                        // Scale all the values in _BCL to the PWM max in use
+                        Store(0, Local0)
+                        While (LLess(Local0, SizeOf(_BCL)))
                         {
-                            Store (DerefOf (Index (_BCL, Local0)), Local1)
-                            Divide (Multiply (Local1, LMAX), KMAX, , Local1)
-                            Store (Local1, Index (_BCL, Local0))
-                            Increment (Local0)
+                            Store(DerefOf(Index(_BCL,Local0)), Local1)
+                            Divide(Multiply(Local1,LMAX), KMAX,, Local1)
+                            Store(Local1, Index(_BCL,Local0))
+                            Increment(Local0)
                         }
-
-                        Divide (Multiply (XRGL, LMAX), KMAX, , XRGL)
-                        Divide (Multiply (XRGH, LMAX), KMAX, , XRGH)
+                        // Also scale XRGL and XRGH values
+                        Divide(Multiply(XRGL,LMAX), KMAX,, XRGL)
+                        Divide(Multiply(XRGH,LMAX), KMAX,, XRGH)
                     }
-
-                    Store (ShiftRight (LEVX, 0x10), Local1)
-                    If (LNotEqual (Local1, LMAX))
+                    // adjust values to desired LMAX
+                    Store(ShiftRight(LEVX,16), Local1)
+                    If (LNotEqual(Local1, LMAX))
                     {
-                        Store (LEVL, Local0)
-                        If (LOr (LNot (Local0), LNot (Local1)))
-                        {
-                            Store (LMAX, Local0)
-                            Store (LMAX, Local1)
-                        }
-
-                        Divide (Multiply (Local0, LMAX), Local1, , Local0)
-                        If (LGreater (LEVL, LMAX))
-                        {
-                            Store (KLVX, LEVX)
-                            Store (Local0, LEVL)
-                        }
+                        Store(LEVL, Local0)
+                        If (LOr(LNot(Local0),LNot(Local1))) { Store(LMAX, Local0) Store(LMAX, Local1) }
+                        Divide(Multiply(Local0,LMAX), Local1,, Local0)
+                        //REVIEW: wait for vblank before setting new PWM config
+                        //Store(P0BL, Local7)
+                        //While (LEqual (P0BL, Local7)) {}
+                        If (LGreater(LEVL, LMAX))
+                        { Store(KLVX, LEVX) Store(Local0, LEVL) }
                         Else
-                        {
-                            Store (Local0, LEVL)
-                            Store (KLVX, LEVX)
-                        }
+                        { Store(Local0, LEVL) Store(KLVX, LEVX) }
                     }
                 }
-
-                Method (_BCM, 1, NotSerialized)  // _BCM: Brightness Control Method
+                // _BCM/_BQC: set/get for brightness level
+                Method (_BCM, 1, NotSerialized)
                 {
-                    If (LAnd (LNotEqual (KPCH, Ones), LNotEqual (PCHL, KPCH)))
-                    {
-                        Store (KPCH, PCHL)
-                    }
-
-                    If (LNotEqual (LEVW, 0x80000000))
-                    {
-                        Store (0x80000000, LEVW)
-                    }
-
-                    If (LNotEqual (LEVX, KLVX))
-                    {
-                        Store (KLVX, LEVX)
-                    }
-
-                    Store (Match (_BCL, MGE, Arg0, MTR, Zero, 0x02), Local0)
-                    If (LEqual (Local0, Ones))
-                    {
-                        Subtract (SizeOf (_BCL), One, Local0)
-                    }
-
-                    If (LNotEqual (LEV2, 0x80000000))
-                    {
-                        Store (0x80000000, LEV2)
-                    }
-
-                    Store (DerefOf (Index (_BCL, Local0)), LEVL)
+                    // initialize for consistent backlight level before/after sleep
+                    If (LAnd(LNotEqual(KPCH, Ones),LNotEqual(PCHL, KPCH))) { Store(KPCH, PCHL) }
+                    If (LNotEqual(LEVW, 0x80000000)) { Store (0x80000000, LEVW) }
+                    If (LNotEqual(LEVX, KLVX)) { Store (KLVX, LEVX) }
+                    // store new backlight level
+                    Store(Match(_BCL, MGE, Arg0, MTR, 0, 2), Local0)
+                    If (LEqual(Local0, Ones)) { Subtract(SizeOf(_BCL), 1, Local0) }
+                    If (LNotEqual(LEV2, 0x80000000)) { Store(0x80000000, LEV2) }
+                    Store(DerefOf(Index(_BCL, Local0)), LEVL)
                 }
-
-                Method (_BQC, 0, NotSerialized)  // _BQC: Brightness Query Current
+                Method (_BQC, 0, NotSerialized)
                 {
-                    Store (Match (_BCL, MGE, LEVL, MTR, Zero, 0x02), Local0)
-                    If (LEqual (Local0, Ones))
-                    {
-                        Subtract (SizeOf (_BCL), One, Local0)
-                    }
-
-                    Return (DerefOf (Index (_BCL, Local0)))
+                    Store(Match(_BCL, MGE, LEVL, MTR, 0, 2), Local0)
+                    If (LEqual(Local0, Ones)) { Subtract(SizeOf(_BCL), 1, Local0) }
+                    Return(DerefOf(Index(_BCL, Local0)))
                 }
-
-                Method (_DOS, 1, NotSerialized)  // _DOS: Disable Output Switching
+                Method (_DOS, 1, NotSerialized)
                 {
-                    ^^_DOS (Arg0)
+                    // Note: Some systems have this defined in DSDT, so uncomment
+                    // the next line if that is the case.
+                    //External(^^_DOS, MethodObj)
+                    ^^_DOS(Arg0)
                 }
-
+                // extended _BCM/_BQC for setting "in between" levels
                 Method (XBCM, 1, NotSerialized)
                 {
-                    If (LAnd (LNotEqual (KPCH, Ones), LNotEqual (PCHL, KPCH)))
-                    {
-                        Store (KPCH, PCHL)
-                    }
-
-                    If (LNotEqual (LEVW, 0x80000000))
-                    {
-                        Store (0x80000000, LEVW)
-                    }
-
-                    If (LNotEqual (LEVX, KLVX))
-                    {
-                        Store (KLVX, LEVX)
-                    }
-
-                    If (LGreater (Arg0, XRGH))
-                    {
-                        Store (XRGH, Arg0)
-                    }
-
-                    If (LAnd (Arg0, LLess (Arg0, XRGL)))
-                    {
-                        Store (XRGL, Arg0)
-                    }
-
-                    If (LNotEqual (LEV2, 0x80000000))
-                    {
-                        Store (0x80000000, LEV2)
-                    }
-
-                    Store (Arg0, LEVL)
+                    // initialize for consistent backlight level before/after sleep
+                    If (LAnd(LNotEqual(KPCH, Ones),LNotEqual(PCHL, KPCH))) { Store(KPCH, PCHL) }
+                    If (LNotEqual(LEVW, 0x80000000)) { Store (0x80000000, LEVW) }
+                    If (LNotEqual(LEVX, KLVX)) { Store (KLVX, LEVX) }
+                    // store new backlight level
+                    If (LGreater(Arg0, XRGH)) { Store(XRGH, Arg0) }
+                    If (LAnd(Arg0, LLess(Arg0, XRGL))) { Store(XRGL, Arg0) }
+                    If (LNotEqual(LEV2, 0x80000000)) { Store(0x80000000, LEV2) }
+                    Store(Arg0, LEVL)
                 }
-
                 Method (XBQC, 0, NotSerialized)
                 {
-                    Store (LEVL, Local0)
-                    If (LGreater (Local0, XRGH))
-                    {
-                        Store (XRGH, Local0)
-                    }
-
-                    If (LAnd (Local0, LLess (Local0, XRGL)))
-                    {
-                        Store (XRGL, Local0)
-                    }
-
-                    Return (Local0)
+                    Store(LEVL, Local0)
+                    If (LGreater(Local0, XRGH)) { Store(XRGH, Local0) }
+                    If (LAnd(Local0, LLess(Local0, XRGL))) { Store(XRGL, Local0) }
+                    Return(Local0)
                 }
-
+                // Set XOPT bit 0 to disable smooth transitions
+                // Set XOPT bit 1 to wait for native BacklightHandler
+                // Set XOPT bit 2 to force use of native BacklightHandler
                 Name (XOPT, 0x02)
-                Name (XRGL, 0x28)
-                Name (XRGH, 0x0710)
-                Name (KLVX, 0x07100000)
-                Name (_BCL, Package (0x43)  // _BCL: Brightness Control Levels
+                // XRGL/XRGH: defines the valid range
+                Name (XRGL, 40)
+                Name (XRGH, 1808)
+                // KLVX is initialization value for LEVX
+                Name (KLVX, 0x7100000)
+                // _BCL: returns list of valid brightness levels
+                // first two entries describe ac/battery power levels
+                Name (_BCL, Package()
                 {
-                    0x0710, 
-                    0x01DF, 
-                    Zero, 
-                    0x35, 
-                    0x37, 
-                    0x39, 
-                    0x3B, 
-                    0x3E, 
-                    0x42, 
-                    0x47, 
-                    0x4D, 
-                    0x53, 
-                    0x5B, 
-                    0x63, 
-                    0x6C, 
-                    0x77, 
-                    0x82, 
-                    0x8E, 
-                    0x9A, 
-                    0xA8, 
-                    0xB7, 
-                    0xC6, 
-                    0xD6, 
-                    0xE8, 
-                    0xFA, 
-                    0x010D, 
-                    0x0121, 
-                    0x0135, 
-                    0x014B, 
-                    0x0162, 
-                    0x0179, 
-                    0x0191, 
-                    0x01AA, 
-                    0x01C5, 
-                    0x01DF, 
-                    0x01FB, 
-                    0x0218, 
-                    0x0236, 
-                    0x0254, 
-                    0x0273, 
-                    0x0294, 
-                    0x02B5, 
-                    0x02D7, 
-                    0x02FA, 
-                    0x031D, 
-                    0x0342, 
-                    0x0368, 
-                    0x038E, 
-                    0x03B5, 
-                    0x03DE, 
-                    0x0407, 
-                    0x0431, 
-                    0x045B, 
-                    0x0487, 
-                    0x04B4, 
-                    0x04E1, 
-                    0x0510, 
-                    0x053F, 
-                    0x056F, 
-                    0x05A0, 
-                    0x05D2, 
-                    0x0605, 
-                    0x0638, 
-                    0x066D, 
-                    0x06A2, 
-                    0x06D9, 
-                    0x0710
+                    1808,
+                    479,
+                    0,
+                    53, 55, 57, 59,
+                    62, 66, 71, 77,
+                    83, 91, 99, 108,
+                    119, 130, 142, 154,
+                    168, 183, 198, 214,
+                    232, 250, 269, 289,
+                    309, 331, 354, 377,
+                    401, 426, 453, 479,
+                    507, 536, 566, 596,
+                    627, 660, 693, 727,
+                    762, 797, 834, 872,
+                    910, 949, 990, 1031,
+                    1073, 1115, 1159, 1204,
+                    1249, 1296, 1343, 1391,
+                    1440, 1490, 1541, 1592,
+                    1645, 1698, 1753, 1808,
                 })
             }
-
-            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            Method (_DSM, 4, NotSerialized)
             {
-                If (LEqual (Arg2, Zero))
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
                 {
-                    Return (Buffer (One)
-                    {
-                         0x03                                           
-                    })
-                }
-
-                Return (Package (0x04)
-                {
-                    "AAPL,ig-platform-id", 
-                    Buffer (0x04)
-                    {
-                         0x03, 0x00, 0x66, 0x01                         
-                    }, 
-
-                    "hda-gfx", 
-                    Buffer (0x0A)
-                    {
-                        "onboard-1"
-                    }
+                    "AAPL,ig-platform-id", Buffer() { 0x03, 0x00, 0x66, 0x01 },
+                    "hda-gfx", Buffer() { "onboard-1" },
                 })
             }
         }
@@ -11222,12 +11078,14 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
         Device (PWRB)
         {
-            Name (_CID, EisaId ("PNP0C0C"))  // _HID: Hardware ID
+            
+            Name (_CID, EisaId ("PNP0C0C"))
             Name (_UID, 0xAA)
             Method (_STA, 0, NotSerialized)
             {
                 Return (0x0B)
             }
+
         }
 
         Device (SLPB)
@@ -11384,8 +11242,8 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             Name (LFCC, 0x1130)
             Method (UBIF, 0, Serialized)
             {
-                Name (T_1, Zero)
-                Name (T_0, Zero)
+                Name (T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (ECOK)
                 {
                     Acquire (^^PCI0.LPCB.EC0.MUT1, 0xFFFF)
@@ -11759,41 +11617,6 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
         Zero, 
         Zero
     })
-    Method (B1B2, 2, NotSerialized)
-    {
-        Return (Or (Arg0, ShiftLeft (Arg1, 0x08)))
-    }
-
-    Method (DTGP, 5, NotSerialized)
-    {
-        If (LEqual (Arg0, ToUUID ("a0b5b7c6-1318-441c-b0c9-fe695eaf949b")))
-        {
-            If (LEqual (Arg1, One))
-            {
-                If (LEqual (Arg2, Zero))
-                {
-                    Store (Buffer (One)
-                        {
-                             0x03                                           
-                        }, Arg4)
-                    Return (One)
-                }
-
-                If (LEqual (Arg2, One))
-                {
-                    Return (One)
-                }
-            }
-        }
-
-        Store (Buffer (One)
-            {
-                 0x00                                           
-            }, Arg4)
-        Return (Zero)
-    }
-
     Store ("hdef3-alc8xx_audio-3.txt_v2.0 dsdt edits, github.com/toleda", Debug)
-    Store ("ib1-ami_efi_clean_compile_v1.1 dsdt edits, github.com/toleda", Debug)
 }
 

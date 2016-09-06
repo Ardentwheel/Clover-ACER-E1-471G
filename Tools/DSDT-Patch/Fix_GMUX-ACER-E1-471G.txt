@@ -1,0 +1,27 @@
+# Maintained by: Matthew
+# Fix_Sata.txt
+
+into field label GPIO insert
+begin
+GP06, 1,\n
+end;
+
+into device label GMUX parent_adr 0x001F0000 remove_entry;
+into device name_adr 0x001F0000 insert
+begin
+Device (GMUX)\n
+{\n
+    Name (_HID, EisaId ("APP000B"))\n
+    Name (_CID, "gmux")\n
+    Name (_STA, 0x0B)\n
+    Name (_PRW, Package (0x02) { 0x16, 0x03})\n
+    Scope (\_GPE)\n
+    {\n
+        Method (_L16, 0, NotSerialized) { Notify (\_SB.PCI0.LPCB.GMUX, 0x80) }\n
+    }\n
+    Name (GMGP, 0x16)\n
+    Method (GMSP, 1, NotSerialized) { If (LLessEqual (Arg0, One)) { Or (GP06, Arg0, GP06) } }\n
+    Method (GMLV, 0, NotSerialized) { Return (GP06) }\n
+}\n
+end;
+

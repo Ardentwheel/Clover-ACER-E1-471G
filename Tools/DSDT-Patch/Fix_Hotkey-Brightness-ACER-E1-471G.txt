@@ -2,13 +2,13 @@
 #Fix-Hotkey-Brightness-ACER-E1-471G.txt
 
 
-into method label _Q8F replace_content
+into method label _Q8F insert
 begin
 // Brightness Down\n
     Notify(\_SB.PCI0.LPCB.PS2K, 0x0205)\n
     Notify(\_SB.PCI0.LPCB.PS2K, 0x0285)\n
 end;
-into method label _Q8E replace_content
+into method label _Q8E insert
 begin
 // Brightness Up\n
     Notify(\_SB.PCI0.LPCB.PS2K, 0x0206)\n
