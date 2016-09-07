@@ -21,11 +21,14 @@
 - [ ] Wireless Network
 - [ ] Bluetooth
 - [x] WebCam
-- [ ] SDHCI
+- [ ] SDHC CardReader
 - [x] Fn
 - [x] Usb (Built In)
+- [x] Sleep From (PowerButton-Hols 2 seconds)
+- [x] Sleep From (Lid)
 - [x] Wake Up (Usb Driver)
 - [ ] Wake Up (PS/2 Keyboard)
+- [x] Wake Up (Lid)
 - [x] Power Nap
 - [ ] VGA
 
