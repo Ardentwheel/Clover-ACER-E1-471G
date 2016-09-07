@@ -4,10 +4,15 @@
 
 into device label PWRB replace_content
 begin
+Name (_HID, EisaId ("PNP0C0C"))\n
 Name (_CID, EisaId ("PNP0C0C"))\n
 Name (_UID, 0xAA)\n
-Method (_STA, 0, NotSerialized)\n
-{\n
-    Return (0x0B)\n
-}\n
+Method (_STA, 0, NotSerialized) { Return (0x0B) }\n
+end;
+
+into device label SLPB replace_content
+begin
+Name (_HID, EisaId ("PNP0C0E"))\n
+Name (_CID, EisaId ("PNP0C0E"))\n
+Method (_STA, 0, NotSerialized) { Return (0x0F) }\n
 end;

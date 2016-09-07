@@ -1,0 +1,52 @@
+# Maintained by: Matthew
+# Fix_Ethernet_And_SDHC-ACER-E1-471G.txt
+
+into device label SDHC parent_adr 0x001C0002 remove_entry;
+into device label PXSX parent_adr 0x001C0002 set_label begin GIGE end;
+into device label GIGE parent_adr 0x001C0002 replace_content begin
+Name (_ADR, 0x02)\n
+Name (_SUN, 0x02)\n
+Name (_PRW, Package (0x02) { 0x09, 0x04 })\n
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Ethernet" },\n
+        "built-in", Buffer () {0x01},\n
+        "location",  Buffer () { "1" },\n
+        "device-id", Buffer() { 0x68, 0x81, 0x00, 0x00 },\n
+        "revision-id", Buffer() { 0x0a, 0x00, 0x00, 0x00 },\n
+        "subsystem-id", Buffer() { 0x32, 0x07, 0x00, 0x00 },\n
+        "subsystem-vendor-id", Buffer() { 0x25, 0x10, 0x00, 0x00 },\n
+        "device_type", Buffer (0x14) { "Ethernet Controller" }, \n
+        "model",  Buffer() { "Realtek RTL8168/8111 Gigabit Ethernet" }\n
+    })\n
+}\n
+}\n
+\n
+Device (SDHC)\n
+{\n
+    Name (_ADR, Zero)\n
+    Name (_SUN, 0x02)\n
+    Name (_PRW, Package (0x02) { 0x09, 0x04 })\n
+    Method (_RMV, 0, NotSerialized) { Return (Zero) }\n
+    Method (_DSM, 4, NotSerialized)\n
+    {\n
+        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+        Return (Package()\n
+        {\n
+            "AAPL,slot-name", Buffer () { "SDHC" }, \n
+            "built-in", Buffer () {0x01},\n
+            "device-id", Buffer() { 0x89, 0x52, 0x00, 0x00 },\n
+            "revision-id", Buffer() { 0x01, 0x00, 0x00, 0x00 },\n
+            "subsystem-id", Buffer() { 0x32, 0x07, 0x00, 0x00 },\n
+            "subsystem-vendor-id", Buffer() { 0x25, 0x10, 0x00, 0x00 },\n
+            "device_type", Buffer () { "Mass Storage" },\n
+            "model", Buffer () { "Realtek RTS5289 PCI Express Card Reader" } \n
+        })\n
+    }\n
+end;
+
+into method label HPME parent_adr 0x001C0002 code_regex PXSX replaceall_matched begin GIGE end;
+# into method label HPME parent_adr 0x001C0002 code_regex PXSX replaceall_matched begin SDHC end;

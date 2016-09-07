@@ -1,9 +1,10 @@
 # Maintained by: Matthew
-# Fix_Sata.txt
+# Fix_Airport.txt
 
 into device label PXSX parent_adr 0x001C0007 set_label begin ARPT end;
 into device label ARPT parent_adr 0x001C0007 replace_content begin
 Name (_ADR, Zero)\n
+Name (_SUN, 0x00000000)\n
 Name (_PRW, Package (0x02) { 0x09, 0x04 })\n
 Method (_DSM, 4, NotSerialized)\n
 {\n
@@ -18,7 +19,7 @@ Method (_DSM, 4, NotSerialized)\n
         "subsystem-id", Buffer() { 0x52, 0xe0, 0x00, 0x00 },\n
         "subsystem-vendor-id", Buffer() { 0x5b, 0x10, 0x00, 0x00 },\n
         "device_type", Buffer() { "Airport" },\n
-        "model", Buffer() { "Atheros 9462 802.11 a/b/g/n Wireless Network Adapter" },\n
+        "model", Buffer() { "Atheros 9462 802.11 a/b/g/n Wireless Network Adapter" }\n
     })\n
 }\n
 end;

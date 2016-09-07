@@ -5,18 +5,18 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of SSDT-1.aml, Thu Aug 25 10:41:58 2016
+ * Disassembly of SSDT-1.aml, Tue Sep  6 19:07:18 2016
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x000009AA (2474)
+ *     Length           0x000003EE (1006)
  *     Revision         0x01
- *     Checksum         0x33
+ *     Checksum         0x49
  *     OEM ID           "ACRSYS"
  *     OEM Table ID     "ACRPRDCT"
  *     OEM Revision     0x00003000 (12288)
- *     Compiler ID      "1025"
- *     Compiler Version 0x00040000 (262144)
+ *     Compiler ID      "INTL"
+ *     Compiler Version 0x20160422 (538313762)
  */
 DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
 {
@@ -27,19 +27,19 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
 
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
     External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
-    External (_PR_.CPPC, FieldUnitObj)
-    External (_PR_.CPU0, ProcessorObj)
+    External (_PR_.CPPC, FieldUnitObj)    // (from opcode)
+    External (_PR_.CPU0, ProcessorObj)    // (from opcode)
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.SAT1.SDSM, MethodObj)    // Imported: 4 Arguments
-    External (CFGD, IntObj)
+    External (CFGD, IntObj)    // (from opcode)
     External (MDBG, MethodObj)    // Imported: 1 Arguments
-    External (NPSS, IntObj)    // Warning: Unknown object
-    External (PDC0, IntObj)
-    External (TCNT, FieldUnitObj)
+    External (NPSS, IntObj)    // (from opcode)
+    External (PDC0, IntObj)    // (from opcode)
+    External (TCNT, FieldUnitObj)    // (from opcode)
 
     Scope (\_PR.CPU0)
     {
@@ -107,328 +107,326 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
         {
             Package (0x06)
             {
-                0x00000A29, 
-                0x000088B8, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000083, 
-                0x00000000
+                0x0A29, 
+                0x88B8, 
+                0x6E, 
+                0x0A, 
+                0x83, 
+                Zero
             }, 
 
             Package (0x06)
             {
-                0x00000A28, 
-                0x000088B8, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000183, 
-                0x00000001
+                0x0A28, 
+                0x88B8, 
+                0x6E, 
+                0x0A, 
+                0x0183, 
+                One
             }, 
 
             Package (0x06)
             {
-                0x000009C4, 
-                0x000081C2, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000283, 
-                0x00000002
+                0x09C4, 
+                0x81C2, 
+                0x6E, 
+                0x0A, 
+                0x0283, 
+                0x02
             }, 
 
             Package (0x06)
             {
-                0x00000960, 
-                0x00007AEE, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000383, 
-                0x00000003
+                0x0960, 
+                0x7AEE, 
+                0x6E, 
+                0x0A, 
+                0x0383, 
+                0x03
             }, 
 
             Package (0x06)
             {
-                0x000008FC, 
-                0x0000743B, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000483, 
-                0x00000004
+                0x08FC, 
+                0x743B, 
+                0x6E, 
+                0x0A, 
+                0x0483, 
+                0x04
             }, 
 
             Package (0x06)
             {
-                0x00000898, 
-                0x00006DAA, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000583, 
-                0x00000005
+                0x0898, 
+                0x6DAA, 
+                0x6E, 
+                0x0A, 
+                0x0583, 
+                0x05
             }, 
 
             Package (0x06)
             {
-                0x00000834, 
-                0x0000673A, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000683, 
-                0x00000006
+                0x0834, 
+                0x673A, 
+                0x6E, 
+                0x0A, 
+                0x0683, 
+                0x06
             }, 
 
             Package (0x06)
             {
-                0x000007D0, 
-                0x000060F0, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000783, 
-                0x00000007
+                0x07D0, 
+                0x60F0, 
+                0x6E, 
+                0x0A, 
+                0x0783, 
+                0x07
             }, 
 
             Package (0x06)
             {
-                0x0000076C, 
-                0x00005C04, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000883, 
-                0x00000008
+                0x076C, 
+                0x5C04, 
+                0x6E, 
+                0x0A, 
+                0x0883, 
+                0x08
             }, 
 
             Package (0x06)
             {
-                0x00000708, 
-                0x000055F2, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000983, 
-                0x00000009
+                0x0708, 
+                0x55F2, 
+                0x6E, 
+                0x0A, 
+                0x0983, 
+                0x09
             }, 
 
             Package (0x06)
             {
-                0x000006A4, 
-                0x00005000, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000A83, 
-                0x0000000A
+                0x06A4, 
+                0x5000, 
+                0x6E, 
+                0x0A, 
+                0x0A83, 
+                0x0A
             }, 
 
             Package (0x06)
             {
-                0x00000640, 
-                0x00004A2D, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000B83, 
-                0x0000000B
+                0x0640, 
+                0x4A2D, 
+                0x6E, 
+                0x0A, 
+                0x0B83, 
+                0x0B
             }, 
 
             Package (0x06)
             {
-                0x000005DC, 
-                0x0000447E, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000C83, 
-                0x0000000C
+                0x05DC, 
+                0x447E, 
+                0x6E, 
+                0x0A, 
+                0x0C83, 
+                0x0C
             }, 
 
             Package (0x06)
             {
-                0x00000578, 
-                0x00003EEA, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000D83, 
-                0x0000000D
+                0x0578, 
+                0x3EEA, 
+                0x6E, 
+                0x0A, 
+                0x0D83, 
+                0x0D
             }, 
 
             Package (0x06)
             {
-                0x00000514, 
-                0x00003AA1, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000E83, 
-                0x0000000E
+                0x0514, 
+                0x3AA1, 
+                0x6E, 
+                0x0A, 
+                0x0E83, 
+                0x0E
             }, 
 
             Package (0x06)
             {
-                0x000004B0, 
-                0x00003546, 
-                0x0000006E, 
-                0x0000000A, 
-                0x00000F83, 
-                0x0000000F
+                0x04B0, 
+                0x3546, 
+                0x6E, 
+                0x0A, 
+                0x0F83, 
+                0x0F
             }
         })
-
         Name (_PSS, Package (0x10)  // _PSS: Performance Supported States
         {
             Package (0x06)
             {
-                0x00000A29, 
-                0x000088B8, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00002000, 
-                0x00002000
+                0x0A29, 
+                0x88B8, 
+                0x0A, 
+                0x0A, 
+                0x2000, 
+                0x2000
             }, 
 
             Package (0x06)
             {
-                0x00000A28, 
-                0x000088B8, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001A00, 
-                0x00001A00
+                0x0A28, 
+                0x88B8, 
+                0x0A, 
+                0x0A, 
+                0x1A00, 
+                0x1A00
             }, 
 
             Package (0x06)
             {
-                0x000009C4, 
-                0x000081C2, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001900, 
-                0x00001900
+                0x09C4, 
+                0x81C2, 
+                0x0A, 
+                0x0A, 
+                0x1900, 
+                0x1900
             }, 
 
             Package (0x06)
             {
-                0x00000960, 
-                0x00007AEE, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001800, 
-                0x00001800
+                0x0960, 
+                0x7AEE, 
+                0x0A, 
+                0x0A, 
+                0x1800, 
+                0x1800
             }, 
 
             Package (0x06)
             {
-                0x000008FC, 
-                0x0000743B, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001700, 
-                0x00001700
+                0x08FC, 
+                0x743B, 
+                0x0A, 
+                0x0A, 
+                0x1700, 
+                0x1700
             }, 
 
             Package (0x06)
             {
-                0x00000898, 
-                0x00006DAA, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001600, 
-                0x00001600
+                0x0898, 
+                0x6DAA, 
+                0x0A, 
+                0x0A, 
+                0x1600, 
+                0x1600
             }, 
 
             Package (0x06)
             {
-                0x00000834, 
-                0x0000673A, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001500, 
-                0x00001500
+                0x0834, 
+                0x673A, 
+                0x0A, 
+                0x0A, 
+                0x1500, 
+                0x1500
             }, 
 
             Package (0x06)
             {
-                0x000007D0, 
-                0x000060F0, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001400, 
-                0x00001400
+                0x07D0, 
+                0x60F0, 
+                0x0A, 
+                0x0A, 
+                0x1400, 
+                0x1400
             }, 
 
             Package (0x06)
             {
-                0x0000076C, 
-                0x00005C04, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001300, 
-                0x00001300
+                0x076C, 
+                0x5C04, 
+                0x0A, 
+                0x0A, 
+                0x1300, 
+                0x1300
             }, 
 
             Package (0x06)
             {
-                0x00000708, 
-                0x000055F2, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001200, 
-                0x00001200
+                0x0708, 
+                0x55F2, 
+                0x0A, 
+                0x0A, 
+                0x1200, 
+                0x1200
             }, 
 
             Package (0x06)
             {
-                0x000006A4, 
-                0x00005000, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001100, 
-                0x00001100
+                0x06A4, 
+                0x5000, 
+                0x0A, 
+                0x0A, 
+                0x1100, 
+                0x1100
             }, 
 
             Package (0x06)
             {
-                0x00000640, 
-                0x00004A2D, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00001000, 
-                0x00001000
+                0x0640, 
+                0x4A2D, 
+                0x0A, 
+                0x0A, 
+                0x1000, 
+                0x1000
             }, 
 
             Package (0x06)
             {
-                0x000005DC, 
-                0x0000447E, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00000F00, 
-                0x00000F00
+                0x05DC, 
+                0x447E, 
+                0x0A, 
+                0x0A, 
+                0x0F00, 
+                0x0F00
             }, 
 
             Package (0x06)
             {
-                0x00000578, 
-                0x00003EEA, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00000E00, 
-                0x00000E00
+                0x0578, 
+                0x3EEA, 
+                0x0A, 
+                0x0A, 
+                0x0E00, 
+                0x0E00
             }, 
 
             Package (0x06)
             {
-                0x00000514, 
-                0x00003AA1, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00000D00, 
-                0x00000D00
+                0x0514, 
+                0x3AA1, 
+                0x0A, 
+                0x0A, 
+                0x0D00, 
+                0x0D00
             }, 
 
             Package (0x06)
             {
-                0x000004B0, 
-                0x00003546, 
-                0x0000000A, 
-                0x0000000A, 
-                0x00000C00, 
-                0x00000C00
+                0x04B0, 
+                0x3546, 
+                0x0A, 
+                0x0A, 
+                0x0C00, 
+                0x0C00
             }
         })
-
         Name (PSDF, Zero)
         Method (_PSD, 0, NotSerialized)  // _PSD: Power State Dependencies
         {

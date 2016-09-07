@@ -221,14 +221,12 @@
 	</dict>
 	<key>Graphics</key>
 	<dict>
-		<key>ig-platform-id</key>
-		<string>0x01660003</string>
 		<key>Inject</key>
 		<dict>
 			<key>ATI</key>
 			<false/>
 			<key>Intel</key>
-			<true/>
+			<false/>
 			<key>NVidia</key>
 			<false/>
 		</dict>

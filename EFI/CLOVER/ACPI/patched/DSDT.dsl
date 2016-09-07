@@ -48,7 +48,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
     External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
     External (_PR_.CPU0._PPC, IntObj)
-    External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.IGPU.DD02._BCM, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.IEIT.EITV, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
@@ -2253,12 +2253,12 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                                 If (LIDT)
                                 {
                                     Store (Zero, LIDS)
-                                    Store (Zero, ^^^GFX0.CLID)
+                                    Store (Zero, ^^^IGPU.CLID)
                                 }
                                 Else
                                 {
                                     Store (One, LIDS)
-                                    Store (One, ^^^GFX0.CLID)
+                                    Store (One, ^^^IGPU.CLID)
                                 }
                             }
 
@@ -3028,11 +3028,11 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     {
                         If (IGDS)
                         {
-                            If (LNotEqual (^^^GFX0.CPL2, Zero))
+                            If (LNotEqual (^^^IGPU.CPL2, Zero))
                             {
                                 Store (Zero, LIDS)
-                                Store (Zero, ^^^GFX0.CLID)
-                                ^^^GFX0.GLID (Zero)
+                                Store (Zero, ^^^IGPU.CLID)
+                                ^^^IGPU.GLID (Zero)
                             }
                         }
 
@@ -3044,8 +3044,8 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         If (IGDS)
                         {
                             Store (One, LIDS)
-                            Store (One, ^^^GFX0.CLID)
-                            ^^^GFX0.GLID (One)
+                            Store (One, ^^^IGPU.CLID)
+                            ^^^IGPU.GLID (One)
                         }
 
                         Notify (LID, 0x80)
@@ -3066,7 +3066,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         }
                         ElseIf (LOr (LEqual (SGST, 0x04), LEqual (SGST, Zero)))
                         {
-                            Notify (^^^GFX0.DD02, 0x86)
+                            Notify (^^^IGPU.DD02, 0x86)
                         }
                         Else
                         {
@@ -3093,7 +3093,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         }
                         ElseIf (LOr (LEqual (SGST, 0x04), LEqual (SGST, Zero)))
                         {
-                            Notify (^^^GFX0.DD02, 0x87)
+                            Notify (^^^IGPU.DD02, 0x87)
                         }
                         Else
                         {
@@ -3305,7 +3305,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     {
                         If (LEqual (SGST, 0x04))
                         {
-                            ^^^GFX0.GHDS (Zero)
+                            ^^^IGPU.GHDS (Zero)
                         }
                         ElseIf (LEqual (SGST, One))
                         {
@@ -3319,7 +3319,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         }
                         Else
                         {
-                            ^^^GFX0.GHDS (Zero)
+                            ^^^IGPU.GHDS (Zero)
                         }
                     }
 
@@ -3329,7 +3329,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         {
                             Multiply (DerefOf (Index (PNLT, BLVL)), 0x64, Local1)
                             Divide (Local1, 0x0100, , Local2)
-                            ^^^GFX0.AINT (One, Local2)
+                            ^^^IGPU.AINT (One, Local2)
                         }
                         ElseIf (LEqual (GI48, One))
                         {
@@ -5438,12 +5438,12 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             If (\_SB.PCI0.LPCB.EC0.LIDT)
             {
                 Store (Zero, LIDS)
-                Store (Zero, \_SB.PCI0.GFX0.CLID)
+                Store (Zero, \_SB.PCI0.IGPU.CLID)
             }
             Else
             {
                 Store (One, LIDS)
-                Store (One, \_SB.PCI0.GFX0.CLID)
+                Store (One, \_SB.PCI0.IGPU.CLID)
             }
         }
 
@@ -6157,9 +6157,9 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
         Method (_L06, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
+            If (LAnd (\_SB.PCI0.IGPU.GSSE, LNot (GSMI)))
             {
-                \_SB.PCI0.GFX0.GSCI ()
+                \_SB.PCI0.IGPU.GSCI ()
             }
         }
 
@@ -7185,11 +7185,15 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
                 Return (Package()
                 {
-                    "layout-id", Buffer() { 0x03, 0x00, 0x00, 0x00 },
-                    "PinConfigurations", Buffer(Zero) {},
-                    "hda-gfx", Buffer() { "onboard-1" },
+                    "codec-id", Buffer() { 0x69, 0x02, 0xEC, 0x10 },
+                    "layout-id",  Buffer () { 0x03, 0x00, 0x00, 0x00 },
+                    "device_type", Buffer (0x14) { "Audio Controller" },
+                    "model",  Buffer() { "Realtek ALC269 High Definition Audio" },
+                    "PinConfigurations", Buffer (Zero) {},
+                    "hda-gfx", Buffer (0x0A ){ "onboard-1" }
                 })
             }
+            
         }
 
         Device (RP01)
@@ -7542,8 +7546,8 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
             Device (GIGE)
             {
-                
-                Name (_ADR, Zero)
+                Name (_ADR, 0x02)
+                Name (_SUN, 0x02)
                 Name (_PRW, Package (0x02) { 0x09, 0x04 })
                 Method (_DSM, 4, NotSerialized)
                 {
@@ -7558,32 +7562,35 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         "subsystem-id", Buffer() { 0x32, 0x07, 0x00, 0x00 },
                         "subsystem-vendor-id", Buffer() { 0x25, 0x10, 0x00, 0x00 },
                         "device_type", Buffer (0x14) { "Ethernet Controller" },
-                        "model",  Buffer() { "Realtek RTL8168/8111 Gigabit Ethernet" },
+                        "model",  Buffer() { "Realtek RTL8168/8111 Gigabit Ethernet" }
                     })
                 }
-
             }
 
             Device (SDHC)
             {
-                Name (_ADR, 0x02)
-                Name (_PRW, Package (0x02) { 0x09, 0x03 })
+                Name (_ADR, Zero)
+                Name (_SUN, 0x02)
+                Name (_PRW, Package (0x02) { 0x09, 0x04 })
                 Method (_RMV, 0, NotSerialized) { Return (Zero) }
                 Method (_DSM, 4, NotSerialized)
                 {
                     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
                     Return (Package()
                     {
-                        "AAPL,slot-name", Buffer () { "Built In" },
-                        "Built In", Buffer () { 0x00 },
-                        "model", Buffer () { "Realtek RTS5289 PCI Express Card Reader" },
-                        "name", Buffer () { "Realtek RTS5289 PCI Express Card Reader" },
-                        "compatible", Buffer () { "pci10ec,5209" },
-                        "IOName", Buffer () {"pci10ec,5209" },
-                        "device_type", Buffer () { "Mass Storage" }
+                        "AAPL,slot-name", Buffer () { "SDHC" },
+                        "built-in", Buffer () {0x01},
+                        "device-id", Buffer() { 0x89, 0x52, 0x00, 0x00 },
+                        "revision-id", Buffer() { 0x01, 0x00, 0x00, 0x00 },
+                        "subsystem-id", Buffer() { 0x32, 0x07, 0x00, 0x00 },
+                        "subsystem-vendor-id", Buffer() { 0x25, 0x10, 0x00, 0x00 },
+                        "device_type", Buffer () { "Mass Storage" },
+                        "model", Buffer () { "Realtek RTS5289 PCI Express Card Reader" }
                     })
                 }
             }
+
+            
 
             Method (HPME, 0, Serialized)
             {
@@ -7693,7 +7700,6 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
                 Return (PR07)
             }
-
         }
 
         Device (RP04)
@@ -8358,7 +8364,6 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
             Device (ARPT)
             {
-                
                 Name (_ADR, Zero)
                 Name (_PRW, Package (0x02) { 0x09, 0x04 })
                 Method (_DSM, 4, NotSerialized)
@@ -8377,7 +8382,6 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                         "model", Buffer() { "Atheros 9462 802.11 a/b/g/n Wireless Network Adapter" },
                     })
                 }
-
             }
 
             Method (HPME, 0, Serialized)
@@ -8899,7 +8903,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
 
             Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
             {
-                Return (BUF2)
+                Return (Zero)
             }
         }
     }
@@ -9216,7 +9220,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             Name (_ADR, 0x00040000)  // _ADR: Address
         }
 
-        Device (GFX0)
+        Device (IGPU)
         {
             Name (_ADR, 0x00020000)  // _ADR: Address
             Method (_INI, 0, NotSerialized)  // _INI: Initialize
@@ -10586,7 +10590,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     }
                     Else
                     {
-                        Notify (GFX0, Arg1)
+                        Notify (IGPU, Arg1)
                     }
                 }
 
@@ -10596,7 +10600,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 }
                 Else
                 {
-                    Notify (GFX0, 0x80)
+                    Notify (IGPU, 0x80)
                 }
 
                 Return (Zero)
@@ -10957,13 +10961,14 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             }
             Method (_DSM, 4, NotSerialized)
             {
-                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
-                Return (Package()
+                If (LEqual (Arg2, Zero)) { Return (Buffer (One){ 0x03 }) }
+                Return (Package (0x04)
                 {
-                    "AAPL,ig-platform-id", Buffer() { 0x03, 0x00, 0x66, 0x01 },
-                    "hda-gfx", Buffer() { "onboard-1" },
+                    "AAPL,ig-platform-id", Buffer (0x04){0x03, 0x00, 0x66, 0x01},
+                    "hda-gfx", Buffer (0x0A){"onboard-1"}
                 })
             }
+            
         }
     }
 
@@ -11079,12 +11084,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
         Device (PWRB)
         {
             
-            Name (_CID, EisaId ("PNP0C0C"))
-            Name (_UID, 0xAA)
-            Method (_STA, 0, NotSerialized)
-            {
-                Return (0x0B)
-            }
+            Name (_HID, EisaId ("PNP0C0C"))
 
         }
 
@@ -11534,17 +11534,17 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             Store (^LPCB.EC0.BCL7, Index (PNLT, 0x07))
             Store (^LPCB.EC0.BCL8, Index (PNLT, 0x08))
             Store (^LPCB.EC0.BCL9, Index (PNLT, 0x09))
-            Store (Or (^LPCB.EC0.BCL0, 0x8A00), ^GFX0.BLM0)
-            Store (Or (^LPCB.EC0.BCL1, 0x9400), ^GFX0.BLM1)
-            Store (Or (^LPCB.EC0.BCL2, 0x9E00), ^GFX0.BLM2)
-            Store (Or (^LPCB.EC0.BCL3, 0xA800), ^GFX0.BLM3)
-            Store (Or (^LPCB.EC0.BCL4, 0xB200), ^GFX0.BLM4)
-            Store (Or (^LPCB.EC0.BCL5, 0xBC00), ^GFX0.BLM5)
-            Store (Or (^LPCB.EC0.BCL6, 0xC600), ^GFX0.BLM6)
-            Store (Or (^LPCB.EC0.BCL7, 0xD000), ^GFX0.BLM7)
-            Store (Or (^LPCB.EC0.BCL8, 0xDA00), ^GFX0.BLM8)
-            Store (Or (^LPCB.EC0.BCL9, 0xE400), ^GFX0.BLM9)
-            Store (Zero, ^GFX0.BLMX)
+            Store (Or (^LPCB.EC0.BCL0, 0x8A00), ^IGPU.BLM0)
+            Store (Or (^LPCB.EC0.BCL1, 0x9400), ^IGPU.BLM1)
+            Store (Or (^LPCB.EC0.BCL2, 0x9E00), ^IGPU.BLM2)
+            Store (Or (^LPCB.EC0.BCL3, 0xA800), ^IGPU.BLM3)
+            Store (Or (^LPCB.EC0.BCL4, 0xB200), ^IGPU.BLM4)
+            Store (Or (^LPCB.EC0.BCL5, 0xBC00), ^IGPU.BLM5)
+            Store (Or (^LPCB.EC0.BCL6, 0xC600), ^IGPU.BLM6)
+            Store (Or (^LPCB.EC0.BCL7, 0xD000), ^IGPU.BLM7)
+            Store (Or (^LPCB.EC0.BCL8, 0xDA00), ^IGPU.BLM8)
+            Store (Or (^LPCB.EC0.BCL9, 0xE400), ^IGPU.BLM9)
+            Store (Zero, ^IGPU.BLMX)
         }
     }
 
@@ -11617,6 +11617,36 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
         Zero, 
         Zero
     })
-    Store ("hdef3-alc8xx_audio-3.txt_v2.0 dsdt edits, github.com/toleda", Debug)
+
+    Method (DTGP, 5, NotSerialized)
+    {
+        If (LEqual (Arg0, Buffer (0x10)
+        {
+            /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44,
+            /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B
+        }))
+        {
+            If (LEqual (Arg1, One))
+            {
+                If (LEqual (Arg2, Zero))
+                {
+                    Store (Buffer (One)
+                    {
+                        0x03
+                    }, Arg4)
+                    Return (One)
+                }
+                If (LEqual (Arg2, One))
+                {
+                    Return (One)
+                }
+            }
+        }
+        Store (Buffer (One)
+        {
+            0x00
+        }, Arg4)
+        Return (Zero)
+    }
 }
 

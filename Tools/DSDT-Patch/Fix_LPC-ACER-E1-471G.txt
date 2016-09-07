@@ -14,7 +14,7 @@ Method (_DSM, 4, NotSerialized)\n
     Return (Package()\n
     {\n
         "device-id", Buffer() { 0x57, 0x1e, 0x00, 0x00 },\n
-        "compatible", "pci8086,1e57",\n
+        "compatible", "pci8086,1e57"\n
     })\n
 }\n
 end;

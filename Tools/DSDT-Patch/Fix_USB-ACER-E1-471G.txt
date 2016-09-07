@@ -1,5 +1,5 @@
 # Maintained by: Matthew
-# Fix_Sata.txt
+# Fix_USB.txt
 
 # EHC1, EH01
 
@@ -10,7 +10,8 @@ begin
 Name (_PRW, Package (0x02) { 0x0D, 0x03 })\n
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x0F)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer (One){ 0x03 }) }\n
+    Return (Package (0x04)\n
     {\n
         "device-id", Buffer (0x04) { 0x34, 0x3A, 0x00, 0x00 }, \n 
         "built-in", Buffer (0x01) {0x01}, \n
@@ -20,9 +21,7 @@ Method (_DSM, 4, NotSerialized)\n
         "AAPL,current-extra", 0x03E8, \n
         "AAPL,current-in-sleep", 0x0BB8, \n
         Buffer (0x01) { 0x00 } \n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }\n
 end;
 
@@ -35,7 +34,8 @@ begin
 Name (_PRW, Package (0x02) { 0x0D, 0x03 })\n
 Method (_DSM, 4, NotSerialized)\n
 {\n
-    Store (Package (0x0F)\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer (One){ 0x03 }) }\n
+    Return (Package (0x04)\n
     {\n
         "device-id", Buffer (0x04) { 0x37, 0x3A, 0x00, 0x00 }, \n 
         "built-in", Buffer (0x01) { 0x02 }, \n
@@ -45,8 +45,6 @@ Method (_DSM, 4, NotSerialized)\n
         "AAPL,current-extra", 0x03E8, \n
         "AAPL,current-in-sleep", 0x0BB8, \n
         Buffer (0x01) { 0x00 } \n
-    }, Local0)\n
-    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
-    Return (Local0)\n
+    })\n
 }\n
 end;

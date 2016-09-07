@@ -22,7 +22,7 @@ Method (_DSM, 4, NotSerialized)\n
         "vendor-id", Buffer () {0x86, 0x80, 0x00, 0x00 }, \n
         "subsystem-id", Buffer () {0x32, 0x07, 0x00, 0x00 }, \n
         "subsystem-vendor-id", Buffer () {0x25, 0x10, 0x00, 0x00 }\n
-        "model", Buffer () { "Intel 7 Series Chipset Family SATA Controller" }, \n
+        "model", Buffer () { "Intel 7 Series Chipset Family SATA Controller" } \n
     })\n
 }\n
 end;
