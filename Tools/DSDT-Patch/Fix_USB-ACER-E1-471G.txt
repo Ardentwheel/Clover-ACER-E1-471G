@@ -11,16 +11,10 @@ Name (_PRW, Package (0x02) { 0x0D, 0x03 })\n
 Method (_DSM, 4, NotSerialized)\n
 {\n
     If (LEqual (Arg2, Zero)) { Return (Buffer (One){ 0x03 }) }\n
-    Return (Package (0x04)\n
+    Return (Package ()\n
     {\n
-        "device-id", Buffer (0x04) { 0x34, 0x3A, 0x00, 0x00 }, \n 
-        "built-in", Buffer (0x01) {0x01}, \n
-        "device_type", Buffer (0x05) { "EHCI" }, \n
-        "AAPL,clock-id", Buffer (0x01) { 0x00 }, \n
-        "AAPL,current-available", 0x05DC, \n
-        "AAPL,current-extra", 0x03E8, \n
-        "AAPL,current-in-sleep", 0x0BB8, \n
-        Buffer (0x01) { 0x00 } \n
+        "device-id", Buffer () { 0x26, 0x1e, 0x00, 0x00 }, \n 
+        "AAPL,clock-id", Buffer () { 0x01 }, \n
     })\n
 }\n
 end;
@@ -35,16 +29,10 @@ Name (_PRW, Package (0x02) { 0x0D, 0x03 })\n
 Method (_DSM, 4, NotSerialized)\n
 {\n
     If (LEqual (Arg2, Zero)) { Return (Buffer (One){ 0x03 }) }\n
-    Return (Package (0x04)\n
+    Return (Package ()\n
     {\n
-        "device-id", Buffer (0x04) { 0x37, 0x3A, 0x00, 0x00 }, \n 
-        "built-in", Buffer (0x01) { 0x02 }, \n
-        "device_type", Buffer (0x05) { "EHCI" }, \n
-        "AAPL,clock-id", Buffer (0x01) { 0x00 }, \n
-        "AAPL,current-available", 0x05DC, \n
-        "AAPL,current-extra", 0x03E8, \n
-        "AAPL,current-in-sleep", 0x0BB8, \n
-        Buffer (0x01) { 0x00 } \n
+        "device-id", Buffer () { 0x2d, 0x1e, 0x00, 0x00 }, \n 
+        "AAPL,clock-id", Buffer () { 0x02 }, \n
     })\n
 }\n
 end;

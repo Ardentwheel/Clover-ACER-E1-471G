@@ -18,7 +18,7 @@
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20140926 (538183974)
  */
-DefinitionBlock ("", "SSDT", 1, "APPLE ", "CpuPm", 0x00015600)
+DefinitionBlock ("", "SSDT", 1, "APPLE", "CpuPm", 0x00015600)
 {
     /*
      * External declarations were imported from

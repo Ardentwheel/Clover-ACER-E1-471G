@@ -18,7 +18,7 @@
  *     Compiler ID      "1025"
  *     Compiler Version 0x00040000 (262144)
  */
-DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
+DefinitionBlock ("", "SSDT", 1, "APPLE", "ACRPRDCT", 0x00001000)
 {
     /*
      * iASL Warning: There were 10 external control methods found during
@@ -205,7 +205,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                 "CPU energy", 
                 "RAW"
             })
-            Method (TSDD, 0, NotSerialized)
+            Method (TSDD, 0, Serialized)
             {
                 Name (TMPV, Package (0x17)
                 {
@@ -263,7 +263,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                 Return (TMPV)
             }
 
-            Method (PSDD, 0, NotSerialized)
+            Method (PSDD, 0, Serialized)
             {
                 Name (PWRV, Package (0x06)
                 {
@@ -287,7 +287,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                 Return (PWRV)
             }
 
-            Method (OSDD, 0, NotSerialized)
+            Method (OSDD, 0, Serialized)
             {
                 Name (OSDV, Package (0x02)
                 {
@@ -344,7 +344,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
                 Return (PADD)
             }
 
-            Method (RPMD, 0, NotSerialized)
+            Method (RPMD, 0, Serialized)
             {
                 Name (MTMP, Buffer (0x1A) {})
                 If (\ECON)

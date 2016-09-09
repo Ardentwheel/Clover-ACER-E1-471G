@@ -173,11 +173,9 @@
 		<key>USB</key>
 		<dict>
 			<key>FixOwnership</key>
-			<true/>
-			<key>AddClockID</key>
-			<true/>
+			<false/>
 			<key>Inject</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>DisableDrivers</key>

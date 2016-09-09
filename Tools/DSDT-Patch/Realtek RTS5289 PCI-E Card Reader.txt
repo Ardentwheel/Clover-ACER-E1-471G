@@ -1,0 +1,11 @@
+# Realtek RTS5289 PCI-E Card Reader
+
+Product ID: 0x5289 >> 21129
+Vendor ID: 0x10ec >> 4332
+
+
+
+0x8403
+0x05ac
+
+pci05ac,8403

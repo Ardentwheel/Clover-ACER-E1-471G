@@ -230,6 +230,34 @@
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
 					<key>Codec</key>
+					<string>Mirone - Realtek ALC233/ALC3236</string>
+					<key>CodecID</key>
+					<integer>283902515</integer>
+					<key>ConfigData</key>
+					<data>AUccEAFHHQABRx4XAUcfkAGXHCABlx2QAZceiwGXHwIBtxwwAbcdkAG3HqABtx+QAhccQAIXHUACFx4rAhcfAgFHDAIBtwwC</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>5</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
+					<string>Custom Realtek ALC233 for Asus X550LC</string>
+					<key>CodecID</key>
+					<integer>283902515</integer>
+					<key>ConfigData</key>
+					<data>AaccMAGnHQEBpx6nAacfkAGXHEABlx0QAZcegQGXHwABRxxQAUcdAQFHHhcBRx+QAhccYAIXHRACFx4hAhcfAAFHDAI=</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>12</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
 					<string>Mirone - Realtek ALC235</string>
 					<key>CodecID</key>
 					<integer>283902517</integer>
@@ -815,6 +843,20 @@
 				<dict>
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
+					<key>CodecID</key>
+					<integer>283902608</integer>
+					<key>Comment</key>
+					<string>vusun123 - ALC 290 for Dell Vostro 5480</string>
+					<key>ConfigData</key>
+					<data>AaccQAGnHRABpx6BAacfAQFXHCABVx0QAVceIQFXHwIBRxwQAUcdAQFHHhcBRx+QASccMAEnHQEBJx6gAScfkAFHDAI=</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>28</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
 					<key>Codec</key>
 					<string>Custom ALC292</string>
 					<key>CodecID</key>
@@ -825,6 +867,34 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>12</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>CodecID</key>
+					<integer>283902610</integer>
+					<key>Comment</key>
+					<string>vusun123 - ALC 292 for Lenovo T440</string>
+					<key>ConfigData</key>
+					<data>ASccMAEnHQABJx6gAScfkAFHHEABRx0AAUceFwFHH5ABRwwCAVccUAFXHRABVx4hAVcfAAGnHCABpx0QAacegQGnHwA=</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>28</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
+					<string>Mirone - Realtek ALC298 SP4 - ComboJack</string>
+					<key>CodecID</key>
+					<integer>283902616</integer>
+					<key>ConfigData</key>
+					<data>ASccEAEnHQABJx6gAScfkAFHHCABRx0AAUceFwFHH5ABhxwwAYcdEAGHHoEBhx8CAhccQAIXHRACFx4hAhcfAgFHDAICFwwC</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>3</integer>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>
@@ -1479,6 +1549,48 @@
 				<dict>
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
+					<key>Comment</key>
+					<string>toleda - ALC1150 </string>
+					<key>CodecID</key>
+					<integer>283904256</integer>
+					<key>ConfigData</key>
+					<data>AUccEAFHHUABRx4RAUcfkAFHDAIBVxwgAVcdEAFXHgEBVx8BAWccMAFnHWABZx4BAWcfAQF3HPABdx0AAXceAAF3H0ABhxxAAYcdkAGHHqABhx+QAZccYAGXHZABlx6BAZcfAgGnHFABpx0wAacegQGnHwEBtxxwAbcdQAG3HiEBtx8CAbcMAgHnHJAB5x1hAeceSwHnHwEB9xzwAfcdAAH3HgAB9x9AARcc8AEXHQABFx4AARcfQA==</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Comment</key>
+					<string>toleda - ALC1150 </string>
+					<key>CodecID</key>
+					<integer>283904256</integer>
+					<key>ConfigData</key>
+					<data>AUccEAFHHUABRx4RAUcfkAFHDAIBVxzwAVcdAAFXHgABVx9AAWcc8AFnHQABZx4AAWcfQAF3HPABdx0AAXceAAF3H0ABhxxAAYcdYAGHHgEBhx8BAZccYAGXHZABlx6gAZcfkAGnHFABpx0QAaceAQGnHwEBtxxwAbcdQAG3HiEBtx8CAbcMAgHnHJAB5x1hAeceSwHnHwEB9xzwAfcdAAH3HgAB9x9AARcc8AEXHQABFx4AARcfQA==</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>2</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Comment</key>
+					<string>toleda - ALC1150 </string>
+					<key>CodecID</key>
+					<integer>283904256</integer>
+					<key>ConfigData</key>
+					<data>AUccEAFHHUABRx4RAUcfkAFXHCABVx0QAVceAQFXHwEBZxzwAWcdAAFnHgABZx9AAXcc8AF3HQABdx4AAXcfQAGHHEABhx2QAYceoAGHH5ABlxxgAZcdkAGXHoEBlx8CAaccUAGnHTABpx6BAacfAQG3HHABtx1AAbceIQG3HwIB5xyQAecdYQHnHksB5x8BAfcc8AH3HQAB9x4AAfcfQAEXHPABFx0AARceAAEXH0A=</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>3</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
 					<key>Codec</key>
 					<string>Mirone - Realtek ALC1150</string>
 					<key>CodecID</key>
@@ -1599,6 +1711,20 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>12</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>CodecID</key>
+					<integer>351359086</integer>
+					<key>Comment</key>
+					<string>Custom for Dell Vostro 3x60 by vusun123</string>
+					<key>ConfigData</key>
+					<data>AfccEAH3HQAB9x4XAfcfkQGnHDABpx0QAacegQGnHwkBlxxAAZcdEAGXHiEBlx8AAjccIAI3HQECNx6nAjcfkAG3DAIB1wwC</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>28</integer>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>
@@ -1756,6 +1882,20 @@
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
 					<key>Codec</key>
+					<string>Mirone - IDT 92HD81B1C5</string>
+					<key>CodecID</key>
+					<integer>287143637</integer>
+					<key>ConfigData</key>
+					<data>AKccIACnHRAApx6BAKcfAgC3HDAAtx0QALceIQC3HwIA1xxAANcdAADXHhcA1x+QARccUAEXHQABFx6gARcfkA==</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>3</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
 					<string>Mirone - IDT 92HD81B1X5</string>
 					<key>CodecID</key>
 					<integer>287143429</integer>
@@ -1765,6 +1905,20 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>3</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
+					<string>RehabMan - IDT 92HD81B1X5</string>
+					<key>CodecID</key>
+					<integer>287143429</integer>
+					<key>ConfigData</key>
+					<data>AMcegQDHHwMBFx6gARcfkA==</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>12</integer>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>

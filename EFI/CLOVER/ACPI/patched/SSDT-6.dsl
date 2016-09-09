@@ -18,7 +18,7 @@
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20160422 (538313762)
  */
-DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
+DefinitionBlock ("", "SSDT", 1, "APPLE", "ACRPRDCT", 0x00001000)
 {
     /*
      * External declarations were imported from
@@ -1512,7 +1512,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
             }
         }
 
-        Method (GOBT, 1, NotSerialized)
+        Method (GOBT, 1, Serialized)
         {
             Name (OPVK, Buffer (0xE2)
             {
@@ -1587,7 +1587,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00001000)
             }
         }
 
-        Method (_ROM, 2, NotSerialized)  // _ROM: Read-Only Memory
+        Method (_ROM, 2, Serialized)  // _ROM: Read-Only Memory
         {
             Store (Arg0, Local0)
             Store (Arg1, Local1)

@@ -18,7 +18,7 @@
  *     Compiler ID      "1025"
  *     Compiler Version 0x00040000 (262144)
  */
-DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
+DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
 {
     /*
      * iASL Warning: There were 15 external control methods found during
@@ -73,6 +73,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
     External (PDC6, UnknownObj)    // Warning: Unknown object
     External (PDC7, UnknownObj)    // Warning: Unknown object
     External (TNOT, MethodObj)    // Warning: Unknown method, guessing 0 arguments
+    External (XOSI, MethodObj)    // 1 Arguments (from opcode)
 
     Name (SS1, Zero)
     Name (SS2, Zero)
@@ -1495,7 +1496,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 {
                     Return (^XHC.POSC (Arg1, Arg2, Arg3))
                 }
-                ElseIf (_OSI ("Windows 2012"))
+                ElseIf (XOSI ("Windows 2012"))
                 {
                     If (LEqual (XCNT, Zero))
                     {
@@ -5723,45 +5724,45 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
             Store (0x07D0, OSYS)
-            If (CondRefOf (\_OSI, Local0))
+            If (CondRefOf (\XOSI, Local0))
             {
-                If (_OSI ("Linux"))
+                If (XOSI ("Linux"))
                 {
                     Store (0x03E8, OSYS)
                     Store (One, LINX)
                 }
 
-                If (_OSI ("Windows 2001"))
+                If (XOSI ("Windows 2001"))
                 {
                     Store (0x07D1, OSYS)
                 }
 
-                If (_OSI ("Windows 2001 SP1"))
+                If (XOSI ("Windows 2001 SP1"))
                 {
                     Store (0x07D1, OSYS)
                 }
 
-                If (_OSI ("Windows 2001 SP2"))
+                If (XOSI ("Windows 2001 SP2"))
                 {
                     Store (0x07D2, OSYS)
                 }
 
-                If (_OSI ("Windows 2001.1"))
+                If (XOSI ("Windows 2001.1"))
                 {
                     Store (0x07D3, OSYS)
                 }
 
-                If (_OSI ("Windows 2006"))
+                If (XOSI ("Windows 2006"))
                 {
                     Store (0x07D6, OSYS)
                 }
 
-                If (_OSI ("Windows 2009"))
+                If (XOSI ("Windows 2009"))
                 {
                     Store (0x07D9, OSYS)
                 }
 
-                If (_OSI ("Windows 2012"))
+                If (XOSI ("Windows 2012"))
                 {
                     Store (0x07DC, OSYS)
                 }
@@ -6381,7 +6382,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             Return (Local0)
         }
 
-        Method (SPIO, 3, NotSerialized)
+        Method (SPIO, 3, Serialized)
         {
             Name (PBUF, Buffer (0x05)
             {
@@ -6434,7 +6435,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
             Return (PBUF)
         }
 
-        Method (SDMA, 3, NotSerialized)
+        Method (SDMA, 3, Serialized)
         {
             Name (PBUF, Buffer (0x05)
             {
@@ -6713,12 +6714,18 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     }
                 }
             }
-
-            Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
+            Name (_PRW, Package (0x02) { 0x0D, 0x03 })
+            Method (_DSM, 4, NotSerialized)
             {
-                0x0D, 
-                0x03
-            })
+                If (LEqual (Arg2, Zero)) { Return (Buffer (One){ 0x03 }) }
+                Return (Package ()
+                {
+                    "device-id", Buffer () { 0x26, 0x1e, 0x00, 0x00 },
+                    "AAPL,clock-id", Buffer () { 0x01 },
+                })
+            }
+
+            
         }
 
         Device (EHC2)
@@ -6882,12 +6889,18 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                     }
                 }
             }
-
-            Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
+            Name (_PRW, Package (0x02) { 0x0D, 0x03 })
+            Method (_DSM, 4, NotSerialized)
             {
-                0x0D, 
-                0x03
-            })
+                If (LEqual (Arg2, Zero)) { Return (Buffer (One){ 0x03 }) }
+                Return (Package ()
+                {
+                    "device-id", Buffer () { 0x2d, 0x1e, 0x00, 0x00 },
+                    "AAPL,clock-id", Buffer () { 0x02 },
+                })
+            }
+
+            
         }
 
         Device (XHC)
@@ -9244,7 +9257,7 @@ DefinitionBlock ("", "DSDT", 1, "ACRSYS", "ACRPRDCT", 0x00000000)
                 }
             }
 
-            Method (_DOD, 0, NotSerialized)  // _DOD: Display Output Devices
+            Method (_DOD, 0, Serialized)  // _DOD: Display Output Devices
             {
                 If (Zero)
                 {

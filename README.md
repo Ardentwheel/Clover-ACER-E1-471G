@@ -8,6 +8,7 @@
  - NVIDIA GeForce 710M (1 GB)
  - Realtek ALC269
  - Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter
+ - Realtek RTS5289 PCI-E Card Reader
 
 ---
 
@@ -26,9 +27,9 @@
 - [x] Usb (Built In)
 - [x] Sleep From (PowerButton-Hols 2 seconds)
 - [x] Sleep From (Lid)
-- [x] Wake Up (Usb Driver)
+- [x] Wake Up (Usb Device)(Can not wake when lid have been closed)
 - [ ] Wake Up (PS/2 Keyboard)
-- [x] Wake Up (Lid)
+- [ ] Wake Up (Lid)
 - [x] Power Nap
 - [ ] VGA
 

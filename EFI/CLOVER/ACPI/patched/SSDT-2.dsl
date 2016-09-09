@@ -18,7 +18,7 @@
  *     Compiler ID      "1025"
  *     Compiler Version 0x00040000 (262144)
  */
-DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
+DefinitionBlock ("", "SSDT", 1, "APPLE", "ACRPRDCT", 0x00003000)
 {
     /*
      * External declarations were imported from
@@ -128,7 +128,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
             Return (Local0)
         }
 
-        Method (CPDC, 1, NotSerialized)
+        Method (CPDC, 1, Serialized)
         {
             CreateDWordField (Arg0, Zero, REVS)
             CreateDWordField (Arg0, 0x04, SIZE)
@@ -143,7 +143,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
             Return (COSC (ToUUID ("4077a616-290c-47be-9ebd-d87058713953"), REVS, SIZE, Local2))
         }
 
-        Method (COSC, 4, NotSerialized)
+        Method (COSC, 4, Serialized)
         {
             CreateDWordField (Arg3, Zero, STS0)
             CreateDWordField (Arg3, 0x04, CAP0)
@@ -171,7 +171,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
             Return (Arg3)
         }
 
-        Method (GCAP, 1, NotSerialized)
+        Method (GCAP, 1, Serialized)
         {
             CreateDWordField (Arg0, Zero, STS0)
             CreateDWordField (Arg0, 0x04, CAP0)
@@ -249,7 +249,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
             Return (Zero)
         }
 
-        Method (APCT, 0, NotSerialized)
+        Method (APCT, 0, Serialized)
         {
             If (LAnd (And (CFGD, 0x2E), LNot (And (SDTL, 0x20))))
             {
@@ -259,7 +259,7 @@ DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
             }
         }
 
-        Method (APPT, 0, NotSerialized)
+        Method (APPT, 0, Serialized)
         {
             If (LAnd (And (CFGD, One), LNot (And (SDTL, 0x10))))
             {

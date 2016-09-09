@@ -18,7 +18,7 @@
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20160422 (538313762)
  */
-DefinitionBlock ("", "SSDT", 1, "ACRSYS", "ACRPRDCT", 0x00003000)
+DefinitionBlock ("", "SSDT", 1, "APPLE", "ACRPRDCT", 0x00003000)
 {
     /*
      * External declarations were imported from
