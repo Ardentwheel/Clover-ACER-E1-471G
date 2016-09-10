@@ -1,5 +1,6 @@
-#Maintained by: Matthew
-#Fix-Hotkey-Brightness-ACER-E1-471G.txt
+# Maintained by: Matthew
+# Reference From https://github.com/RehabMan/Laptop-DSDT-Patch
+# Fix-Hotkey-Brightness-ACER-E1-471G.txt
 
 
 into method label _Q8F insert

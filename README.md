@@ -1,6 +1,8 @@
 # Clover EFI For ACER Aspire E1-471g(-53234G50Mnks)
 
 
+ - [Geekbench Score] (http://htmlpreview.github.io/?https://raw.githubusercontent.com/matthew728960/Clover-ACER-E1-471G/master/Geekbench-Score/ACER-E1-471G.html)
+ - Clover EFI Bootloader v2.3k r3726 
  - Intel Core i5-3230M 
  - ACER EA40_HC   ( HM77, Intel Ivy Bridge )
  - Memory 12.0 GB 1600 MHz DDR3
@@ -8,6 +10,7 @@
  - NVIDIA GeForce 710M (1 GB)
  - Realtek ALC269
  - Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter
+ - Atheros AR9462/AR5BWB222 Wireless Network Adapter
  - Realtek RTS5289 PCI-E Card Reader
 
 ---
@@ -19,8 +22,8 @@
 - [x] Battery Management
 - [x] Backlight
 - [x] Wried Network (Built In)
-- [ ] Wireless Network
-- [ ] Bluetooth
+- [x] Wireless Network (Buggy)
+- [x] Bluetooth (Buggy)
 - [x] WebCam
 - [ ] SDHC CardReader
 - [x] Fn
@@ -70,4 +73,4 @@ If you were using UEFI, delete boot drivers32 drivers64 folder is recommend.
 
   - [Clover-Wiki](https://clover-wiki.zetam.org)
   - [Speed-Up-Restart](http://www.yekki.me/speed-up-restart/) 
-  - [Wireless-AR5B22](https://github.com/matthew728960/Clover-ACER-E1-471G/raw/master/Tools/AR5B22/IO80211Family.kext_AR9462_10.11.6.zip) (Buggy, see [install-mac-os-x-on-chromebook-c720](http://www.omgchrome.com/install-mac-os-x-on-chromebook-c720/)) 
+  - [Wireless-AR5B22](https://github.com/matthew728960/Clover-ACER-E1-471G/raw/master/Tools/AR5B22) (Buggy, see [install-mac-os-x-on-chromebook-c720](http://www.omgchrome.com/install-mac-os-x-on-chromebook-c720/)) 

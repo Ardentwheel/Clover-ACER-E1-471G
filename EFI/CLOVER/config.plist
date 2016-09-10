@@ -249,6 +249,18 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>BT4.0 HandOff &amp;amp; Hotspot</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Name</key>
+				<string>IOBluetoothFamily</string>
+				<key>Find</key>
+				<data>i4eMAQAA</data>
+				<key>Replace</key>
+				<data>uA8AAACQ</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>HDMI-audio HD4000 0x01660003, port 0205</string>
 				<key>Disabled</key>
 				<false/>

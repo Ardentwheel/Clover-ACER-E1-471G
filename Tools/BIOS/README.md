@@ -1,10 +1,10 @@
 # Upgrade Acer Aspire E1-471G To UEFI BIOS
----
+
 
 ### Requirements
 - A USB Device
-- UEFI BOIS File 2.07(ZQS.FD) - [Download]
-- UEFI BOIS File 2.18 - [Official] / [Mirror]
+- UEFI BOIS File v2.07(ZQS.FD) - [Download]
+- UEFI BOIS File v2.18 - [Official] / [Mirror]
 
 ### STEP
 1. Format USB disk to FAT32

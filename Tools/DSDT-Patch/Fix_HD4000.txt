@@ -1,4 +1,5 @@
 # Maintained by: Matthew
+# Reference From https://github.com/RehabMan/Laptop-DSDT-Patch
 # Fix_HD4000.txt
 # For 1336x768 Only
 

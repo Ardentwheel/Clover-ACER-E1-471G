@@ -1,5 +1,5 @@
 # Maintained by: Matthew
-# Fix_Airport.txt
+# Fix_Airport-ACER-E1-471G.txt
 
 into device label PXSX parent_adr 0x001C0007 set_label begin ARPT end;
 into device label ARPT parent_adr 0x001C0007 replace_content begin

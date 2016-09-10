@@ -53,6 +53,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PEG0.LNKD, FieldUnitObj)
+    External (_SB_.PCI0.PEG0.PEGP._OFF, MethodObj)
     External (_SB_.PCI0.PEG0.PEGP.BRNV, MethodObj)    // Warning: Unknown method, guessing 1 arguments
     External (_SB_.PCI0.PEG0.PEGP.DD01, UnknownObj)
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
@@ -2269,6 +2270,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                             Store (One, CPLE)
                             Release (MUT1)
                         }
+                        If (LAnd (LEqual (Arg0, 0x03), LEqual (Arg1, One))) { ^^^PEG0.PEGP._OFF () }
                     }
 
                     OperationRegion (VERM, EmbeddedControl, Zero, 0xFF)

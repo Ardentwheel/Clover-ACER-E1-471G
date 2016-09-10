@@ -1,0 +1,12 @@
+# Maintained by: Matthew
+# Disable_Nvidia-ACER-E1-471G.txt
+
+
+# External (_SB_.PCI0.PEG0.PEGP._OFF, MethodObj)
+
+
+into method label _REG insert
+begin
+If (LAnd (LEqual (Arg0, 0x03), LEqual (Arg1, One))) { ^^^PEG0.PEGP._OFF () }\n
+end;
+

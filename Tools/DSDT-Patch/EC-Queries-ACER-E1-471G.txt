@@ -1,0 +1,35 @@
+# Maintained by: Matthew
+# EC-Queries-ACER-E1-471G.txt
+
+_Q8F //Fn+Left Arrow
+_Q8E //Fn+Right Arrow
+_Q9C //Lid Opened (LID0._LID return 0x1)
+_Q9B //Lid Closed (LID0._LID return 0x0)
+
+_Q90 //Fn+F3 (WiFi/Bluetool Off)
+_Q93 //Fn+F3 (WiFi/Bluetool Off)
+_Q92 //Fn+F3 (WiFi/Bluetool On)
+_Q0E //Fn+F5 
+_Q0F //Fn+F5
+_Q9E //Fn+F6 (Screen Off)
+_Q9D //Fn+F6 (Screen On)
+_Q06 //Fn+F7 (Enable Trackpad)
+_Q05 //Fn+F7 (Disable Trackpad)
+_Q20 //AC Adapter Plug-in/out
+_Q85 //Using Battery maybe？
+_QA6 //HDMI Plug-in
+
+
+e037 //PrtSc SysRq
+e045 //Pause Break
+e052 //Ins
+e053 //Del
+e047 //Home
+e049 //Page Up
+e051 //Page down
+e04f //End
+e034 //$
+e033 //€
+
+
+
