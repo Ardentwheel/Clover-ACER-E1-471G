@@ -2195,7 +2195,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     RCBA,   18
                 }
 
-                Device (EC0)
+                Device (EC)
                 {
                     Name (_HID, EisaId ("PNP0C09"))  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
@@ -4101,33 +4101,33 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     Store (Zero, Local0)
                     If (LEqual (DerefOf (Index (FEBC, One)), One))
                     {
-                        If (LEqual (^^LPCB.EC0.WLAN, One))
+                        If (LEqual (^^LPCB.EC.WLAN, One))
                         {
-                            If (LEqual (^^LPCB.EC0.WLST, One))
+                            If (LEqual (^^LPCB.EC.WLST, One))
                             {
                                 Or (Local0, One, Local0)
                             }
                         }
 
-                        If (LEqual (^^LPCB.EC0.ST3G, One))
+                        If (LEqual (^^LPCB.EC.ST3G, One))
                         {
-                            If (LEqual (^^LPCB.EC0.ED3G, One))
+                            If (LEqual (^^LPCB.EC.ED3G, One))
                             {
                                 Or (Local0, 0x40, Local0)
                             }
                         }
 
-                        If (LEqual (^^LPCB.EC0.WIMX, One))
+                        If (LEqual (^^LPCB.EC.WIMX, One))
                         {
-                            If (LEqual (^^LPCB.EC0.WLST, One))
+                            If (LEqual (^^LPCB.EC.WLST, One))
                             {
                                 Or (Local0, 0x80, Local0)
                             }
                         }
 
-                        If (LEqual (^^LPCB.EC0.BLTH, One))
+                        If (LEqual (^^LPCB.EC.BLTH, One))
                         {
-                            If (LEqual (^^LPCB.EC0.BLTS, One))
+                            If (LEqual (^^LPCB.EC.BLTS, One))
                             {
                                 Or (Local0, 0x0800, Local0)
                             }
@@ -4135,7 +4135,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     }
                     ElseIf (LEqual (DerefOf (Index (FEBC, One)), 0x02))
                     {
-                        If (LEqual (^^LPCB.EC0.RFST, One))
+                        If (LEqual (^^LPCB.EC.RFST, One))
                         {
                             Or (Local0, 0x4000, Local0)
                         }
@@ -4148,22 +4148,22 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                 Method (GOTS, 1, NotSerialized)
                 {
                     Store (Zero, Local0)
-                    If (LEqual (^^LPCB.EC0.ODST, Zero))
+                    If (LEqual (^^LPCB.EC.ODST, Zero))
                     {
                         Or (Local0, One, Local0)
                     }
 
-                    If (LEqual (^^LPCB.EC0.TOHP, Zero))
+                    If (LEqual (^^LPCB.EC.TOHP, Zero))
                     {
                         Or (Local0, 0x02, Local0)
                     }
 
-                    If (LEqual (^^LPCB.EC0.KBBL, Zero))
+                    If (LEqual (^^LPCB.EC.KBBL, Zero))
                     {
                         Or (Local0, 0x08, Local0)
                     }
 
-                    If (LEqual (^^LPCB.EC0.BBST, Zero))
+                    If (LEqual (^^LPCB.EC.BBST, Zero))
                     {
                         Or (Local0, 0x10, Local0)
                     }
@@ -4177,7 +4177,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     Store (Zero, Local0)
                     If (LEqual (LINX, One))
                     {
-                        Store (^^LPCB.EC0.BLVL, Local0)
+                        Store (^^LPCB.EC.BLVL, Local0)
                         Increment (Local0)
                         Multiply (Local0, 0x0A, Local0)
                     }
@@ -4210,7 +4210,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                 Method (GDPS, 1, NotSerialized)
                 {
                     Store (Zero, Local0)
-                    If (LEqual (^^LPCB.EC0.DPBL, One))
+                    If (LEqual (^^LPCB.EC.DPBL, One))
                     {
                         Or (Local0, 0x04, Local0)
                     }
@@ -5410,12 +5410,12 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
         {
             P8XH (0x04, 0x54, Zero)
             P8XH (0x04, 0x54, One)
-            Store (One, \_SB.PCI0.LPCB.EC0.FLS4)
+            Store (One, \_SB.PCI0.LPCB.EC.FLS4)
         }
 
-        Store (\_SB.PCI0.LPCB.EC0.WLST, \_SB.RDWL)
-        Store (\_SB.PCI0.LPCB.EC0.BLTS, \_SB.RDBT)
-        Store (\_SB.PCI0.LPCB.EC0.ED3G, \_SB.RD3G)
+        Store (\_SB.PCI0.LPCB.EC.WLST, \_SB.RDWL)
+        Store (\_SB.PCI0.LPCB.EC.BLTS, \_SB.RDBT)
+        Store (\_SB.PCI0.LPCB.EC.ED3G, \_SB.RD3G)
         If (LEqual (OSYS, 0x07DC))
         {
             Store (\_SB.PCI0.XHC.PR2, UPR2)
@@ -5438,7 +5438,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
         Store (Zero, P80D)
         If (IGDS)
         {
-            If (\_SB.PCI0.LPCB.EC0.LIDT)
+            If (\_SB.PCI0.LPCB.EC.LIDT)
             {
                 Store (Zero, LIDS)
                 Store (Zero, \_SB.PCI0.IGPU.CLID)
@@ -5452,11 +5452,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
 
         If (LAnd (LEqual (OSYS, 0x07DC), LEqual (LINX, Zero)))
         {
-            Store (One, \_SB.PCI0.LPCB.EC0.OSW8)
+            Store (One, \_SB.PCI0.LPCB.EC.OSW8)
         }
         Else
         {
-            Store (Zero, \_SB.PCI0.LPCB.EC0.OSW8)
+            Store (Zero, \_SB.PCI0.LPCB.EC.OSW8)
         }
 
         If (NEXP)
@@ -5477,7 +5477,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             P8XH (0x04, 0xE3, Zero)
             P8XH (0x04, 0xE3, One)
             Store (0x70, SSMP)
-            If (LNot (LOr (LEqual (\_SB.PCI0.LPCB.EC0.ECPF, One), LEqual (\_SB.PCI0.LPCB.EC0.ECPF, 0x0A))))
+            If (LNot (LOr (LEqual (\_SB.PCI0.LPCB.EC.ECPF, One), LEqual (\_SB.PCI0.LPCB.EC.ECPF, 0x0A))))
             {
                 Notify (\_SB.PWRB, 0x02)
             }
@@ -5558,13 +5558,13 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             }
 
             Store (One, \_SB.CTBS)
-            \_SB.PCI0.LPCB.EC0.TCTB ()
+            \_SB.PCI0.LPCB.EC.TCTB ()
         }
 
-        Store (\_SB.RDWL, \_SB.PCI0.LPCB.EC0.WLST)
-        Store (\_SB.RDBT, \_SB.PCI0.LPCB.EC0.BLTS)
-        Store (\_SB.RD3G, \_SB.PCI0.LPCB.EC0.ED3G)
-        Store (One, \_SB.PCI0.LPCB.EC0.CPLE)
+        Store (\_SB.RDWL, \_SB.PCI0.LPCB.EC.WLST)
+        Store (\_SB.RDBT, \_SB.PCI0.LPCB.EC.BLTS)
+        Store (\_SB.RD3G, \_SB.PCI0.LPCB.EC.ED3G)
+        Store (One, \_SB.PCI0.LPCB.EC.CPLE)
         If (LEqual (OSYS, 0x07DC))
         {
             Store (UPR2, \_SB.PCI0.XHC.PR2)
@@ -9109,13 +9109,13 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         }
                         ElseIf (LEqual (T_0, 0x02))
                         {
-                            ^^^LPCB.EC0.ECMD (0x66)
+                            ^^^LPCB.EC.ECMD (0x66)
                             Sleep (0x03E8)
                             Return (One)
                         }
                         ElseIf (LEqual (T_0, 0x03))
                         {
-                            ^^^LPCB.EC0.ECMD (0x65)
+                            ^^^LPCB.EC.ECMD (0x65)
                             Sleep (0x03E8)
                             Return (One)
                         }
@@ -9243,7 +9243,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                 CRBL ()
                 If (LLess (OSYS, 0x07D6))
                 {
-                    Store (0x09, ^^LPCB.EC0.BLVL)
+                    Store (0x09, ^^LPCB.EC.BLVL)
                 }
             }
 
@@ -11122,13 +11122,13 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             Name (ACWT, Zero)
             Method (_INI, 0, NotSerialized)  // _INI: Initialize
             {
-                If (LEqual (^^PCI0.LPCB.EC0.SIMU, 0x53))
+                If (LEqual (^^PCI0.LPCB.EC.SIMU, 0x53))
                 {
                     Store (Zero, ACST)
                 }
                 ElseIf (ECOK)
                 {
-                    Store (^^PCI0.LPCB.EC0.ACDF, ACST)
+                    Store (^^PCI0.LPCB.EC.ACDF, ACST)
                 }
                 Else
                 {
@@ -11141,13 +11141,13 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             Method (_PSR, 0, NotSerialized)  // _PSR: Power Source
             {
                 Store (ACST, ACWT)
-                If (LEqual (^^PCI0.LPCB.EC0.SIMU, 0x53))
+                If (LEqual (^^PCI0.LPCB.EC.SIMU, 0x53))
                 {
                     Store (Zero, ACST)
                 }
                 ElseIf (ECOK)
                 {
-                    Store (^^PCI0.LPCB.EC0.ACDF, ACST)
+                    Store (^^PCI0.LPCB.EC.ACDF, ACST)
                 }
                 Else
                 {
@@ -11226,7 +11226,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             {
                 If (ECOK)
                 {
-                    If (^^PCI0.LPCB.EC0.MBTS)
+                    If (^^PCI0.LPCB.EC.MBTS)
                     {
                         Return (0x1F)
                     }
@@ -11245,7 +11245,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             {
                 If (ECOK)
                 {
-                    If (^^PCI0.LPCB.EC0.MBTS)
+                    If (^^PCI0.LPCB.EC.MBTS)
                     {
                         UBIF ()
                     }
@@ -11261,15 +11261,15 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                 Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (ECOK)
                 {
-                    Acquire (^^PCI0.LPCB.EC0.MUT1, 0xFFFF)
-                    Store (^^PCI0.LPCB.EC0.BTDC, Local0)
-                    Store (^^PCI0.LPCB.EC0.LFCC, Local1)
-                    Store (^^PCI0.LPCB.EC0.BTDV, Local2)
-                    Store (^^PCI0.LPCB.EC0.BTMD, Local3)
-                    Store (^^PCI0.LPCB.EC0.BTMN, Local4)
-                    Store (^^PCI0.LPCB.EC0.BTSN, Local5)
-                    Store (^^PCI0.LPCB.EC0.LION, Local6)
-                    Release (^^PCI0.LPCB.EC0.MUT1)
+                    Acquire (^^PCI0.LPCB.EC.MUT1, 0xFFFF)
+                    Store (^^PCI0.LPCB.EC.BTDC, Local0)
+                    Store (^^PCI0.LPCB.EC.LFCC, Local1)
+                    Store (^^PCI0.LPCB.EC.BTDV, Local2)
+                    Store (^^PCI0.LPCB.EC.BTMD, Local3)
+                    Store (^^PCI0.LPCB.EC.BTMN, Local4)
+                    Store (^^PCI0.LPCB.EC.BTSN, Local5)
+                    Store (^^PCI0.LPCB.EC.LION, Local6)
+                    Release (^^PCI0.LPCB.EC.MUT1)
                     Store (Local0, Index (PBIF, One))
                     Store (Local1, Index (PBIF, 0x02))
                     Store (Local2, Index (PBIF, 0x04))
@@ -11397,7 +11397,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             {
                 If (ECOK)
                 {
-                    Store (^^PCI0.LPCB.EC0.MBTS, Local0)
+                    Store (^^PCI0.LPCB.EC.MBTS, Local0)
                     If (LEqual (Local0, Zero))
                     {
                         Store (Zero, Index (PBST, Zero))
@@ -11408,14 +11408,14 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         Return (PBST)
                     }
 
-                    Store (^^PCI0.LPCB.EC0.MBRM, Local1)
+                    Store (^^PCI0.LPCB.EC.MBRM, Local1)
                     Store (Local1, Index (PBST, 0x02))
                     Store (Local1, RCAP)
-                    Store (^^PCI0.LPCB.EC0.MCUR, Local3)
+                    Store (^^PCI0.LPCB.EC.MCUR, Local3)
                     Store (POSW (Local3), Index (PBST, One))
                     If (LNotEqual (Local3, Zero))
                     {
-                        If (^^PCI0.LPCB.EC0.MBPC)
+                        If (^^PCI0.LPCB.EC.MBPC)
                         {
                             Store (0x02, Index (PBST, Zero))
                         }
@@ -11429,7 +11429,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         Store (Zero, Index (PBST, Zero))
                     }
 
-                    Store (^^PCI0.LPCB.EC0.MBVG, Index (PBST, 0x03))
+                    Store (^^PCI0.LPCB.EC.MBVG, Index (PBST, 0x03))
                 }
                 Else
                 {
@@ -11452,7 +11452,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             Name (_HID, EisaId ("PNP0C0D"))  // _HID: Hardware ID
             Method (_LID, 0, NotSerialized)  // _LID: Lid Status
             {
-                If (^^PCI0.LPCB.EC0.LIDT)
+                If (^^PCI0.LPCB.EC.LIDT)
                 {
                     Return (Zero)
                 }
@@ -11472,7 +11472,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             {
                 If (\_SB.ECOK)
                 {
-                    Store (\_SB.PCI0.LPCB.EC0.CTMP, Local0)
+                    Store (\_SB.PCI0.LPCB.EC.CTMP, Local0)
                     Return (Add (Multiply (Local0, 0x0A), 0x0AAC))
                 }
                 Else
@@ -11483,15 +11483,15 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
 
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
-                If (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, Zero))
+                If (LEqual (\_SB.PCI0.LPCB.EC.TJMX, Zero))
                 {
                     Return (0x0F5C)
                 }
-                ElseIf (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, One))
+                ElseIf (LEqual (\_SB.PCI0.LPCB.EC.TJMX, One))
                 {
                     Return (0x0F5C)
                 }
-                ElseIf (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, 0x02))
+                ElseIf (LEqual (\_SB.PCI0.LPCB.EC.TJMX, 0x02))
                 {
                     Return (0x0F5C)
                 }
@@ -11510,15 +11510,15 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             Name (_TC2, 0x03)  // _TC2: Thermal Constant 2
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
-                If (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, Zero))
+                If (LEqual (\_SB.PCI0.LPCB.EC.TJMX, Zero))
                 {
                     Return (0x0DEA)
                 }
-                ElseIf (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, One))
+                ElseIf (LEqual (\_SB.PCI0.LPCB.EC.TJMX, One))
                 {
                     Return (0x0E1C)
                 }
-                ElseIf (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, 0x02))
+                ElseIf (LEqual (\_SB.PCI0.LPCB.EC.TJMX, 0x02))
                 {
                     Return (0x0E80)
                 }
@@ -11539,26 +11539,26 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
         })
         Method (CRBL, 0, NotSerialized)
         {
-            Store (^LPCB.EC0.BCL0, Index (PNLT, Zero))
-            Store (^LPCB.EC0.BCL1, Index (PNLT, One))
-            Store (^LPCB.EC0.BCL2, Index (PNLT, 0x02))
-            Store (^LPCB.EC0.BCL3, Index (PNLT, 0x03))
-            Store (^LPCB.EC0.BCL4, Index (PNLT, 0x04))
-            Store (^LPCB.EC0.BCL5, Index (PNLT, 0x05))
-            Store (^LPCB.EC0.BCL6, Index (PNLT, 0x06))
-            Store (^LPCB.EC0.BCL7, Index (PNLT, 0x07))
-            Store (^LPCB.EC0.BCL8, Index (PNLT, 0x08))
-            Store (^LPCB.EC0.BCL9, Index (PNLT, 0x09))
-            Store (Or (^LPCB.EC0.BCL0, 0x8A00), ^IGPU.BLM0)
-            Store (Or (^LPCB.EC0.BCL1, 0x9400), ^IGPU.BLM1)
-            Store (Or (^LPCB.EC0.BCL2, 0x9E00), ^IGPU.BLM2)
-            Store (Or (^LPCB.EC0.BCL3, 0xA800), ^IGPU.BLM3)
-            Store (Or (^LPCB.EC0.BCL4, 0xB200), ^IGPU.BLM4)
-            Store (Or (^LPCB.EC0.BCL5, 0xBC00), ^IGPU.BLM5)
-            Store (Or (^LPCB.EC0.BCL6, 0xC600), ^IGPU.BLM6)
-            Store (Or (^LPCB.EC0.BCL7, 0xD000), ^IGPU.BLM7)
-            Store (Or (^LPCB.EC0.BCL8, 0xDA00), ^IGPU.BLM8)
-            Store (Or (^LPCB.EC0.BCL9, 0xE400), ^IGPU.BLM9)
+            Store (^LPCB.EC.BCL0, Index (PNLT, Zero))
+            Store (^LPCB.EC.BCL1, Index (PNLT, One))
+            Store (^LPCB.EC.BCL2, Index (PNLT, 0x02))
+            Store (^LPCB.EC.BCL3, Index (PNLT, 0x03))
+            Store (^LPCB.EC.BCL4, Index (PNLT, 0x04))
+            Store (^LPCB.EC.BCL5, Index (PNLT, 0x05))
+            Store (^LPCB.EC.BCL6, Index (PNLT, 0x06))
+            Store (^LPCB.EC.BCL7, Index (PNLT, 0x07))
+            Store (^LPCB.EC.BCL8, Index (PNLT, 0x08))
+            Store (^LPCB.EC.BCL9, Index (PNLT, 0x09))
+            Store (Or (^LPCB.EC.BCL0, 0x8A00), ^IGPU.BLM0)
+            Store (Or (^LPCB.EC.BCL1, 0x9400), ^IGPU.BLM1)
+            Store (Or (^LPCB.EC.BCL2, 0x9E00), ^IGPU.BLM2)
+            Store (Or (^LPCB.EC.BCL3, 0xA800), ^IGPU.BLM3)
+            Store (Or (^LPCB.EC.BCL4, 0xB200), ^IGPU.BLM4)
+            Store (Or (^LPCB.EC.BCL5, 0xBC00), ^IGPU.BLM5)
+            Store (Or (^LPCB.EC.BCL6, 0xC600), ^IGPU.BLM6)
+            Store (Or (^LPCB.EC.BCL7, 0xD000), ^IGPU.BLM7)
+            Store (Or (^LPCB.EC.BCL8, 0xDA00), ^IGPU.BLM8)
+            Store (Or (^LPCB.EC.BCL9, 0xE400), ^IGPU.BLM9)
             Store (Zero, ^IGPU.BLMX)
         }
     }

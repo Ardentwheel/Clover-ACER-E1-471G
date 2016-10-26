@@ -2,7 +2,7 @@
 
 
  - [Geekbench Score] (http://htmlpreview.github.io/?https://raw.githubusercontent.com/matthew728960/Clover-ACER-E1-471G/master/Geekbench-Score/ACER-E1-471G.html)
- - Clover EFI Bootloader v2.3k r3726 
+ - Clover EFI Bootloader v2.3k r3835 
  - Intel Core i5-3230M 
  - ACER EA40_HC   ( HM77, Intel Ivy Bridge )
  - Memory 12.0 GB 1600 MHz DDR3
@@ -16,7 +16,7 @@
 ---
 
 #### Functional
-- [X] CPU Speedstep
+- [x] CPU Speedstep
 - [x] Audio
 - [x] HDMI (Video And Audio)
 - [x] Battery Management
@@ -74,3 +74,5 @@ If you were using UEFI, delete boot drivers32 drivers64 folder is recommend.
   - [Clover-Wiki](https://clover-wiki.zetam.org)
   - [Speed-Up-Restart](http://www.yekki.me/speed-up-restart/) 
   - [Wireless-AR5B22](https://github.com/matthew728960/Clover-ACER-E1-471G/raw/master/Tools/AR5B22) (Buggy, see [install-mac-os-x-on-chromebook-c720](http://www.omgchrome.com/install-mac-os-x-on-chromebook-c720/)) 
+
+

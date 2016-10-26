@@ -5,20 +5,20 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of SSDT.aml, Tue Sep  6 19:07:18 2016
+ * Disassembly of ssdt.aml, Wed Oct 26 10:16:28 2016
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000689 (1673)
+ *     Length           0x000006F2 (1778)
  *     Revision         0x01
- *     Checksum         0xBB
+ *     Checksum         0x68
  *     OEM ID           "APPLE "
  *     OEM Table ID     "CpuPm"
- *     OEM Revision     0x00015600 (87552)
+ *     OEM Revision     0x00020800 (133120)
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20140926 (538183974)
  */
-DefinitionBlock ("", "SSDT", 1, "APPLE", "CpuPm", 0x00015600)
+DefinitionBlock ("", "SSDT", 1, "APPLE ", "CpuPm", 0x00020800)
 {
     /*
      * External declarations were imported from
@@ -27,10 +27,10 @@ DefinitionBlock ("", "SSDT", 1, "APPLE", "CpuPm", 0x00015600)
 
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
     External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
-    External (_PR_.CPU0, ProcessorObj)
-    External (_PR_.CPU1, ProcessorObj)
-    External (_PR_.CPU2, ProcessorObj)
-    External (_PR_.CPU3, ProcessorObj)
+    External (_PR_.CPU0, DeviceObj)    // Warning: Unknown object
+    External (_PR_.CPU1, DeviceObj)    // Warning: Unknown object
+    External (_PR_.CPU2, DeviceObj)    // Warning: Unknown object
+    External (_PR_.CPU3, DeviceObj)    // Warning: Unknown object
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
@@ -43,23 +43,25 @@ DefinitionBlock ("", "SSDT", 1, "APPLE", "CpuPm", 0x00015600)
     {
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
-            Store ("ssdtPRGen version....: 15.6 / Mac OS X 10.11.6 (15G1004)", Debug)
-            Store ("target processor.....: i5-3230M", Debug)
-            Store ("running processor....: Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz", Debug)
-            Store ("baseFrequency........: 1200", Debug)
-            Store ("frequency............: 2600", Debug)
-            Store ("busFrequency.........: 100", Debug)
-            Store ("logicalCPUs..........: 4", Debug)
-            Store ("maximum TDP..........: 35", Debug)
-            Store ("packageLength........: 21", Debug)
-            Store ("turboStates..........: 6", Debug)
-            Store ("maxTurboFrequency....: 3200", Debug)
-            Store ("machdep.xcpm.mode....: 1", Debug)
+            Store ("ssdtPRGen version.....: 20.8 / Mac OS X 10.11.6 (15G1004)", Debug)
+            Store ("custom mode...........: 0", Debug)
+            Store ("host processor........: Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz", Debug)
+            Store ("target processor......: i5-3230M", Debug)
+            Store ("number of processors..: 1", Debug)
+            Store ("baseFrequency.........: 1200", Debug)
+            Store ("frequency.............: 2600", Debug)
+            Store ("busFrequency..........: 100", Debug)
+            Store ("logicalCPUs...........: 4", Debug)
+            Store ("maximum TDP...........: 35", Debug)
+            Store ("packageLength.........: 21", Debug)
+            Store ("turboStates...........: 6", Debug)
+            Store ("maxTurboFrequency.....: 3200", Debug)
+            Store ("machdep.xcpm.mode.....: 1", Debug)
         }
 
-        Name (APLF, 0x04)
+        Name (APLF, 0x05)
         Name (APSN, 0x07)
-        Name (APSS, Package (0x1A)
+        Name (APSS, Package (0x1B)
         {
             Package (0x06)
             {
@@ -319,11 +321,21 @@ DefinitionBlock ("", "SSDT", 1, "APPLE", "CpuPm", 0x00015600)
                 0x0A, 
                 0x0800, 
                 0x0800
+            }, 
+
+            Package (0x06)
+            {
+                0x02BC, 
+                Zero, 
+                0x0A, 
+                0x0A, 
+                0x0700, 
+                0x0700
             }
         })
         Method (ACST, 0, NotSerialized)
         {
-            Store ("Method CPU0.ACST Called", Debug)
+            Store ("Method _PR_.CPU0.ACST Called", Debug)
             Store ("CPU0 C-States    : 29", Debug)
             Return (Package (0x06)
             {
@@ -401,7 +413,7 @@ DefinitionBlock ("", "SSDT", 1, "APPLE", "CpuPm", 0x00015600)
 
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
-            Store ("Method CPU0._DSM Called", Debug)
+            Store ("Method _PR_.CPU0._DSM Called", Debug)
             If (LEqual (Arg2, Zero))
             {
                 Return (Buffer (One)
@@ -428,7 +440,7 @@ DefinitionBlock ("", "SSDT", 1, "APPLE", "CpuPm", 0x00015600)
 
         Method (ACST, 0, NotSerialized)
         {
-            Store ("Method CPU1.ACST Called", Debug)
+            Store ("Method _PR_.CPU1.ACST Called", Debug)
             Store ("CPU1 C-States    : 7", Debug)
             Return (Package (0x05)
             {
