@@ -2,7 +2,7 @@
 
 
  - [Geekbench Score] (http://htmlpreview.github.io/?https://raw.githubusercontent.com/matthew728960/Clover-ACER-E1-471G/master/Geekbench-Score/ACER-E1-471G.html)
- - Clover EFI Bootloader v2.3k r3882 
+ - Clover EFI Bootloader v2.3k r3949 
  - Intel Core i5-3230M 
  - ACER EA40_HC   ( HM77, Intel Ivy Bridge )
  - Memory 12.0 GB 1600 MHz DDR3
