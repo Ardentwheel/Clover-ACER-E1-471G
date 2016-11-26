@@ -2292,7 +2292,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         SMST,   8, 
                         SMAD,   8, 
                         SMCM,   8, 
-                        SMD0,   256, 
+                        SMDX,256,//SMD0,256, 
                         BCNT,   8, 
                         SMAA,   8, 
                         BATD,   16, 
@@ -3350,6 +3350,46 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         If (OTBS)
                         {
                             Store (0xB3, SSMP)
+                        }
+                    }
+                    Method (RE1B, 1, NotSerialized)
+                    {
+                        OperationRegion(ERAM, EmbeddedControl, Arg0, 1)
+                        Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }
+                        Return(BYTE)
+                    }
+                    Method (RECB, 2, Serialized)
+                    {
+                        ShiftRight(Arg1, 3, Arg1)
+                        Name(TEMP, Buffer(Arg1) { })
+                        Add(Arg0, Arg1, Arg1)
+                        Store(0, Local0)
+                        While (LLess(Arg0, Arg1))
+                        {
+                            Store(RE1B(Arg0), Index(TEMP, Local0))
+                            Increment(Arg0)
+                            Increment(Local0)
+                        }
+                        Return(TEMP)
+                    }
+                    Method (WE1B, 2, NotSerialized)
+                    {
+                        OperationRegion(ERAM, EmbeddedControl, Arg0, 1)
+                        Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }
+                        Store(Arg1, BYTE)
+                    }
+                    Method (WECB, 3, Serialized)
+                    {
+                        ShiftRight(Arg1, 3, Arg1)
+                        Name(TEMP, Buffer(Arg1) { })
+                        Store(Arg2, TEMP)
+                        Add(Arg0, Arg1, Arg1)
+                        Store(0, Local0)
+                        While (LLess(Arg0, Arg1))
+                        {
+                            WE1B(Arg0, DerefOf(Index(TEMP, Local0)))
+                            Increment(Arg0)
+                            Increment(Local0)
                         }
                     }
                 }
@@ -11663,5 +11703,6 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
         }, Arg4)
         Return (Zero)
     }
+    Method (B1B2, 2, NotSerialized) { Return(Or(Arg0, ShiftLeft(Arg1, 8))) }
 }
 
