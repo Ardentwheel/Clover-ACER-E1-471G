@@ -116,6 +116,20 @@
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
 					<key>Codec</key>
+					<string>MacPeet - AD1984 - for_IBM_Lenovo_ThinkPad_T61</string>
+					<key>CodecID</key>
+					<integer>299112836</integer>
+					<key>ConfigData</key>
+					<data>ARccEAEXHUABFx4hARcfAgFHHCABRx1QAUcegQFHHwIBJxwwAScdAAEnHhcBJx+QAScMAgFXHEABVx0AAVcepwFXH5ABtxygAbcdEAG3HkQBtx8h</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>11</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
 					<string>MacPeet - AD1984A</string>
 					<key>CodecID</key>
 					<integer>299112778</integer>
@@ -732,6 +746,20 @@
 					<key>AFGLowPowerState</key>
 					<data>AwAAAA==</data>
 					<key>Codec</key>
+					<string>ALC 272 - Lenovo B470 - Sam Chen</string>
+					<key>CodecID</key>
+					<integer>283902578</integer>
+					<key>ConfigData</key>
+					<data>ASccMAEnHQABJx6jAScfkAFHHBABRx0AAUceEwFHH5ABhxwgAYcdEAGHHoEBhx8AAhccUAIXHRACFx4hAhcfAAFHDAI=</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>11</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
 					<string>Mirone - Realtek ALC275</string>
 					<key>CodecID</key>
 					<integer>283902581</integer>
@@ -989,6 +1017,20 @@
 					<string>vusun123 - ALC 292 for Lenovo T440</string>
 					<key>ConfigData</key>
 					<data>ASccMAEnHQABJx6gAScfkAFHHEABRx0AAUceFwFHH5ABRwwCAVccUAFXHRABVx4hAVcfAAGnHCABpx0QAacegQGnHwA=</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>28</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
+					<string>vusun123 - ALC 295 for Skylake HP Pavilion</string>
+					<key>CodecID</key>
+					<integer>283902613</integer>
+					<key>ConfigData</key>
+					<data>ASccMAEnHQABJx6gAScfuQFHHFABRx0AAUceFwFHH5ABRwwCAZccQAGXHRABlx6BAZcfAAIXHCACFx0QAhceIQIXHwA=</data>
 					<key>FuncGroup</key>
 					<integer>1</integer>
 					<key>LayoutID</key>
@@ -1527,6 +1569,34 @@
 					<integer>7</integer>
 				</dict>
 				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
+					<string>ALC888S-VD Version1 for MedionP9614 by MacPeet</string>
+					<key>CodecID</key>
+					<integer>283904136</integer>
+					<key>ConfigData</key>
+					<data>AUccEAFHHRABRx4hAUcfAQFHDAIBhxwwAYcdEAGHHqEBhx8BASccQAEnHQABJx6jAScfkAF3HFABdx0AAXceEwF3H5ABpxxgAacdEAGnHoEBpx8BAecccAHnHRAB5x5FAecfAQ==</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>11</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
+					<string>ALC888S-VD Version2 for MedionE7216 by MacPeet</string>
+					<key>CodecID</key>
+					<integer>283904136</integer>
+					<key>ConfigData</key>
+					<data>AUccEAFHHQABRx4TAUcfkAFHDAIBdxwgAXcdAAF3HhMBdx+QAeccMAHnHRAB5x5EAecfAAGHHEABhx0QAYceoQGHHwABJxxQAScdAAEnHqMBJx+QAaccYAGnHRABpx6BAacfAAG3HHABtx0QAbceIQG3HwA=</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>28</integer>
+				</dict>
+				<dict>
 					<key>CodecID</key>
 					<integer>283904137</integer>
 					<key>Comment</key>
@@ -1637,6 +1707,18 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>7</integer>
+				</dict>
+				<dict>
+					<key>CodecID</key>
+					<integer>283904146</integer>
+					<key>Comment</key>
+					<string>Custom ALC892 for GA-Z87-HD3 by BIM167</string>
+					<key>ConfigData</key>
+					<data>IRccUCEXHXEhFx5EIRcfASEnHPAhJx0AISceACEnH0AhRxwQIUcdQCFHHhEhRx+QIVccICFXHRAhVx4BIVcfASFnHDAhZx1gIWceASFnHwEhdxzwIXcdACF3HgAhdx9AIYccYCGHHZAhhx6gIYcfkCGXHIAhlx2QIZcegSGXHwIhpxxwIacdMCGnHoEhpx8BIbccQCG3HUAhtx4hIbcfAiHHHPAhxx0AIcceACHHH0Ah5xzwIecdACHnHgAh5x9AIfcckCH3HXEh9x7EIfcfAQ==</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>92</integer>
 				</dict>
 				<dict>
 					<key>CodecID</key>
@@ -2139,6 +2221,44 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>12</integer>
+				</dict>
+				<dict>
+					<key>CodecID</key>
+					<integer>287143429</integer>
+					<key>Codec</key>
+					<string>Custom IDT 92HD81B1X5 by Sergey_Galan for HP ProBook 4520s</string>
+					<key>ConfigData</key>
+					<data>AKccIACnHRAApx6BAKcfAQC3HFAAtx0QALceIQC3HwEA1xwwANcdAQDXHhAA1x+QAOcc8ADnHQAA5x4AAOcfQAD3HPAA9x0AAPceAAD3H0ABBxzwAQcdAAEHHgABBx9AARccEAEXHQEBFx6gARcfkAH3HPAB9x0AAfceAAH3H0ACBxzwAgcdAAIHHgACBx9AAMcc8ADHHQAAxx4AAMcfQA==</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>20</integer>
+				</dict>
+				<dict>
+					<key>CodecID</key>
+					<integer>287143429</integer>
+					<key>Codec</key>
+					<string>Custom IDT 92HD81B1X5 by Sergey_Galan for HP DV6-6169er</string>
+					<key>ConfigData</key>
+					<data>AMccIADHHRAAxx6BAMcfAQC3HFAAtx0QALceIQC3HwEA9xwwAPcdAQD3HhAA9x+QAOcc8ADnHQAA5x4AAOcfQADXHPAA1x0AANceAADXH0ABBxzwAQcdAAEHHgABBx9AARccEAEXHQEBFx6gARcfkAH3HPAB9x0AAfceAAH3H0ACBxzwAgcdAAIHHgACBx9AAKcc8ACnHQAApx4AAKcfQA==</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>21</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>AwAAAA==</data>
+					<key>Codec</key>
+					<string>Custom IDT 92HD81B1X5 by Gujiangjiang for HP Pavilion g4 1000 series</string>
+					<key>CodecID</key>
+					<integer>287143429</integer>
+					<key>ConfigData</key>
+					<data>ARccAAEXHQEBFx6jARcfmQDHHBAAxx0QAMcegQDHHwEA1xwgANcdAQDXHhMA1x+ZALccMAC3HRAAtx4hALcfAQFHDAI=</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>28</integer>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>

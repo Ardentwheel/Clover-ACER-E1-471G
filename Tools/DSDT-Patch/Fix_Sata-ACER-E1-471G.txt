@@ -13,16 +13,16 @@ Method (_DSM, 4, NotSerialized)\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "AAPL,slot-name", "Built In", \n
-        "name", "Intel AHCI Controller", \n
-        "device_type", Buffer () { "AHCI Controller" }, \n
-        "compatible", Buffer () { "pci8086,1e03" }, \n
-        "IOName", Buffer () { "pci8086,1e03" }, \n
-        "device-id", Buffer () { 0x03, 0x1E, 0x00, 0x00 }, \n
-        "vendor-id", Buffer () {0x86, 0x80, 0x00, 0x00 }, \n
-        "subsystem-id", Buffer () {0x32, 0x07, 0x00, 0x00 }, \n
+        "AAPL,slot-name", "Built In",\n
+        "name", "Intel AHCI Controller",\n
+        "model", Buffer () { "Intel 7 Series Chipset Family SATA Controller" },\n
+        "device_type", Buffer () { "AHCI Controller" },\n
+        "compatible", Buffer () { "pci8086,1e03" },\n
+        "IOName", Buffer () { "pci8086,1e03" },\n
+        "device-id", Buffer () { 0x03, 0x1E, 0x00, 0x00 },\n
+        "vendor-id", Buffer () {0x86, 0x80, 0x00, 0x00 },\n
+        "subsystem-id", Buffer () {0x32, 0x07, 0x00, 0x00 },\n
         "subsystem-vendor-id", Buffer () {0x25, 0x10, 0x00, 0x00 }\n
-        "model", Buffer () { "Intel 7 Series Chipset Family SATA Controller" } \n
     })\n
 }\n
 end;

@@ -26,7 +26,8 @@
 [x] USB
 [x] Sata
 [x] LPC
-[x] Hotkey-Brightness
+[x] Fn-Brightness-SmartTouchPad
+[ ] Fn-Brightness-VoodooPS2Controller
 [ ] PowerButton
 
 

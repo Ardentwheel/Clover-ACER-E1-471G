@@ -27,6 +27,7 @@
 - [x] WebCam
 - [ ] SDHC CardReader
 - [x] Fn
+- [x] Smart Touchpad (ELAN)
 - [x] Usb (Built In)
 - [x] Sleep From (PowerButton-Hols 2 seconds)
 - [x] Sleep From (Lid)
@@ -54,6 +55,7 @@ If you were using UEFI, delete boot drivers32 drivers64 folder is recommend.
 #### Kext And Reference From
   - [FakeSMC](http://www.hwsensors.com/releases)
   - [Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller)
+  - [Smart Touchpad (ELAN)](http://forum.osxlatitude.com/index.php?/topic/1948-elan-focaltech-and-synaptics-smart-touchpad-driver-mac-os-x/)
   - [USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All)
   - [AppleALC](https://github.com/vit9696/AppleALC)
   - [HDAEnablers](https://github.com/Mirone/HDAEnablers)（DSDT injected layout-id, Not needed.）

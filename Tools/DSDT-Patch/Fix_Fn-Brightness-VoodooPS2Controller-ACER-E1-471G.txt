@@ -1,0 +1,18 @@
+# Fix_Hotkey-Brightness-VoodooPS2Controller-ACER-E1-471G.txt
+#
+# Reference From https://github.com/RehabMan/Laptop-DSDT-Patch
+# Maintained by: Matthew
+
+
+into method label _Q8F insert
+begin
+// Brightness Down\n
+    Notify(\_SB.PCI0.LPCB.PS2K, 0x0205)\n
+    Notify(\_SB.PCI0.LPCB.PS2K, 0x0285)\n
+end;
+into method label _Q8E insert
+begin
+// Brightness Up\n
+    Notify(\_SB.PCI0.LPCB.PS2K, 0x0206)\n
+    Notify(\_SB.PCI0.LPCB.PS2K, 0x0286)\n
+end;

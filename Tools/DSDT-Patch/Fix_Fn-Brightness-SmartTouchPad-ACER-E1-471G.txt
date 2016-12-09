@@ -1,0 +1,16 @@
+# Fix_Hotkey-Brightness-SmartTouchPad-ACER-E1-471G.txt
+#
+# Reference From http://forum.osxlatitude.com/index.php?/topic/7890-how-to-fix-your-acpi-brightness-keys-using-smart-touchpad-driver/
+# Maintained by: Matthew
+
+
+into method label _Q8F insert
+begin
+// Brightness Down\n
+    Notify(\_SB.PCI0.LPCB.PS2K, 0x20)\n
+end;
+into method label _Q8E insert
+begin
+// Brightness Up\n
+    Notify(\_SB.PCI0.LPCB.PS2K, 0x10)\n
+end;

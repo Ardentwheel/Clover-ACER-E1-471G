@@ -5,14 +5,14 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of DSDT.aml, Tue Sep  6 19:07:18 2016
+ * Disassembly of DSDT.aml, Fri Sep  9 06:37:21 2016
  *
  * Original Table Header:
  *     Signature        "DSDT"
  *     Length           0x0000B2BF (45759)
  *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
  *     Checksum         0x51
- *     OEM ID           "ACRSYS"
+ *     OEM ID           "APPLE"
  *     OEM Table ID     "ACRPRDCT"
  *     OEM Revision     0x00000000 (0)
  *     Compiler ID      "1025"
@@ -59,20 +59,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.SATA.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.SAT1.SDSM, MethodObj)    // Imported: 4 Arguments
-    External (CFGD, UnknownObj)    // Warning: Unknown object
+    External (CFGD, IntObj)
     External (HDOS, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (HNOT, MethodObj)    // Warning: Unknown method, guessing 1 arguments
     External (HWID, IntObj)    // Warning: Unknown object
     External (IDAB, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (MDBG, MethodObj)    // Imported: 1 Arguments
-    External (PDC0, UnknownObj)    // Warning: Unknown object
-    External (PDC1, UnknownObj)    // Warning: Unknown object
-    External (PDC2, UnknownObj)    // Warning: Unknown object
-    External (PDC3, UnknownObj)    // Warning: Unknown object
-    External (PDC4, UnknownObj)    // Warning: Unknown object
-    External (PDC5, UnknownObj)    // Warning: Unknown object
-    External (PDC6, UnknownObj)    // Warning: Unknown object
-    External (PDC7, UnknownObj)    // Warning: Unknown object
+    External (PDC0, IntObj)
+    External (PDC1, IntObj)
+    External (PDC2, IntObj)
+    External (PDC3, IntObj)
+    External (PDC4, IntObj)
+    External (PDC5, IntObj)
+    External (PDC6, IntObj)
+    External (PDC7, IntObj)
     External (TNOT, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (XOSI, MethodObj)    // 1 Arguments (from opcode)
 
@@ -2195,7 +2195,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     RCBA,   18
                 }
 
-                Device (EC)
+                Device (EC0)
                 {
                     Name (_HID, EisaId ("PNP0C09"))  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
@@ -2292,7 +2292,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         SMST,   8, 
                         SMAD,   8, 
                         SMCM,   8, 
-                        SMDX,256,//SMD0,256, 
+                        SMD0,   256, 
                         BCNT,   8, 
                         SMAA,   8, 
                         BATD,   16, 
@@ -3081,8 +3081,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         Store (BLVL, Index (^^^WMID.FEBC, 0x02))
                         Notify (WMID, 0xBC)
                         // Brightness Up
-                        Notify(\_SB.PCI0.LPCB.PS2K, 0x0206)
-                        Notify(\_SB.PCI0.LPCB.PS2K, 0x0286)
+                        Notify(\_SB.PCI0.LPCB.PS2K, 0x10)
                     }
 
                     Method (_Q8F, 0, NotSerialized)  // _Qxx: EC Query
@@ -3108,8 +3107,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         Store (BLVL, Index (^^^WMID.FEBC, 0x02))
                         Notify (WMID, 0xBC)
                         // Brightness Down
-                        Notify(\_SB.PCI0.LPCB.PS2K, 0x0205)
-                        Notify(\_SB.PCI0.LPCB.PS2K, 0x0285)
+                        Notify(\_SB.PCI0.LPCB.PS2K, 0x20)
                     }
 
                     Method (_Q90, 0, NotSerialized)  // _Qxx: EC Query
@@ -3168,7 +3166,6 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
 
                             Return (Zero)
                         }
-                        Return (Zero)
                     }
 
                     Method (_Q01, 0, NotSerialized)  // _Qxx: EC Query
@@ -3350,46 +3347,6 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         If (OTBS)
                         {
                             Store (0xB3, SSMP)
-                        }
-                    }
-                    Method (RE1B, 1, NotSerialized)
-                    {
-                        OperationRegion(ERAM, EmbeddedControl, Arg0, 1)
-                        Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }
-                        Return(BYTE)
-                    }
-                    Method (RECB, 2, Serialized)
-                    {
-                        ShiftRight(Arg1, 3, Arg1)
-                        Name(TEMP, Buffer(Arg1) { })
-                        Add(Arg0, Arg1, Arg1)
-                        Store(0, Local0)
-                        While (LLess(Arg0, Arg1))
-                        {
-                            Store(RE1B(Arg0), Index(TEMP, Local0))
-                            Increment(Arg0)
-                            Increment(Local0)
-                        }
-                        Return(TEMP)
-                    }
-                    Method (WE1B, 2, NotSerialized)
-                    {
-                        OperationRegion(ERAM, EmbeddedControl, Arg0, 1)
-                        Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }
-                        Store(Arg1, BYTE)
-                    }
-                    Method (WECB, 3, Serialized)
-                    {
-                        ShiftRight(Arg1, 3, Arg1)
-                        Name(TEMP, Buffer(Arg1) { })
-                        Store(Arg2, TEMP)
-                        Add(Arg0, Arg1, Arg1)
-                        Store(0, Local0)
-                        While (LLess(Arg0, Arg1))
-                        {
-                            WE1B(Arg0, DerefOf(Index(TEMP, Local0)))
-                            Increment(Arg0)
-                            Increment(Local0)
                         }
                     }
                 }
@@ -3933,7 +3890,8 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
                     Return (Package()
                     {
-                        "compatible", "pci8086,1e57",
+                        "device-id", Buffer() { 0x57, 0x1e, 0x00, 0x00 },
+                        "compatible", "pci8086,1e57"
                     })
                 }
             }
@@ -4141,33 +4099,33 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     Store (Zero, Local0)
                     If (LEqual (DerefOf (Index (FEBC, One)), One))
                     {
-                        If (LEqual (^^LPCB.EC.WLAN, One))
+                        If (LEqual (^^LPCB.EC0.WLAN, One))
                         {
-                            If (LEqual (^^LPCB.EC.WLST, One))
+                            If (LEqual (^^LPCB.EC0.WLST, One))
                             {
                                 Or (Local0, One, Local0)
                             }
                         }
 
-                        If (LEqual (^^LPCB.EC.ST3G, One))
+                        If (LEqual (^^LPCB.EC0.ST3G, One))
                         {
-                            If (LEqual (^^LPCB.EC.ED3G, One))
+                            If (LEqual (^^LPCB.EC0.ED3G, One))
                             {
                                 Or (Local0, 0x40, Local0)
                             }
                         }
 
-                        If (LEqual (^^LPCB.EC.WIMX, One))
+                        If (LEqual (^^LPCB.EC0.WIMX, One))
                         {
-                            If (LEqual (^^LPCB.EC.WLST, One))
+                            If (LEqual (^^LPCB.EC0.WLST, One))
                             {
                                 Or (Local0, 0x80, Local0)
                             }
                         }
 
-                        If (LEqual (^^LPCB.EC.BLTH, One))
+                        If (LEqual (^^LPCB.EC0.BLTH, One))
                         {
-                            If (LEqual (^^LPCB.EC.BLTS, One))
+                            If (LEqual (^^LPCB.EC0.BLTS, One))
                             {
                                 Or (Local0, 0x0800, Local0)
                             }
@@ -4175,7 +4133,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     }
                     ElseIf (LEqual (DerefOf (Index (FEBC, One)), 0x02))
                     {
-                        If (LEqual (^^LPCB.EC.RFST, One))
+                        If (LEqual (^^LPCB.EC0.RFST, One))
                         {
                             Or (Local0, 0x4000, Local0)
                         }
@@ -4188,22 +4146,22 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                 Method (GOTS, 1, NotSerialized)
                 {
                     Store (Zero, Local0)
-                    If (LEqual (^^LPCB.EC.ODST, Zero))
+                    If (LEqual (^^LPCB.EC0.ODST, Zero))
                     {
                         Or (Local0, One, Local0)
                     }
 
-                    If (LEqual (^^LPCB.EC.TOHP, Zero))
+                    If (LEqual (^^LPCB.EC0.TOHP, Zero))
                     {
                         Or (Local0, 0x02, Local0)
                     }
 
-                    If (LEqual (^^LPCB.EC.KBBL, Zero))
+                    If (LEqual (^^LPCB.EC0.KBBL, Zero))
                     {
                         Or (Local0, 0x08, Local0)
                     }
 
-                    If (LEqual (^^LPCB.EC.BBST, Zero))
+                    If (LEqual (^^LPCB.EC0.BBST, Zero))
                     {
                         Or (Local0, 0x10, Local0)
                     }
@@ -4217,7 +4175,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     Store (Zero, Local0)
                     If (LEqual (LINX, One))
                     {
-                        Store (^^LPCB.EC.BLVL, Local0)
+                        Store (^^LPCB.EC0.BLVL, Local0)
                         Increment (Local0)
                         Multiply (Local0, 0x0A, Local0)
                     }
@@ -4250,7 +4208,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                 Method (GDPS, 1, NotSerialized)
                 {
                     Store (Zero, Local0)
-                    If (LEqual (^^LPCB.EC.DPBL, One))
+                    If (LEqual (^^LPCB.EC0.DPBL, One))
                     {
                         Or (Local0, 0x04, Local0)
                     }
@@ -5450,12 +5408,12 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
         {
             P8XH (0x04, 0x54, Zero)
             P8XH (0x04, 0x54, One)
-            Store (One, \_SB.PCI0.LPCB.EC.FLS4)
+            Store (One, \_SB.PCI0.LPCB.EC0.FLS4)
         }
 
-        Store (\_SB.PCI0.LPCB.EC.WLST, \_SB.RDWL)
-        Store (\_SB.PCI0.LPCB.EC.BLTS, \_SB.RDBT)
-        Store (\_SB.PCI0.LPCB.EC.ED3G, \_SB.RD3G)
+        Store (\_SB.PCI0.LPCB.EC0.WLST, \_SB.RDWL)
+        Store (\_SB.PCI0.LPCB.EC0.BLTS, \_SB.RDBT)
+        Store (\_SB.PCI0.LPCB.EC0.ED3G, \_SB.RD3G)
         If (LEqual (OSYS, 0x07DC))
         {
             Store (\_SB.PCI0.XHC.PR2, UPR2)
@@ -5478,7 +5436,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
         Store (Zero, P80D)
         If (IGDS)
         {
-            If (\_SB.PCI0.LPCB.EC.LIDT)
+            If (\_SB.PCI0.LPCB.EC0.LIDT)
             {
                 Store (Zero, LIDS)
                 Store (Zero, \_SB.PCI0.IGPU.CLID)
@@ -5492,11 +5450,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
 
         If (LAnd (LEqual (OSYS, 0x07DC), LEqual (LINX, Zero)))
         {
-            Store (One, \_SB.PCI0.LPCB.EC.OSW8)
+            Store (One, \_SB.PCI0.LPCB.EC0.OSW8)
         }
         Else
         {
-            Store (Zero, \_SB.PCI0.LPCB.EC.OSW8)
+            Store (Zero, \_SB.PCI0.LPCB.EC0.OSW8)
         }
 
         If (NEXP)
@@ -5517,7 +5475,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             P8XH (0x04, 0xE3, Zero)
             P8XH (0x04, 0xE3, One)
             Store (0x70, SSMP)
-            If (LNot (LOr (LEqual (\_SB.PCI0.LPCB.EC.ECPF, One), LEqual (\_SB.PCI0.LPCB.EC.ECPF, 0x0A))))
+            If (LNot (LOr (LEqual (\_SB.PCI0.LPCB.EC0.ECPF, One), LEqual (\_SB.PCI0.LPCB.EC0.ECPF, 0x0A))))
             {
                 Notify (\_SB.PWRB, 0x02)
             }
@@ -5598,13 +5556,13 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             }
 
             Store (One, \_SB.CTBS)
-            \_SB.PCI0.LPCB.EC.TCTB ()
+            \_SB.PCI0.LPCB.EC0.TCTB ()
         }
 
-        Store (\_SB.RDWL, \_SB.PCI0.LPCB.EC.WLST)
-        Store (\_SB.RDBT, \_SB.PCI0.LPCB.EC.BLTS)
-        Store (\_SB.RD3G, \_SB.PCI0.LPCB.EC.ED3G)
-        Store (One, \_SB.PCI0.LPCB.EC.CPLE)
+        Store (\_SB.RDWL, \_SB.PCI0.LPCB.EC0.WLST)
+        Store (\_SB.RDBT, \_SB.PCI0.LPCB.EC0.BLTS)
+        Store (\_SB.RD3G, \_SB.PCI0.LPCB.EC0.ED3G)
+        Store (One, \_SB.PCI0.LPCB.EC0.CPLE)
         If (LEqual (OSYS, 0x07DC))
         {
             Store (UPR2, \_SB.PCI0.XHC.PR2)
@@ -7248,7 +7206,6 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     "hda-gfx", Buffer (0x0A ){ "onboard-1" }
                 })
             }
-            
         }
 
         Device (RP01)
@@ -7601,6 +7558,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
 
             Device (GIGE)
             {
+                
                 Name (_ADR, 0x02)
                 Name (_SUN, 0x02)
                 Name (_PRW, Package (0x02) { 0x09, 0x04 })
@@ -7621,7 +7579,6 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     })
                 }
             }
-
             Device (SDHC)
             {
                 Name (_ADR, Zero)
@@ -7643,9 +7600,8 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         "model", Buffer () { "Realtek RTS5289 PCI Express Card Reader" }
                     })
                 }
-            }
 
-            
+            }
 
             Method (HPME, 0, Serialized)
             {
@@ -8419,7 +8375,9 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
 
             Device (ARPT)
             {
+                
                 Name (_ADR, Zero)
+                Name (_SUN, 0x00000000)
                 Name (_PRW, Package (0x02) { 0x09, 0x04 })
                 Method (_DSM, 4, NotSerialized)
                 {
@@ -8434,9 +8392,10 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         "subsystem-id", Buffer() { 0x52, 0xe0, 0x00, 0x00 },
                         "subsystem-vendor-id", Buffer() { 0x5b, 0x10, 0x00, 0x00 },
                         "device_type", Buffer() { "Airport" },
-                        "model", Buffer() { "Atheros 9462 802.11 a/b/g/n Wireless Network Adapter" },
+                        "model", Buffer() { "Atheros 9462 802.11 a/b/g/n Wireless Network Adapter" }
                     })
                 }
+
             }
 
             Method (HPME, 0, Serialized)
@@ -8958,7 +8917,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
 
             Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
             {
-                Return (Zero)
+                Return (BUF2)
             }
         }
     }
@@ -9090,7 +9049,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
         {
             Return (Package () { 0x08, 0x40, One, Zero})
         }
-        
+
         Device (PRT5)
         {
             Name (_ADR, 0x0005FFFF)  // _ADR: Address
@@ -9149,13 +9108,13 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         }
                         ElseIf (LEqual (T_0, 0x02))
                         {
-                            ^^^LPCB.EC.ECMD (0x66)
+                            ^^^LPCB.EC0.ECMD (0x66)
                             Sleep (0x03E8)
                             Return (One)
                         }
                         ElseIf (LEqual (T_0, 0x03))
                         {
-                            ^^^LPCB.EC.ECMD (0x65)
+                            ^^^LPCB.EC0.ECMD (0x65)
                             Sleep (0x03E8)
                             Return (One)
                         }
@@ -9283,7 +9242,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                 CRBL ()
                 If (LLess (OSYS, 0x07D6))
                 {
-                    Store (0x09, ^^LPCB.EC.BLVL)
+                    Store (0x09, ^^LPCB.EC0.BLVL)
                 }
             }
 
@@ -10847,8 +10806,6 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     Return (CRS2)
                 }
             }
-
-            
             OperationRegion (RMPC, PCI_Config, 0x10, 4)
             Field (RMPC, AnyAcc, NoLock, Preserve)
             {
@@ -11016,13 +10973,14 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             }
             Method (_DSM, 4, NotSerialized)
             {
-                If (LEqual (Arg2, Zero)) { Return (Buffer (One){ 0x03 }) }
-                Return (Package (0x04)
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
                 {
-                    "AAPL,ig-platform-id", Buffer (0x04){0x03, 0x00, 0x66, 0x01},
-                    "hda-gfx", Buffer (0x0A){"onboard-1"}
+                    "AAPL,ig-platform-id", Buffer() { 0x03, 0x00, 0x66, 0x01 },
+                    "hda-gfx", Buffer() { "onboard-1" },
                 })
             }
+
             
         }
     }
@@ -11138,9 +11096,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
 
         Device (PWRB)
         {
-            
-            Name (_HID, EisaId ("PNP0C0C"))
-
+            Name (_HID, EisaId ("PNP0C0C"))  // _HID: Hardware ID
         }
 
         Device (SLPB)
@@ -11162,13 +11118,13 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             Name (ACWT, Zero)
             Method (_INI, 0, NotSerialized)  // _INI: Initialize
             {
-                If (LEqual (^^PCI0.LPCB.EC.SIMU, 0x53))
+                If (LEqual (^^PCI0.LPCB.EC0.SIMU, 0x53))
                 {
                     Store (Zero, ACST)
                 }
                 ElseIf (ECOK)
                 {
-                    Store (^^PCI0.LPCB.EC.ACDF, ACST)
+                    Store (^^PCI0.LPCB.EC0.ACDF, ACST)
                 }
                 Else
                 {
@@ -11181,13 +11137,13 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             Method (_PSR, 0, NotSerialized)  // _PSR: Power Source
             {
                 Store (ACST, ACWT)
-                If (LEqual (^^PCI0.LPCB.EC.SIMU, 0x53))
+                If (LEqual (^^PCI0.LPCB.EC0.SIMU, 0x53))
                 {
                     Store (Zero, ACST)
                 }
                 ElseIf (ECOK)
                 {
-                    Store (^^PCI0.LPCB.EC.ACDF, ACST)
+                    Store (^^PCI0.LPCB.EC0.ACDF, ACST)
                 }
                 Else
                 {
@@ -11266,7 +11222,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             {
                 If (ECOK)
                 {
-                    If (^^PCI0.LPCB.EC.MBTS)
+                    If (^^PCI0.LPCB.EC0.MBTS)
                     {
                         Return (0x1F)
                     }
@@ -11285,7 +11241,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             {
                 If (ECOK)
                 {
-                    If (^^PCI0.LPCB.EC.MBTS)
+                    If (^^PCI0.LPCB.EC0.MBTS)
                     {
                         UBIF ()
                     }
@@ -11301,15 +11257,15 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                 Name (T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (ECOK)
                 {
-                    Acquire (^^PCI0.LPCB.EC.MUT1, 0xFFFF)
-                    Store (^^PCI0.LPCB.EC.BTDC, Local0)
-                    Store (^^PCI0.LPCB.EC.LFCC, Local1)
-                    Store (^^PCI0.LPCB.EC.BTDV, Local2)
-                    Store (^^PCI0.LPCB.EC.BTMD, Local3)
-                    Store (^^PCI0.LPCB.EC.BTMN, Local4)
-                    Store (^^PCI0.LPCB.EC.BTSN, Local5)
-                    Store (^^PCI0.LPCB.EC.LION, Local6)
-                    Release (^^PCI0.LPCB.EC.MUT1)
+                    Acquire (^^PCI0.LPCB.EC0.MUT1, 0xFFFF)
+                    Store (^^PCI0.LPCB.EC0.BTDC, Local0)
+                    Store (^^PCI0.LPCB.EC0.LFCC, Local1)
+                    Store (^^PCI0.LPCB.EC0.BTDV, Local2)
+                    Store (^^PCI0.LPCB.EC0.BTMD, Local3)
+                    Store (^^PCI0.LPCB.EC0.BTMN, Local4)
+                    Store (^^PCI0.LPCB.EC0.BTSN, Local5)
+                    Store (^^PCI0.LPCB.EC0.LION, Local6)
+                    Release (^^PCI0.LPCB.EC0.MUT1)
                     Store (Local0, Index (PBIF, One))
                     Store (Local1, Index (PBIF, 0x02))
                     Store (Local2, Index (PBIF, 0x04))
@@ -11437,7 +11393,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             {
                 If (ECOK)
                 {
-                    Store (^^PCI0.LPCB.EC.MBTS, Local0)
+                    Store (^^PCI0.LPCB.EC0.MBTS, Local0)
                     If (LEqual (Local0, Zero))
                     {
                         Store (Zero, Index (PBST, Zero))
@@ -11448,14 +11404,14 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         Return (PBST)
                     }
 
-                    Store (^^PCI0.LPCB.EC.MBRM, Local1)
+                    Store (^^PCI0.LPCB.EC0.MBRM, Local1)
                     Store (Local1, Index (PBST, 0x02))
                     Store (Local1, RCAP)
-                    Store (^^PCI0.LPCB.EC.MCUR, Local3)
+                    Store (^^PCI0.LPCB.EC0.MCUR, Local3)
                     Store (POSW (Local3), Index (PBST, One))
                     If (LNotEqual (Local3, Zero))
                     {
-                        If (^^PCI0.LPCB.EC.MBPC)
+                        If (^^PCI0.LPCB.EC0.MBPC)
                         {
                             Store (0x02, Index (PBST, Zero))
                         }
@@ -11469,7 +11425,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                         Store (Zero, Index (PBST, Zero))
                     }
 
-                    Store (^^PCI0.LPCB.EC.MBVG, Index (PBST, 0x03))
+                    Store (^^PCI0.LPCB.EC0.MBVG, Index (PBST, 0x03))
                 }
                 Else
                 {
@@ -11492,7 +11448,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             Name (_HID, EisaId ("PNP0C0D"))  // _HID: Hardware ID
             Method (_LID, 0, NotSerialized)  // _LID: Lid Status
             {
-                If (^^PCI0.LPCB.EC.LIDT)
+                If (^^PCI0.LPCB.EC0.LIDT)
                 {
                     Return (Zero)
                 }
@@ -11512,7 +11468,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             {
                 If (\_SB.ECOK)
                 {
-                    Store (\_SB.PCI0.LPCB.EC.CTMP, Local0)
+                    Store (\_SB.PCI0.LPCB.EC0.CTMP, Local0)
                     Return (Add (Multiply (Local0, 0x0A), 0x0AAC))
                 }
                 Else
@@ -11523,15 +11479,15 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
 
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
-                If (LEqual (\_SB.PCI0.LPCB.EC.TJMX, Zero))
+                If (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, Zero))
                 {
                     Return (0x0F5C)
                 }
-                ElseIf (LEqual (\_SB.PCI0.LPCB.EC.TJMX, One))
+                ElseIf (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, One))
                 {
                     Return (0x0F5C)
                 }
-                ElseIf (LEqual (\_SB.PCI0.LPCB.EC.TJMX, 0x02))
+                ElseIf (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, 0x02))
                 {
                     Return (0x0F5C)
                 }
@@ -11550,15 +11506,15 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
             Name (_TC2, 0x03)  // _TC2: Thermal Constant 2
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
-                If (LEqual (\_SB.PCI0.LPCB.EC.TJMX, Zero))
+                If (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, Zero))
                 {
                     Return (0x0DEA)
                 }
-                ElseIf (LEqual (\_SB.PCI0.LPCB.EC.TJMX, One))
+                ElseIf (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, One))
                 {
                     Return (0x0E1C)
                 }
-                ElseIf (LEqual (\_SB.PCI0.LPCB.EC.TJMX, 0x02))
+                ElseIf (LEqual (\_SB.PCI0.LPCB.EC0.TJMX, 0x02))
                 {
                     Return (0x0E80)
                 }
@@ -11579,26 +11535,26 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
         })
         Method (CRBL, 0, NotSerialized)
         {
-            Store (^LPCB.EC.BCL0, Index (PNLT, Zero))
-            Store (^LPCB.EC.BCL1, Index (PNLT, One))
-            Store (^LPCB.EC.BCL2, Index (PNLT, 0x02))
-            Store (^LPCB.EC.BCL3, Index (PNLT, 0x03))
-            Store (^LPCB.EC.BCL4, Index (PNLT, 0x04))
-            Store (^LPCB.EC.BCL5, Index (PNLT, 0x05))
-            Store (^LPCB.EC.BCL6, Index (PNLT, 0x06))
-            Store (^LPCB.EC.BCL7, Index (PNLT, 0x07))
-            Store (^LPCB.EC.BCL8, Index (PNLT, 0x08))
-            Store (^LPCB.EC.BCL9, Index (PNLT, 0x09))
-            Store (Or (^LPCB.EC.BCL0, 0x8A00), ^IGPU.BLM0)
-            Store (Or (^LPCB.EC.BCL1, 0x9400), ^IGPU.BLM1)
-            Store (Or (^LPCB.EC.BCL2, 0x9E00), ^IGPU.BLM2)
-            Store (Or (^LPCB.EC.BCL3, 0xA800), ^IGPU.BLM3)
-            Store (Or (^LPCB.EC.BCL4, 0xB200), ^IGPU.BLM4)
-            Store (Or (^LPCB.EC.BCL5, 0xBC00), ^IGPU.BLM5)
-            Store (Or (^LPCB.EC.BCL6, 0xC600), ^IGPU.BLM6)
-            Store (Or (^LPCB.EC.BCL7, 0xD000), ^IGPU.BLM7)
-            Store (Or (^LPCB.EC.BCL8, 0xDA00), ^IGPU.BLM8)
-            Store (Or (^LPCB.EC.BCL9, 0xE400), ^IGPU.BLM9)
+            Store (^LPCB.EC0.BCL0, Index (PNLT, Zero))
+            Store (^LPCB.EC0.BCL1, Index (PNLT, One))
+            Store (^LPCB.EC0.BCL2, Index (PNLT, 0x02))
+            Store (^LPCB.EC0.BCL3, Index (PNLT, 0x03))
+            Store (^LPCB.EC0.BCL4, Index (PNLT, 0x04))
+            Store (^LPCB.EC0.BCL5, Index (PNLT, 0x05))
+            Store (^LPCB.EC0.BCL6, Index (PNLT, 0x06))
+            Store (^LPCB.EC0.BCL7, Index (PNLT, 0x07))
+            Store (^LPCB.EC0.BCL8, Index (PNLT, 0x08))
+            Store (^LPCB.EC0.BCL9, Index (PNLT, 0x09))
+            Store (Or (^LPCB.EC0.BCL0, 0x8A00), ^IGPU.BLM0)
+            Store (Or (^LPCB.EC0.BCL1, 0x9400), ^IGPU.BLM1)
+            Store (Or (^LPCB.EC0.BCL2, 0x9E00), ^IGPU.BLM2)
+            Store (Or (^LPCB.EC0.BCL3, 0xA800), ^IGPU.BLM3)
+            Store (Or (^LPCB.EC0.BCL4, 0xB200), ^IGPU.BLM4)
+            Store (Or (^LPCB.EC0.BCL5, 0xBC00), ^IGPU.BLM5)
+            Store (Or (^LPCB.EC0.BCL6, 0xC600), ^IGPU.BLM6)
+            Store (Or (^LPCB.EC0.BCL7, 0xD000), ^IGPU.BLM7)
+            Store (Or (^LPCB.EC0.BCL8, 0xDA00), ^IGPU.BLM8)
+            Store (Or (^LPCB.EC0.BCL9, 0xE400), ^IGPU.BLM9)
             Store (Zero, ^IGPU.BLMX)
         }
     }
@@ -11672,7 +11628,6 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
         Zero, 
         Zero
     })
-
     Method (DTGP, 5, NotSerialized)
     {
         If (LEqual (Arg0, Buffer (0x10)
@@ -11703,6 +11658,10 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
         }, Arg4)
         Return (Zero)
     }
-    Method (B1B2, 2, NotSerialized) { Return(Or(Arg0, ShiftLeft(Arg1, 8))) }
+
+    Method (B1B2, 2, NotSerialized)
+    {
+        Return (Or (Arg0, ShiftLeft (Arg1, 0x08)))
+    }
 }
 
