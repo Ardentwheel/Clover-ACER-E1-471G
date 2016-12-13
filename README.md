@@ -16,31 +16,31 @@
 ---
 
 #### Functional
-- [x] CPU Speedstep
-- [x] Audio
-- [x] HDMI (Video And Audio)
-- [x] Battery Management
-- [x] Backlight
-- [x] Wried Network (Built In)
-- [x] Wireless Network (Buggy)
-- [x] Bluetooth (Buggy)
-- [x] WebCam
-- [ ] SDHC CardReader
-- [x] Fn
-- [x] Smart Touchpad (ELAN)
-- [x] Usb (Built In)
-- [x] Sleep From (PowerButton-Hols 2 seconds)
-- [x] Sleep From (Lid)
-- [x] Wake Up (Usb Device)(Can not wake when lid have been closed)
-- [ ] Wake Up (PS/2 Keyboard)
-- [ ] Wake Up (Lid)
-- [x] Power Nap
-- [ ] VGA
+ - [x] CPU Speedstep
+ - [x] Audio
+ - [x] HDMI (Video And Audio)
+ - [x] Battery Management
+ - [x] Backlight
+ - [x] Wried Network (Built In)
+ - [x] Wireless Network (Buggy)
+ - [x] Bluetooth (Buggy)
+ - [x] WebCam
+ - [ ] SDHC CardReader
+ - [x] Fn
+ - [x] Smart Touchpad (ELAN)
+ - [x] Usb (Built In)
+ - [x] Sleep From (PowerButton-Hols 2 seconds)
+ - [x] Sleep From (Lid)
+ - [x] Wake Up (Usb Device)(Can not wake when lid have been closed)
+ - [ ] Wake Up (PS/2 Keyboard)
+ - [ ] Wake Up (Lid)
+ - [x] Power Nap
+ - [ ] VGA
 
 
 #### How To Use
-Copy EFI folder to EFI desk.
-If you were using UEFI, delete boot drivers32 drivers64 folder is recommend. 
+ 1. Copy EFI folder to ESP/EFI Partition.
+ 2. Run [Clover Installer](https://sourceforge.net/projects/cloverefiboot/) after Mac OS X is Installed.(Update Latest Clover Version)
 
 
 #### Tools
