@@ -128,9 +128,9 @@
 			</dict>
 		</array>
 		<key>ResetAddress</key>
-		<string>0000000000000CF9</string>
+		<string>0x0CF9</string>
 		<key>ResetValue</key>
-		<string>06</string>
+		<string>0x06</string>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -219,7 +219,7 @@
 		<key>#ScreenResolution</key>
 		<string>1366x768</string>
 		<key>Theme</key>
-		<string>YosemiteLogin</string>
+		<string>LightUp</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
