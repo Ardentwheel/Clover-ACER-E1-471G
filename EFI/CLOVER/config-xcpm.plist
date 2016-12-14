@@ -149,7 +149,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>kext-dev-mode=1 nv_disable=1</string>
+		<string>kext-dev-mode=1 -xcpm nv_disable=1</string>
 		<key>DefaultVolume</key>
 		<string>Macintosh HD</string>
 		<key>Legacy</key>
@@ -161,7 +161,7 @@
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>3</integer>
+		<integer>0</integer>
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
@@ -240,31 +240,19 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AsusAICPUPM</key>
-		<true/>
+		<false/>
 		<key>AppleRTC</key>
 		<false/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
-		<false/>
+		<true/>
 		<key>ForceKextsToLoad</key>
 		<array>
 			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
 		</array>
 		<key>KextsToPatch</key>
 		<array>
-			<dict>
-				<key>Comment</key>
-				<string>10.11-BT4LE-Handoff-Hotspot-lisai9093</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>SIX/dEdIiwc=</data>
-				<key>Name</key>
-				<string>IOBluetoothFamily</string>
-				<key>Replace</key>
-				<data>Qb4PAAAA60Q=</data>
-			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>BT4.0 HandOff &amp;amp; Hotspot</string>
@@ -317,7 +305,7 @@
 				<key>Comment</key>
 				<string>Enable TRIM for SSD</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Name</key>
 				<string>IOAHCIBlockStorage</string>
 				<key>Find</key>
@@ -348,18 +336,6 @@
 				<string>IOGraphicsFamily</string>
 				<key>Replace</key>
 				<data>AQAA6xc=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.12.dp1 (credit denskop)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>AQAAdSU=</data>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>AQAA6yU=</data>
 			</dict>
 		</array>
 	</dict>
