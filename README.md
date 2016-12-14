@@ -68,7 +68,8 @@
   - [Tonymacx86.com](http://www.tonymacx86.com/)
   - [javenxww/E1-471g-MAC-10.11.5-clover](https://github.com/javenxww/E1-471g-MAC-10.11.5-clover)
   - [holoto/ec-471g](https://github.com/holoto/ec-471g)
-  - [Fix-Hotkey-Brightness](http://www.insanelymac.com/forum/topic/305030-guide-how-to-fix-brightness-hotkeys-in-dsdt/)
+  - [Fix-ACPI-Brightness-Keys (Voodoo-PS2-Controller)](http://www.insanelymac.com/forum/topic/305030-guide-how-to-fix-brightness-hotkeys-in-dsdt/)
+  - [Fix-ACPI-Brightness-Keys (SmartTouchpad)](https://www.tonymacx86.com/threads/fix-acpi-brightness-keys-using-smart-touchpad-driver.162423/)
 
 
 #### For More

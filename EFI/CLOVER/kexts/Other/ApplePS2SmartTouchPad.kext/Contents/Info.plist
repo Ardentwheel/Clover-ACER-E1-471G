@@ -1069,7 +1069,20 @@
 					<key>HIDTrackpadAccelLevel</key>
 					<integer>8</integer>
 					<key>PointerCustomAcceleration</key>
-					<integer>16</integer>
+					<dict>
+						<key>ELANv2</key>
+						<integer>16</integer>
+						<key>ELANv3</key>
+						<integer>16</integer>
+						<key>ELANv4</key>
+						<integer>12</integer>
+						<key>FocalTech</key>
+						<integer>12</integer>
+						<key>Synaptics</key>
+						<integer>16</integer>
+					</dict>
+					<key>PointerCustomAcceleration2</key>
+					<dict/>
 					<key>PointerResolution</key>
 					<dict>
 						<key>ELANv2</key>
@@ -1251,7 +1264,7 @@
 					<key>ScrollLevelFactor</key>
 					<integer>1</integer>
 					<key>ScrollLevelGranularity</key>
-					<integer>70</integer>
+					<integer>40</integer>
 					<key>ScrollMaxIdleDetectTimeout</key>
 					<integer>500</integer>
 					<key>ScrollMaxIdleStateDelta</key>
