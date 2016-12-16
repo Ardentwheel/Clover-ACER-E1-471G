@@ -149,7 +149,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>kext-dev-mode=1 -xcpm nv_disable=1</string>
+		<string>kext-dev-mode=1 nv_disable=1 -v</string>
 		<key>DefaultVolume</key>
 		<string>Macintosh HD</string>
 		<key>Legacy</key>
@@ -161,7 +161,7 @@
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>0</integer>
+		<integer>5</integer>
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
@@ -240,103 +240,16 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AsusAICPUPM</key>
-		<false/>
+		<true/>
 		<key>AppleRTC</key>
 		<false/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
-		<true/>
+		<false/>
 		<key>ForceKextsToLoad</key>
 		<array>
 			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
-		</array>
-		<key>KextsToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>BT4.0 HandOff &amp;amp; Hotspot</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>IOBluetoothFamily</string>
-				<key>Find</key>
-				<data>i4eMAQAA</data>
-				<key>Replace</key>
-				<data>uA8AAACQ</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003, port 0205</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Find</key>
-				<data>AgUAAAAEAAAHBAAA</data>
-				<key>Replace</key>
-				<data>AgUAAAAIAAAGAAAA</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003, port 0304</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Find</key>
-				<data>AwQAAAAEAACBAAAA</data>
-				<key>Replace</key>
-				<data>AwQAAAAIAAAGAAAA</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio HD4000 0x01660003, port 0406</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
-				<key>Find</key>
-				<data>BAYAAAAEAACBAAAA</data>
-				<key>Replace</key>
-				<data>BAYAAAAIAAAGAAAA</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable TRIM for SSD</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Name</key>
-				<string>IOAHCIBlockStorage</string>
-				<key>Find</key>
-				<data>AEFQUExFIFNTRAA=</data>
-				<key>Replace</key>
-				<data>AAAAAAAAAAAAAAA=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.2/10.10.3</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Find</key>
-				<data>QYjE6xE=</data>
-				<key>Replace</key>
-				<data>QYjE6zE=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>AQAAdRc=</data>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>AQAA6xc=</data>
-			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -349,7 +262,7 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookPro9,2</string>
+		<string>MacBookPro10,1</string>
 		<key>Trust</key>
 		<true/>
 	</dict>

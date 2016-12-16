@@ -40,8 +40,8 @@
 
 #### How To Use
  1. Copy EFI folder to ESP/EFI Partition.
- 2. Run [Clover Installer](https://sourceforge.net/projects/cloverefiboot/) after Mac OS X is Installed.(Update Latest Clover Version)
- 3. [Optional] You can choice config-xcpm.plist to force XCPM open.(config-xcpm.plist cann't use in installing Mac OS X)
+ 2. Install Mac OS X need to Use config-install.plist instead of config.plist.
+ 3. Run [Clover Installer](https://sourceforge.net/projects/cloverefiboot/) after Mac OS X is Installed.(Update Latest Clover Version)
  4. Can't tap with one finger? Go to `"System Preferences">"Trakpad">"Tap to click"`
 
 #### Tools
