@@ -14,6 +14,8 @@
 5. Remain holding Fn+Ees button about 2 seconds then release
 6. Wait about 5 minutes, computer will restart it self
 7. Upgrade BIOS version to official BIOS 2.18 
+8. Reboot computer (Press F2 while rebooting), Enable ACPI and UEFI Mod
+9. Check storage device using GPT(GUID Partition Table)
 
 ```ruby
  WARNING: Do Not Remove AC Adapter Whilte Upgrading BIOS. 

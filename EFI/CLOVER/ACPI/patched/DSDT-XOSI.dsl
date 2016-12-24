@@ -74,6 +74,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
     External (PDC6, IntObj)
     External (PDC7, IntObj)
     External (TNOT, MethodObj)    // Warning: Unknown method, guessing 0 arguments
+    External (XOSI, MethodObj)    // 1 Arguments (from opcode)
 
     Name (SS1, Zero)
     Name (SS2, Zero)
@@ -1496,7 +1497,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                 {
                     Return (^XHC.POSC (Arg1, Arg2, Arg3))
                 }
-                ElseIf(LOr(_OSI("Darwin"),_OSI("Windows 2012")))
+                ElseIf(LOr(XOSI("Darwin"),XOSI("Windows 2012")))
                 {
                     If (LEqual (XCNT, Zero))
                     {
@@ -5764,45 +5765,45 @@ Store (Zero, P80D)
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
             Store (0x07D0, OSYS)
-            If (CondRefOf (\_OSI, Local0))
+            If (CondRefOf (\XOSI, Local0))
             {
-                If (_OSI ("Linux"))
+                If (XOSI ("Linux"))
                 {
                     Store (0x03E8, OSYS)
                     Store (One, LINX)
                 }
 
-                If (_OSI ("Windows 2001"))
+                If (XOSI ("Windows 2001"))
                 {
                     Store (0x07D1, OSYS)
                 }
 
-                If (_OSI ("Windows 2001 SP1"))
+                If (XOSI ("Windows 2001 SP1"))
                 {
                     Store (0x07D1, OSYS)
                 }
 
-                If (_OSI ("Windows 2001 SP2"))
+                If (XOSI ("Windows 2001 SP2"))
                 {
                     Store (0x07D2, OSYS)
                 }
 
-                If (_OSI ("Windows 2001.1"))
+                If (XOSI ("Windows 2001.1"))
                 {
                     Store (0x07D3, OSYS)
                 }
 
-                If (_OSI ("Windows 2006"))
+                If (XOSI ("Windows 2006"))
                 {
                     Store (0x07D6, OSYS)
                 }
 
-                If (_OSI ("Windows 2009"))
+                If (XOSI ("Windows 2009"))
                 {
                     Store (0x07D9, OSYS)
                 }
 
-                If(LOr(_OSI("Darwin"),_OSI("Windows 2012")))
+                If(LOr(XOSI("Darwin"),XOSI("Windows 2012")))
                 {
                     Store (0x07DC, OSYS)
                 }
