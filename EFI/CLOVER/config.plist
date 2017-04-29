@@ -35,7 +35,7 @@
 		<key>DSDT</key>
 		<dict>
 			<key>DropOEM_DSM</key>
-			<false/>
+			<true/>
 			<key>Fixes</key>
 			<dict>
 				<key>FixRegions_10000000</key>
@@ -51,7 +51,7 @@
 					<key>Comment</key>
 					<string>change _OSI to XOSI</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>X09TSQ==</data>
 					<key>Replace</key>
@@ -149,7 +149,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>kext-dev-mode=1 nv_disable=1 -xcpm</string>
+		<string>kext-dev-mode=1 nv_disable=1</string>
 		<key>DefaultVolume</key>
 		<string>Macintosh HD</string>
 		<key>Legacy</key>
@@ -167,7 +167,7 @@
 	</dict>
 	<key>Devices</key>
 	<dict>
-		<key>Audio</key>
+		<key>#Audio</key>
 		<dict>
 			<key>Inject</key>
 			<integer>0</integer>
@@ -243,37 +243,70 @@
 		<false/>
 		<key>AppleRTC</key>
 		<false/>
+		<key>Debug</key>
+		<false/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
-		<true/>
+		<false/>
+		<key>KernelCpu</key>
+		<false/>
+		<key>KernelHaswellE</key>
+		<false/>
 		<key>ForceKextsToLoad</key>
 		<array>
 			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
+		</array>
+		<key>KernelToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>xcpm bootstrap</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>g8PEg/si</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Replace</key>
+				<data>g8PGg/si</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Reboot fix for xcpm</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>VUiJ5UFXQVZBVUFUU1BBidZBifdIiftFhf8PhA==</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Replace</key>
+				<data>w0iJ5UFXQVZBVUFUU1BBidZBifdIiftFhf8PhA==</data>
+			</dict>
 		</array>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>BT4.0 HandOff &amp;amp; Hotspot</string>
+				<string>10.11.dp BT4LE-Handoff-Hotspot, credit RehabMan based on Dokterdok patch</string>
 				<key>Disabled</key>
 				<true/>
+				<key>Find</key>
+				<data>SIX/dEdIiwc=</data>
 				<key>Name</key>
 				<string>IOBluetoothFamily</string>
-				<key>Find</key>
-				<data>i4eMAQAA</data>
 				<key>Replace</key>
-				<data>uA8AAACQ</data>
+				<data>Qb4PAAAA60Q=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>HDMI-audio HD4000 0x01660003, port 0205</string>
 				<key>Disabled</key>
 				<false/>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
 				<key>Find</key>
 				<data>AgUAAAAEAAAHBAAA</data>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
 				<key>Replace</key>
 				<data>AgUAAAAIAAAGAAAA</data>
 			</dict>
@@ -282,10 +315,10 @@
 				<string>HDMI-audio HD4000 0x01660003, port 0304</string>
 				<key>Disabled</key>
 				<true/>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
 				<key>Find</key>
 				<data>AwQAAAAEAACBAAAA</data>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
 				<key>Replace</key>
 				<data>AwQAAAAIAAAGAAAA</data>
 			</dict>
@@ -294,10 +327,10 @@
 				<string>HDMI-audio HD4000 0x01660003, port 0406</string>
 				<key>Disabled</key>
 				<true/>
-				<key>Name</key>
-				<string>AppleIntelFramebufferCapri</string>
 				<key>Find</key>
 				<data>BAYAAAAEAACBAAAA</data>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
 				<key>Replace</key>
 				<data>BAYAAAAIAAAGAAAA</data>
 			</dict>
@@ -306,10 +339,10 @@
 				<string>Enable TRIM for SSD</string>
 				<key>Disabled</key>
 				<false/>
-				<key>Name</key>
-				<string>IOAHCIBlockStorage</string>
 				<key>Find</key>
 				<data>AEFQUExFIFNTRAA=</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
 				<key>Replace</key>
 				<data>AAAAAAAAAAAAAAA=</data>
 			</dict>
@@ -318,10 +351,12 @@
 				<string>Boot graphics glitch, 10.10.2/10.10.3</string>
 				<key>Disabled</key>
 				<true/>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
 				<key>Find</key>
 				<data>QYjE6xE=</data>
+				<key>MatchOS</key>
+				<string>10.10.x</string>
+				<key>Name</key>
+				<string>IOGraphicsFamily</string>
 				<key>Replace</key>
 				<data>QYjE6zE=</data>
 			</dict>
@@ -329,13 +364,29 @@
 				<key>Comment</key>
 				<string>Boot graphics glitch, 10.10.x/10.11.x (credit lisai9093, cecekpawon)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>AQAAdRc=</data>
+				<key>MatchOS</key>
+				<string>10.11.x</string>
 				<key>Name</key>
 				<string>IOGraphicsFamily</string>
 				<key>Replace</key>
 				<data>AQAA6xc=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.12.dp1 (credit denskop)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>AQAAdSU=</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Name</key>
+				<string>IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>AQAA6yU=</data>
 			</dict>
 		</array>
 	</dict>
@@ -350,41 +401,15 @@
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
-		<key>BiosReleaseDate</key>
-		<string>05/10/12</string>
-		<key>BiosVendor</key>
-		<string>Apple Inc.</string>
-		<key>BiosVersion</key>
-		<string>MBP101.88Z.00EE.B00.1205101839</string>
-		<key>Board-ID</key>
-		<string>Mac-C3EC7CD22292981F</string>
-		<key>BoardManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>BoardType</key>
-		<integer>10</integer>
-		<key>ChassisAssetTag</key>
-		<string>MacBook-Aluminum</string>
-		<key>ChassisManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>ChassisType</key>
-		<string>08</string>
-		<key>Family</key>
-		<string>MacBook Pro</string>
-		<key>Manufacturer</key>
-		<string>Apple Inc.</string>
-		<key>Mobile</key>
-		<true/>
 		<key>ProductName</key>
 		<string>MacBookPro10,1</string>
-		<key>SerialNumber</key>
-		<string>C02K5TV9DKQ1</string>
 		<key>Trust</key>
 		<true/>
-		<key>Version</key>
-		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
+		<key>CustomUUID</key>
+		<string>0995DA4E-EBC4-4002-A593-089E0166A45B</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
 		<key>InjectSystemID</key>

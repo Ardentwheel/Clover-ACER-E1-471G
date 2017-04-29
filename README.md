@@ -2,7 +2,7 @@
 
 
  - [Geekbench Score] (http://htmlpreview.github.io/?https://raw.githubusercontent.com/matthew728960/Clover-ACER-E1-471G/master/Geekbench-Score/ACER-E1-471G.html)
- - Clover EFI Bootloader v2.3k r3961 
+ - Clover EFI Bootloader v2.3k r4061 
  - Intel Core i5-3230M 
  - ACER EA40_HC   ( HM77, Intel Ivy Bridge )
  - Memory 12.0 GB 1600 MHz DDR3
@@ -25,7 +25,7 @@
  - [x] Wireless Network (Buggy)
  - [x] Bluetooth (Buggy)
  - [x] WebCam
- - [ ] SDHC CardReader
+ - [x] SDHC CardReader
  - [x] Fn
  - [x] Smart Touchpad (ELAN)
  - [x] Usb (Built In)
@@ -64,6 +64,9 @@
   - [ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver)
   - [Intel-Backlight](https://github.com/RehabMan/OS-X-Intel-Backlight)（DSDT injected, Not needed.）
   - [Realtek-Network](https://github.com/RehabMan/OS-X-Realtek-Network)
+  - ["RTSX" SDHC Card Readers](http://www.insanelymac.com/forum/topic/321080-sineteks-driver-for-realtek-rtsx-sdhc-card-readers/)
+  - [AirPortAtheros40 (AR9462/5B22)](http://www.insanelymac.com/forum/topic/312045-atheros-wireless-driver-on-os-x-el-capitan-1011-for-unsupported-cards/page-6)
+  - [Bluetooth Firmware Uploader](http://forum.osxlatitude.com/index.php?/topic/2925-bluetooth-firmware-uploader/)
   - [AnyiSightCam](https://github.com/javenxww/E1-471g-MAC-10.11.5-clover/tree/master/EFI/CLOVER/kexts/10.11/)
   - [Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)
   - [Tonymacx86.com](http://www.tonymacx86.com/)
