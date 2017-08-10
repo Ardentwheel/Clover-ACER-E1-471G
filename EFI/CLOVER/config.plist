@@ -6,6 +6,10 @@
 	<dict>
 		<key>SortedOrder-Comment</key>
 		<string>This is the original order supported by Clover prior to build v3062.  You can trim it as necessary.</string>
+		<key>ResetAddress</key>
+		<string>0x0CF9</string>
+		<key>ResetValue</key>
+		<string>0x06</string>
 		<key>SortedOrder</key>
 		<array>
 			<string>SSDT.aml</string>
@@ -34,28 +38,76 @@
 		</array>
 		<key>DSDT</key>
 		<dict>
-			<key>DropOEM_DSM</key>
-			<true/>
+			<key>Name</key>
+			<string>DSDT.aml</string>
 			<key>Fixes</key>
 			<dict>
 				<key>FixRegions_10000000</key>
 				<false/>
 				<key>NewWay_80000000</key>
 				<true/>
+				<key>#Comment-IRQ Fix</key>
+				<string>The following fixes may be needed for onboard audio/USB/etc</string>
+				<key>FIX_TMR_40000</key>
+				<false/>
+				<key>FIX_RTC_20000</key>
+				<false/>
+				<key>FixIPIC_0040</key>
+				<false/>
+				<key>FixHPET_0010</key>
+				<false/>
+				<key>FixHeaders_20000000</key>
+				<true/>
 			</dict>
-			<key>Name</key>
-			<string>DSDT.aml</string>
 			<key>Patches</key>
 			<array>
 				<dict>
 					<key>Comment</key>
+					<string>change OSID to XSID (to avoid match against _OSI XOSI patch)</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>T1NJRA==</data>
+					<key>Replace</key>
+					<data>WFNJRA==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change _OSI to XOSI</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>X09TSQ==</data>
 					<key>Replace</key>
 					<data>WE9TSQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change _DSM to XDSM</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>X0RTTQ==</data>
+					<key>Replace</key>
+					<data>WERTTQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change EC0 to EC</string>
+					<key>Find</key>
+					<data>RUMwXw==</data>
+					<key>Replace</key>
+					<data>RUNfXw==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change H_EC to EC</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>SF9FQw==</data>
+					<key>Replace</key>
+					<data>RUNfXw==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -72,6 +124,30 @@
 					<data>RUhDMg==</data>
 					<key>Replace</key>
 					<data>RUgwMg==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change GFX0 to IGPU</string>
+					<key>Find</key>
+					<data>R0ZYMA==</data>
+					<key>Replace</key>
+					<data>SUdQVQ==</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change PCI0.VID to IGPU #1 (Thinkpad)</string>
+					<key>Find</key>
+					<data>UENJMFZJRF8=</data>
+					<key>Replace</key>
+					<data>UENJMElHUFU=</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change PCI0.VID to IGPU #2 (Thinkpad)</string>
+					<key>Find</key>
+					<data>VklEXwhfQURSDAAAAgA=</data>
+					<key>Replace</key>
+					<data>SUdQVQhfQURSDAAAAgA=</data>
 				</dict>
 			</array>
 		</dict>
@@ -127,10 +203,6 @@
 				<string>ApIst</string>
 			</dict>
 		</array>
-		<key>ResetAddress</key>
-		<string>0x0CF9</string>
-		<key>ResetValue</key>
-		<string>0x06</string>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -178,9 +250,13 @@
 			<false/>
 			<key>AddClockID</key>
 			<false/>
+			<key>HighCurrent</key>
+			<false/>
 			<key>Inject</key>
 			<false/>
 		</dict>
+		<key>UseIntelHDMI</key>
+		<false/>
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
@@ -213,6 +289,8 @@
 			<true/>
 			<key>Legacy</key>
 			<false/>
+			<key>Linux</key>
+			<false/>
 			<key>Tool</key>
 			<false/>
 		</dict>
@@ -221,16 +299,16 @@
 		<key>Theme</key>
 		<string>LightUp</string>
 	</dict>
-	<key>Graphics</key>
+	<key>#Graphics</key>
 	<dict>
-		<key>#ig-platform-id</key>
+		<key>ig-platform-id</key>
 		<string>0x01660003</string>
 		<key>Inject</key>
 		<dict>
 			<key>ATI</key>
 			<false/>
 			<key>Intel</key>
-			<false/>
+			<true/>
 			<key>NVidia</key>
 			<false/>
 		</dict>
@@ -240,10 +318,10 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AsusAICPUPM</key>
-		<false/>
+		<true/>
 		<key>AppleRTC</key>
 		<false/>
-		<key>Debug</key>
+		<key>DellSMBIOSPatch</key>
 		<false/>
 		<key>KernelLapic</key>
 		<false/>
@@ -251,26 +329,14 @@
 		<false/>
 		<key>KernelCpu</key>
 		<false/>
-		<key>KernelHaswellE</key>
-		<false/>
+		<key>KernelIvyXCPM</key>
+		<true/>
 		<key>ForceKextsToLoad</key>
 		<array>
 			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
 		</array>
 		<key>KernelToPatch</key>
 		<array>
-			<dict>
-				<key>Comment</key>
-				<string>xcpm bootstrap</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>g8PEg/si</data>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Replace</key>
-				<data>g8PGg/si</data>
-			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Reboot fix for xcpm</string>
@@ -283,21 +349,57 @@
 				<key>Replace</key>
 				<data>w0iJ5UFXQVZBVUFUU1BBidZBifdIiftFhf8PhA==</data>
 			</dict>
-		</array>
-		<key>KextsToPatch</key>
-		<array>
 			<dict>
 				<key>Comment</key>
-				<string>10.11.dp BT4LE-Handoff-Hotspot, credit RehabMan based on Dokterdok patch</string>
+				<string>Reboot fix for _xcpm_SMT_scope_msrs</string>
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>SIX/dEdIiwc=</data>
-				<key>Name</key>
-				<string>IOBluetoothFamily</string>
+				<data>vgsAAAAx0uhZ/P//</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Replace</key>
-				<data>Qb4PAAAA60Q=</data>
+				<data>vgsAAAAx0pCQkJCQ</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Reboot fix for _xcpm_SMT_scope_msrs 2</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>vgsAAABd6QgAAAA=</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Replace</key>
+				<data>vgsAAABdw5CQkJA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Reboot fix for _xcpm_pkg_scope_msr</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>vgcAAAAx0uiU/P//</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Replace</key>
+				<data>vgcAAAAx0pCQkJCQ</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Reboot fix for _xcpm_core_scope_msrs</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>vgIAAAAx0uhs/P//</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Replace</key>
+				<data>vgIAAAAx0pCQkJCQ</data>
+			</dict>
+		</array>
+		<key>KextsToPatch</key>
+		<array>
 			<dict>
 				<key>Comment</key>
 				<string>HDMI-audio HD4000 0x01660003, port 0205</string>
@@ -336,9 +438,21 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Enable TRIM for SSD</string>
+				<string>TRIM function for non-Apple SSDs</string>
 				<key>Disabled</key>
 				<false/>
+				<key>Find</key>
+				<data>QVBQTEUgU1NEAA==</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>AAAAAAAAAAAAAA==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable TRIM for SSD</string>
+				<key>Disabled</key>
+				<true/>
 				<key>Find</key>
 				<data>AEFQUExFIFNTRAA=</data>
 				<key>Name</key>
@@ -409,9 +523,7 @@
 	<key>SystemParameters</key>
 	<dict>
 		<key>InjectKexts</key>
-		<string>Yes</string>
-		<key>InjectSystemID</key>
-		<false/>
+		<string>Detect</string>
 	</dict>
 </dict>
 </plist>
