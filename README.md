@@ -39,10 +39,11 @@
 
 
 #### How To Use
- 1. Copy EFI folder to ESP/EFI Partition.
- 2. Install Mac OS X need to Use config-install.plist instead of config.plist.
- 3. Run [Clover Installer](https://sourceforge.net/projects/cloverefiboot/) after Mac OS X is Installed.(Update Latest Clover Version)
- 4. Can't tap with one finger? Go to `"System Preferences">"Trakpad">"Tap to click"`
+ 1. Copy EFI folder to ESP/EFI Partition in bootable USB flash drive.
+ 2. Install Mac OS X.
+ 3. Run [Clover Installer](https://sourceforge.net/projects/cloverefiboot/) after Mac OS X is Installed to create ESP/EFI Partition in desk.
+ 4. Copy EFI folder to ESP/EFI Partition in HDD/SSD disk.
+ 5. Can't tap with one finger? Go to `"System Preferences">"Trakpad">"Tap to click"`
 
 #### Tools
   - [UniBeast](http://www.tonymacx86.com/resources/unibeast-6-2-0.314/)
