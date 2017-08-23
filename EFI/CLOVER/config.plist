@@ -35,6 +35,8 @@
 			<string>SSDT-19.aml</string>
 			<string>SSDT-XOSI.aml</string>
 			<string>SSDT-LPC.aml</string>
+			<string>SSDT-UIAC.aml</string>
+			<string>SSDT-PNLF.aml</string>
 		</array>
 		<key>DSDT</key>
 		<dict>
@@ -492,7 +494,7 @@
 				<key>Comment</key>
 				<string>Boot graphics glitch, 10.12.dp1 (credit denskop)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>AQAAdSU=</data>
 				<key>MatchOS</key>
@@ -516,7 +518,7 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookPro10,1</string>
+		<string>MacBookPro10,2</string>
 		<key>Trust</key>
 		<true/>
 	</dict>

@@ -1,0 +1,842 @@
+{
+  "document_type": 1,
+  "document_version": 4,
+  "branch": "hogtown-master-build",
+  "build": 400283,
+  "checksum": "ea97c3968c740aab304487899cf8108c68133b4b",
+  "commit": "3e194801ed",
+  "options": {
+    "iterations": 20,
+    "cpu_workers": 0,
+    "memory_workers": 0,
+    "workload_gap": 2
+  },
+  "platform": {
+    "os": "Mac OS X",
+    "architecture": "x86_64",
+    "bits": 64
+  },
+  "runtime": 136.63280729400003,
+  "system_uuid": "2f19e0f4fe235cb7c6e765efc7c0343ef34786b3",
+  "timestamp": "2017-08-23 05:26:18 +0800",
+  "uuid": "4a3a7411ec244a24be613530d83ed1dd",
+  "version": "Geekbench 4.0.4 Tryout",
+  "metrics": [
+    {
+      "id": 1,
+      "name": "Platform",
+      "value": "Mac OS X x86 (64-bit)",
+      "ivalue": 0
+    },
+    {
+      "id": 2,
+      "name": "Compiler",
+      "value": "Clang 7.3.0 (clang-703.0.29)",
+      "ivalue": 0
+    },
+    {
+      "id": 3,
+      "name": "Operating System",
+      "value": "macOS 10.12.6 (Build 16G29)",
+      "ivalue": 0
+    },
+    {
+      "id": 4,
+      "name": "Model ID",
+      "value": "MacBookPro10,2",
+      "ivalue": 0
+    },
+    {
+      "id": 5,
+      "name": "Model",
+      "value": "MacBook Pro (13-inch Retina Early 2013)",
+      "ivalue": 0
+    },
+    {
+      "id": 6,
+      "name": "Motherboard",
+      "value": "Apple Inc. Mac-AFD8A9D944EA4843 MacBookPro10,2",
+      "ivalue": 0
+    },
+    {
+      "id": 7,
+      "name": "Processor ID",
+      "value": "GenuineIntel Family 6 Model 58 Stepping 9",
+      "ivalue": 0
+    },
+    {
+      "id": 8,
+      "name": "Processor Brand",
+      "value": "       Intel(R) Core(TM) i5-3230M CPU @ 2.60GHz",
+      "ivalue": 0
+    },
+    {
+      "id": 9,
+      "name": "Processor",
+      "value": "Intel Core i5-3230M",
+      "ivalue": 0
+    },
+    {
+      "id": 12,
+      "name": "Threads",
+      "value": "4",
+      "ivalue": 4
+    },
+    {
+      "id": 13,
+      "name": "Cores",
+      "value": "2",
+      "ivalue": 2
+    },
+    {
+      "id": 14,
+      "name": "Processors",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 15,
+      "name": "Processor Frequency",
+      "value": "2.59 GHz",
+      "ivalue": 2594000000
+    },
+    {
+      "id": 17,
+      "name": "L1 Instruction Cache",
+      "value": "32.0 KB",
+      "ivalue": 32768
+    },
+    {
+      "id": 18,
+      "name": "L1 Instruction Cache Count",
+      "value": "2",
+      "ivalue": 2
+    },
+    {
+      "id": 19,
+      "name": "L1 Data Cache",
+      "value": "32.0 KB",
+      "ivalue": 32768
+    },
+    {
+      "id": 20,
+      "name": "L1 Data Cache Count",
+      "value": "2",
+      "ivalue": 2
+    },
+    {
+      "id": 21,
+      "name": "L2 Cache",
+      "value": "256 KB",
+      "ivalue": 262144
+    },
+    {
+      "id": 22,
+      "name": "L2 Cache Count",
+      "value": "2",
+      "ivalue": 2
+    },
+    {
+      "id": 23,
+      "name": "L3 Cache",
+      "value": "3.00 MB",
+      "ivalue": 3145728
+    },
+    {
+      "id": 24,
+      "name": "L3 Cache Count",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 25,
+      "name": "L4 Cache",
+      "value": "0.00 B",
+      "ivalue": 0
+    },
+    {
+      "id": 26,
+      "name": "L4 Cache Count",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 27,
+      "name": "Bus Frequency",
+      "value": "96.0 MHz",
+      "ivalue": 96000000
+    },
+    {
+      "id": 29,
+      "name": "Memory",
+      "value": "12.0 GB",
+      "ivalue": 12884901888
+    },
+    {
+      "id": 30,
+      "name": "Memory Type",
+      "value": "1600 MHz DDR3",
+      "ivalue": 0
+    },
+    {
+      "id": 31,
+      "name": "BIOS",
+      "value": "Apple Inc. MBP102.88Z.010B.B00.1708080805",
+      "ivalue": 0
+    },
+    {
+      "id": 34,
+      "name": "GPU 1",
+      "value": "Intel HD Graphics 4000",
+      "ivalue": 0
+    },
+    {
+      "id": 38,
+      "name": "Chassis Manufacturer",
+      "value": "Apple Inc.",
+      "ivalue": 0
+    },
+    {
+      "id": 39,
+      "name": "Chassis Type",
+      "value": "0xa",
+      "ivalue": 10
+    },
+    {
+      "id": 2000,
+      "name": "OpenCL Platform Vendor",
+      "value": "Apple",
+      "ivalue": 0
+    },
+    {
+      "id": 2001,
+      "name": "OpenCL Platform Name",
+      "value": "Apple",
+      "ivalue": 0
+    },
+    {
+      "id": 2002,
+      "name": "OpenCL Platform Version",
+      "value": "OpenCL 1.2 (May 26 2017 12:59:48)",
+      "ivalue": 0
+    },
+    {
+      "id": 2003,
+      "name": "OpenCL Platform Extensions",
+      "value": "cl_APPLE_SetMemObjectDestructor cl_APPLE_ContextLoggingFunctions cl_APPLE_clut cl_APPLE_query_kernel_names cl_APPLE_gl_sharing cl_khr_gl_event",
+      "ivalue": 0
+    },
+    {
+      "id": 2004,
+      "name": "OpenCL Device Vendor",
+      "value": "Intel",
+      "ivalue": 0
+    },
+    {
+      "id": 2005,
+      "name": "OpenCL Device Name",
+      "value": "HD Graphics 4000",
+      "ivalue": 0
+    },
+    {
+      "id": 2006,
+      "name": "OpenCL Device Version",
+      "value": "OpenCL 1.2",
+      "ivalue": 0
+    },
+    {
+      "id": 2007,
+      "name": "OpenCL Device Global Mem Cache Size",
+      "value": "0.00 B",
+      "ivalue": 0
+    },
+    {
+      "id": 2008,
+      "name": "OpenCL Device Global Mem Cache Type",
+      "value": "CL_NONE",
+      "ivalue": 0
+    },
+    {
+      "id": 2009,
+      "name": "OpenCL Device Extensions",
+      "value": "cl_APPLE_SetMemObjectDestructor cl_APPLE_ContextLoggingFunctions cl_APPLE_clut cl_APPLE_query_kernel_names cl_APPLE_gl_sharing cl_khr_gl_event cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_byte_addressable_store cl_khr_image2d_from_buffer cl_khr_gl_depth_images cl_khr_depth_images cl_khr_3d_image_writes",
+      "ivalue": 0
+    },
+    {
+      "id": 2010,
+      "name": "OpenCL Device Global Mem Cacheline Size",
+      "value": "0.00 B",
+      "ivalue": 0
+    },
+    {
+      "id": 2011,
+      "name": "OpenCL Device Global Mem Size",
+      "value": "1.50 GB",
+      "ivalue": 1610612736
+    },
+    {
+      "id": 2013,
+      "name": "OpenCL Device Image Support",
+      "value": "True",
+      "ivalue": 1
+    },
+    {
+      "id": 2014,
+      "name": "OpenCL Device Image 2D Max Height",
+      "value": "16384",
+      "ivalue": 16384
+    },
+    {
+      "id": 2015,
+      "name": "OpenCL Device Image 2D Max Width",
+      "value": "16384",
+      "ivalue": 16384
+    },
+    {
+      "id": 2032,
+      "name": "OpenCL Device Preferred Vector Width (char)",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 2033,
+      "name": "OpenCL Device Preferred Vector Width (short)",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 2034,
+      "name": "OpenCL Device Preferred Vector Width (int)",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 2035,
+      "name": "OpenCL Device Preferred Vector Width (long)",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 2036,
+      "name": "OpenCL Device Preferred Vector Width (float)",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 2037,
+      "name": "OpenCL Device Preferred Vector Width (double)",
+      "value": "0",
+      "ivalue": 0
+    },
+    {
+      "id": 2038,
+      "name": "OpenCL Device Preferred Vector Width (half)",
+      "value": "0",
+      "ivalue": 0
+    },
+    {
+      "id": 2040,
+      "name": "OpenCL Device Type",
+      "value": "CL_DEVICE_TYPE_GPU",
+      "ivalue": 4
+    },
+    {
+      "id": 2041,
+      "name": "OpenCL Driver Version",
+      "value": "1.2(Jun 15 2017 18:45:02)",
+      "ivalue": 0
+    },
+    {
+      "id": 2017,
+      "name": "OpenCL Device Local Mem Size",
+      "value": "64.0 KB",
+      "ivalue": 65536
+    },
+    {
+      "id": 2018,
+      "name": "OpenCL Device Local Mem Type",
+      "value": "CL_LOCAL",
+      "ivalue": 1
+    },
+    {
+      "id": 2019,
+      "name": "OpenCL Device Max Clock Frequency",
+      "value": "1.10 GHz",
+      "ivalue": 1100
+    },
+    {
+      "id": 2020,
+      "name": "OpenCL Device Max Compute Units",
+      "value": "16",
+      "ivalue": 16
+    },
+    {
+      "id": 2021,
+      "name": "OpenCL Device Max Mem Alloc Size",
+      "value": "384 MB",
+      "ivalue": 402653184
+    },
+    {
+      "id": 2022,
+      "name": "OpenCL Device Max Samplers",
+      "value": "16",
+      "ivalue": 16
+    },
+    {
+      "id": 2023,
+      "name": "OpenCL Device Max Work Group Size",
+      "value": "512",
+      "ivalue": 512
+    },
+    {
+      "id": 2024,
+      "name": "OpenCL Device Max Work Item Dimensions",
+      "value": "3",
+      "ivalue": 3
+    },
+    {
+      "id": 2012,
+      "name": "OpenCL Device Host Unified Memory",
+      "value": "True",
+      "ivalue": 1
+    },
+    {
+      "id": 2025,
+      "name": "OpenCL Device Native Vector Width (char)",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 2026,
+      "name": "OpenCL Device Native Vector Width (short)",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 2027,
+      "name": "OpenCL Device Native Vector Width (int)",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 2028,
+      "name": "OpenCL Device Native Vector Width (long)",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 2029,
+      "name": "OpenCL Device Native Vector Width (float)",
+      "value": "1",
+      "ivalue": 1
+    },
+    {
+      "id": 2030,
+      "name": "OpenCL Device Native Vector Width (double)",
+      "value": "0",
+      "ivalue": 0
+    },
+    {
+      "id": 2031,
+      "name": "OpenCL Device Native Vector Width (half)",
+      "value": "0",
+      "ivalue": 0
+    },
+    {
+      "id": 2016,
+      "name": "OpenCL Device Image Max Buffer Size",
+      "value": "24.0 MB",
+      "ivalue": 25165824
+    },
+    {
+      "id": 1000,
+      "name": "Compute Device",
+      "value": "HD Graphics 4000",
+      "ivalue": 0
+    },
+    {
+      "id": 10,
+      "name": "Processor Codename",
+      "value": "",
+      "ivalue": 0
+    },
+    {
+      "id": 11,
+      "name": "Processor Package",
+      "value": "",
+      "ivalue": 0
+    },
+    {
+      "id": 16,
+      "name": "Stock Processor Frequency",
+      "value": "",
+      "ivalue": 0
+    },
+    {
+      "id": 28,
+      "name": "Stock Bus Frequency",
+      "value": "",
+      "ivalue": 0
+    },
+    {
+      "id": 32,
+      "name": "Northbridge",
+      "value": "",
+      "ivalue": 0
+    },
+    {
+      "id": 33,
+      "name": "Southbridge",
+      "value": "",
+      "ivalue": 0
+    }
+  ],
+  "multicore_rate": 0.0,
+  "multicore_score": 0,
+  "score": 5617,
+  "valid": 1,
+  "sections": [
+    {
+      "name": "OpenCL",
+      "id": 4,
+      "score": 5617,
+      "graph_width": 23,
+      "valid": 1,
+      "workloads": [
+        {
+          "name": "Sobel",
+          "id": 203,
+          "units": 9,
+          "threads": 1,
+          "score": 2836,
+          "graph_width": 11,
+          "factory_runtime": 0.69066753300000983,
+          "runtime": 0.079818703000000824,
+          "runtime_max": 0.082113078000020323,
+          "runtime_mean": 0.080864550736859386,
+          "runtime_median": 0.081377967999969769,
+          "runtime_min": 0.079818703000000824,
+          "runtime_stddev": 0.00089638116482713818,
+          "runtime_warmup": 0.080059497999968698,
+          "runtimes": [
+            0.079899749999981395,
+            0.079818703000000824,
+            0.081783699000084198,
+            0.081626003999986096,
+            0.080002503000059733,
+            0.081377967999969769,
+            0.079974975999903108,
+            0.079909683000096265,
+            0.080137087000025531,
+            0.082113078000020323,
+            0.081626154999980827,
+            0.08168632800004616,
+            0.081566192000082083,
+            0.079834839000000102,
+            0.080092387000036069,
+            0.081797265999966839,
+            0.081588155999952505,
+            0.081635081000058562,
+            0.07995660900007806
+          ],
+          "valid": 1,
+          "workload_rate": 124961589.51618014,
+          "work": 9974272,
+          "rate_string": "125.0 Mpixels/sec"
+        },
+        {
+          "name": "Histogram Equalization",
+          "id": 210,
+          "units": 9,
+          "threads": 1,
+          "score": 2181,
+          "graph_width": 9,
+          "factory_runtime": 0.42989220499998737,
+          "runtime": 0.14634900900000503,
+          "runtime_max": 0.1491300750000164,
+          "runtime_mean": 0.14769243110528182,
+          "runtime_median": 0.14788246000000527,
+          "runtime_min": 0.14634900900000503,
+          "runtime_stddev": 0.00085236268991893368,
+          "runtime_warmup": 0.1464681400000245,
+          "runtimes": [
+            0.14801977199999783,
+            0.14804589499999565,
+            0.14704775899997458,
+            0.14634900900000503,
+            0.14830220800001825,
+            0.14660381300006975,
+            0.14856816300004994,
+            0.14747831399995448,
+            0.14843885400000545,
+            0.14842327400003796,
+            0.14788246000000527,
+            0.1491300750000164,
+            0.14722461700000622,
+            0.1476591630000712,
+            0.14684417099999791,
+            0.14653185500003474,
+            0.1465393700000277,
+            0.14841214000000491,
+            0.14865527900008146
+          ],
+          "valid": 1,
+          "workload_rate": 68154011.210281968,
+          "work": 9974272,
+          "rate_string": "68.2 Mpixels/sec"
+        },
+        {
+          "name": "SFFT",
+          "id": 302,
+          "units": 1,
+          "threads": 1,
+          "score": 1878,
+          "graph_width": 7,
+          "factory_runtime": 0.57639494099998956,
+          "runtime": 0.10746420600003148,
+          "runtime_max": 0.11058011399995848,
+          "runtime_mean": 0.10896430705262997,
+          "runtime_median": 0.10893937200000892,
+          "runtime_min": 0.10746420600003148,
+          "runtime_stddev": 0.00087774283662010342,
+          "runtime_warmup": 0.10916829099994629,
+          "runtimes": [
+            0.10974394100003337,
+            0.1090115589998959,
+            0.11058011399995848,
+            0.10746420600003148,
+            0.10800902600010431,
+            0.10898884100004125,
+            0.10885518099996716,
+            0.10835329999997612,
+            0.10902771899998243,
+            0.10893016400007127,
+            0.10811325800000304,
+            0.10987643600003594,
+            0.10901590699995722,
+            0.11056619900000442,
+            0.10786964899989471,
+            0.10995917100001407,
+            0.10893583999995826,
+            0.10893937200000892,
+            0.10808195100003104
+          ],
+          "valid": 1,
+          "workload_rate": 4683573244.8425903,
+          "work": 503316480,
+          "rate_string": "4.68 Gflops"
+        },
+        {
+          "name": "Gaussian Blur",
+          "id": 307,
+          "units": 9,
+          "threads": 1,
+          "score": 3911,
+          "graph_width": 16,
+          "factory_runtime": 0.25179533599998649,
+          "runtime": 0.1455659299999752,
+          "runtime_max": 0.14665469899989603,
+          "runtime_mean": 0.1458247799999981,
+          "runtime_median": 0.14580711599990082,
+          "runtime_min": 0.1455659299999752,
+          "runtime_stddev": 0.0002324713348255667,
+          "runtime_warmup": 0.14545331900001202,
+          "runtimes": [
+            0.14587065700004587,
+            0.14568191700004718,
+            0.14590062400009174,
+            0.14573163900001873,
+            0.14567282099994827,
+            0.14581471199994667,
+            0.14598085799991622,
+            0.1455659299999752,
+            0.14561405799997829,
+            0.14665469899989603,
+            0.14571193799997673,
+            0.14595770699997956,
+            0.14566736300002958,
+            0.14585638799997014,
+            0.14590976800002409,
+            0.14578519900010178,
+            0.14580711599990082,
+            0.14567415300007269,
+            0.14581327300004432
+          ],
+          "valid": 1,
+          "workload_rate": 68520649.028256133,
+          "work": 9974272,
+          "rate_string": "68.5 Mpixels/sec"
+        },
+        {
+          "name": "Face Detection",
+          "id": 309,
+          "units": 18,
+          "threads": 1,
+          "score": 2195,
+          "graph_width": 9,
+          "factory_runtime": 0.20247619100007341,
+          "runtime": 0.11601913899994543,
+          "runtime_max": 0.11755566199997247,
+          "runtime_mean": 0.11680761247368752,
+          "runtime_median": 0.11687076099997284,
+          "runtime_min": 0.11601913899994543,
+          "runtime_stddev": 0.00034052880551748284,
+          "runtime_warmup": 0.10915485299994998,
+          "runtimes": [
+            0.11656883799992102,
+            0.11630499300008523,
+            0.11707423500001823,
+            0.11703173700004754,
+            0.11601913899994543,
+            0.11693550200004665,
+            0.11670729499996924,
+            0.11687076099997284,
+            0.11755566199997247,
+            0.11714082399998915,
+            0.11688615800005664,
+            0.11699244600004022,
+            0.1163959560000194,
+            0.11665881800001898,
+            0.1166959230000657,
+            0.11705767199998718,
+            0.11690031099999487,
+            0.11686319799991907,
+            0.11668516899999304
+          ],
+          "valid": 1,
+          "workload_rate": 641316.60208265297,
+          "work": 74405,
+          "rate_string": "641.3 Ksubwindows/sec"
+        },
+        {
+          "name": "RAW",
+          "id": 310,
+          "units": 9,
+          "threads": 1,
+          "score": 24095,
+          "graph_width": 100,
+          "factory_runtime": 0.25712818800002424,
+          "runtime": 0.068598910000105207,
+          "runtime_max": 0.071810580000033042,
+          "runtime_mean": 0.069057721421059842,
+          "runtime_median": 0.068728684000006979,
+          "runtime_min": 0.068598910000105207,
+          "runtime_stddev": 0.00087587861702545663,
+          "runtime_warmup": 0.068555344999936096,
+          "runtimes": [
+            0.068743846000074882,
+            0.071810580000033042,
+            0.068705594999983077,
+            0.068661284999961936,
+            0.068889792000049965,
+            0.068602681000015764,
+            0.068728684000006979,
+            0.068782464999912918,
+            0.068625987999894278,
+            0.069887209000057737,
+            0.068841119000012441,
+            0.068723813000019618,
+            0.068801008000036745,
+            0.070941310000080193,
+            0.068822255999975823,
+            0.068694171999936771,
+            0.068606910999960746,
+            0.068629083000018909,
+            0.068598910000105207
+          ],
+          "valid": 1,
+          "workload_rate": 233241723.51973903,
+          "work": 16000128,
+          "rate_string": "233.2 Mpixels/sec"
+        },
+        {
+          "name": "Depth of Field",
+          "id": 311,
+          "units": 9,
+          "threads": 1,
+          "score": 22482,
+          "graph_width": 93,
+          "factory_runtime": 0.14596586000004663,
+          "runtime": 0.036122730999977648,
+          "runtime_max": 0.038621938999995109,
+          "runtime_mean": 0.036695981210515892,
+          "runtime_median": 0.036437803000012536,
+          "runtime_min": 0.036122730999977648,
+          "runtime_stddev": 0.00071277702242187268,
+          "runtime_warmup": 0.036248255999907997,
+          "runtimes": [
+            0.036355276999984198,
+            0.038621938999995109,
+            0.036536399999931746,
+            0.03618913100001464,
+            0.036349482999980864,
+            0.036305014000049596,
+            0.037408345000017107,
+            0.036627326000029825,
+            0.036345573999938097,
+            0.036352638000039406,
+            0.036485486999936256,
+            0.037822822999942218,
+            0.036443125000005239,
+            0.036198678000005202,
+            0.036437803000012536,
+            0.036176820999912707,
+            0.037986324000030436,
+            0.036122730999977648,
+            0.036458723999999165
+          ],
+          "valid": 1,
+          "workload_rate": 65313334.144128248,
+          "work": 2359296,
+          "rate_string": "65.3 Mpixels/sec"
+        },
+        {
+          "name": "Particle Physics",
+          "id": 312,
+          "units": 12,
+          "threads": 1,
+          "score": 18350,
+          "graph_width": 76,
+          "factory_runtime": 0.062309241999969345,
+          "runtime": 0.068945075999977234,
+          "runtime_max": 0.069876636999993025,
+          "runtime_mean": 0.069181270947356821,
+          "runtime_median": 0.069080545000019811,
+          "runtime_min": 0.068945075999977234,
+          "runtime_stddev": 0.00024946104374554937,
+          "runtime_warmup": 0.069629482999971515,
+          "runtimes": [
+            0.069069906999970954,
+            0.069876636999993025,
+            0.068972923999922386,
+            0.069261450999988483,
+            0.068945075999977234,
+            0.069601244999944356,
+            0.069033871999977237,
+            0.069544311000072412,
+            0.068969207999998616,
+            0.069186031999947772,
+            0.069020831999978327,
+            0.069198110000002089,
+            0.068953220000025794,
+            0.069180861000063487,
+            0.069047641999986809,
+            0.069254585999942719,
+            0.069080545000019811,
+            0.069237186000009387,
+            0.069010502999958589
+          ],
+          "valid": 1,
+          "workload_rate": 2900.8598090466394,
+          "work": 200,
+          "rate_string": "2900.9 FPS"
+        }
+      ]
+    }
+  ],
+  "compute_api": 3,
+  "compute_platform_id": -1,
+  "compute_device_id": 0,
+  "compute_platform_name": "Apple Apple",
+  "compute_device_name": "HD Graphics 4000"
+}
