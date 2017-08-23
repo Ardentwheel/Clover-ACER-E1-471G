@@ -1,8 +1,8 @@
 # Clover EFI For ACER Aspire E1-471g(-53234G50Mnks)
 
 
- - [Geekbench Score] (http://htmlpreview.github.io/?https://raw.githubusercontent.com/matthew728960/Clover-ACER-E1-471G/master/Geekbench-Score/ACER-E1-471G.html)
- - [OpenCL Score] (http://htmlpreview.github.io/?https://raw.githubusercontent.com/matthew728960/Clover-ACER-E1-471G/master/Geekbench-Score/ACER-E1-471G_OpenCL.html)
+ - [Geekbench Score](http://htmlpreview.github.io/?https://raw.githubusercontent.com/matthew728960/Clover-ACER-E1-471G/master/Geekbench-Score/ACER-E1-471G.html)
+ - [OpenCL Score](http://htmlpreview.github.io/?https://raw.githubusercontent.com/matthew728960/Clover-ACER-E1-471G/master/Geekbench-Score/ACER-E1-471G_OpenCL.html)
  - Clover EFI Bootloader v2.3k r4184 
  - Intel Core i5-3230M 
  - ACER EA40_HC   ( HM77, Intel Ivy Bridge )
