@@ -37,6 +37,7 @@
 			<string>SSDT-LPC.aml</string>
 			<string>SSDT-UIAC.aml</string>
 			<string>SSDT-PNLF.aml</string>
+			<string>SSDT-ARP.aml</string>
 		</array>
 		<key>DSDT</key>
 		<dict>
@@ -215,9 +216,13 @@
 				<false/>
 				<key>PStates</key>
 				<false/>
+				<key>APSN</key>
+				<false/>
+				<key>APLF</key>
+				<false/>
+				<key>PluginType</key>
+				<false/>
 			</dict>
-			<key>PluginType</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>Boot</key>
@@ -249,13 +254,13 @@
 		<key>USB</key>
 		<dict>
 			<key>FixOwnership</key>
-			<false/>
+			<true/>
 			<key>AddClockID</key>
-			<false/>
+			<true/>
 			<key>HighCurrent</key>
 			<false/>
 			<key>Inject</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>UseIntelHDMI</key>
 		<false/>
@@ -303,7 +308,7 @@
 	</dict>
 	<key>#Graphics</key>
 	<dict>
-		<key>ig-platform-id</key>
+		<key>#ig-platform-id</key>
 		<string>0x01660003</string>
 		<key>Inject</key>
 		<dict>
@@ -327,7 +332,7 @@
 		<false/>
 		<key>KernelLapic</key>
 		<false/>
-		<key>KernelPm</key>
+		<key>#KernelPm</key>
 		<false/>
 		<key>KernelCpu</key>
 		<false/>
@@ -343,7 +348,7 @@
 				<key>Comment</key>
 				<string>Reboot fix for xcpm</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>VUiJ5UFXQVZBVUFUU1BBidZBifdIiftFhf8PhA==</data>
 				<key>MatchOS</key>
@@ -508,12 +513,14 @@
 	</dict>
 	<key>RtVariables</key>
 	<dict>
-		<key>ROM</key>
-		<string>UseMacAddr0</string>
 		<key>BooterConfig</key>
 		<string>0x28</string>
 		<key>CsrActiveConfig</key>
 		<string>0x67</string>
+		<key>MLB</key>
+		<string>C02345902QXF0V5A8</string>
+		<key>ROM</key>
+		<data>CJ4BZqRb</data>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
@@ -524,6 +531,8 @@
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
+		<key>#BacklightLevel</key>
+		<integer>0</integer>
 		<key>InjectKexts</key>
 		<string>Detect</string>
 	</dict>

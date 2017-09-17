@@ -3,7 +3,7 @@
 
  - [Geekbench Score](http://htmlpreview.github.io/?https://raw.githubusercontent.com/matthew728960/Clover-ACER-E1-471G/master/Geekbench-Score/ACER-E1-471G.html)
  - [OpenCL Score](http://htmlpreview.github.io/?https://raw.githubusercontent.com/matthew728960/Clover-ACER-E1-471G/master/Geekbench-Score/ACER-E1-471G_OpenCL.html)
- - Clover EFI Bootloader v2.3k r4184 
+ - Clover EFI Bootloader v2.3k r4210 
  - Intel Core i5-3230M 
  - ACER EA40_HC   ( HM77, Intel Ivy Bridge )
  - Memory 12.0 GB 1600 MHz DDR3
@@ -11,7 +11,7 @@
  - NVIDIA GeForce 710M (1 GB)
  - Realtek ALC269
  - Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter
- - Atheros AR9462/AR5BWB222 Wireless Network Adapter
+ - Broadcom BCM94325HMB Wireless Network Adapter
  - Realtek RTS5289 PCI-E Card Reader
 
 ---
@@ -45,34 +45,32 @@
  3. Run [Clover Installer](https://sourceforge.net/projects/cloverefiboot/) after Mac OS X is Installed to create ESP/EFI Partition in desk.
  4. Copy EFI folder to ESP/EFI Partition in HDD/SSD disk.
  5. Can't tap with one finger? Go to `"System Preferences">"Trakpad">"Tap to click"`
+ 6. Delete EFI/CLOVER/ACPI/patched/SSDT-ARP.aml if you use other than Broadcom BCM94325HMB Wireless Adapter.
 
 #### Tools
   - [UniBeast](http://www.tonymacx86.com/resources/unibeast-6-2-0.314/)
   - [MultiBeast](http://www.tonymacx86.com/resources/multibeast-el-capitan-8-2-2.318/)
   - [Clover EFI bootloader](https://sourceforge.net/projects/cloverefiboot/)
-  - [Clover Configurator](http://www.tonymacx86.com/resources/clover-configurator.276/)
+  - [Clover Configurator](http://mackie100projects.altervista.org/download-clover-configurator/)
   - [Maciasl](https://sourceforge.net/projects/maciasl/) (for change dsdt file)
   - [DarwinDumper](https://bitbucket.org/blackosx/darwindumper)
+  - [BootDiskUtility](http://cvad-mac.narod.ru/)
 
 
 #### Kext And Reference From
   - [FakeSMC](http://www.hwsensors.com/releases)
   - [CPUFriend](https://github.com/PMheart/CPUFriend)
-  - [Voodoo-PS2-Controller](https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller)
-  - [Smart Touchpad (ELAN)](http://forum.osxlatitude.com/index.php?/topic/1948-elan-focaltech-and-synaptics-smart-touchpad-driver-mac-os-x/)
-  - [USB-Inject-All](https://github.com/RehabMan/OS-X-USB-Inject-All)
+  - [IntelGraphicsFixup](https://sourceforge.net/projects/intelgraphicsfixup/)
   - [AppleALC](https://github.com/vit9696/AppleALC)
-  - [HDAEnablers](https://github.com/Mirone/HDAEnablers)（DSDT injected layout-id, Not needed.）
+  - [Smart Touchpad (ELAN)](http://forum.osxlatitude.com/index.php?/topic/1948-elan-focaltech-and-synaptics-smart-touchpad-driver-mac-os-x/)
   - [Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)
   - [ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver)
-  - [Intel-Backlight](https://github.com/RehabMan/OS-X-Intel-Backlight)（DSDT injected, Not needed.）
   - [Realtek-Network](https://github.com/RehabMan/OS-X-Realtek-Network)
+  - [AirportBrcmFixup](https://sourceforge.net/projects/airportbrcmfixup/)
+  - [BrcmPatchRAM](https://bitbucket.org/RehabMan/os-x-brcmpatchram)
   - ["RTSX" SDHC Card Readers](http://www.insanelymac.com/forum/topic/321080-sineteks-driver-for-realtek-rtsx-sdhc-card-readers/)
-  - [AirPortAtheros40 (AR9462/5B22)](http://www.insanelymac.com/forum/topic/312045-atheros-wireless-driver-on-os-x-el-capitan-1011-for-unsupported-cards/page-18)
-  - [Bluetooth Firmware Uploader](http://forum.osxlatitude.com/index.php?/topic/2925-bluetooth-firmware-uploader/)
   - [AnyiSightCam](https://github.com/javenxww/E1-471g-MAC-10.11.5-clover/tree/master/EFI/CLOVER/kexts/10.11/)
   - [Clover-Laptop-Config](https://github.com/RehabMan/OS-X-Clover-Laptop-Config)
-  - [Tonymacx86.com](http://www.tonymacx86.com/)
   - [Fix-ACPI-Brightness-Keys (Voodoo-PS2-Controller)](http://www.insanelymac.com/forum/topic/305030-guide-how-to-fix-brightness-hotkeys-in-dsdt/)
   - [Fix-ACPI-Brightness-Keys (SmartTouchpad)](https://www.tonymacx86.com/threads/fix-acpi-brightness-keys-using-smart-touchpad-driver.162423/)
 
