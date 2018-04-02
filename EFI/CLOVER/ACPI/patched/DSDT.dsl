@@ -2738,7 +2738,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                             {
                                 Name (UPCP, Package (0x04)
                                 {
-                                    Zero, 
+                                    0xFF, 
                                     0xFF, 
                                     Zero, 
                                     Zero
@@ -9628,31 +9628,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE", "ACRPRDCT", 0x00000000)
                     })
                 }
 
-                Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-                {
-                    If (LEqual (Arg2, Zero))
-                    {
-                        Return (Buffer (One)
-                        {
-                             0x03                                           
-                        })
-                    }
-
-                    Return (Package (0x04)
-                    {
-                        "AAPL,ig-platform-id", 
-                        Buffer (0x04)
-                        {
-                             0x03, 0x00, 0x66, 0x01                         
-                        }, 
-
-                        "hda-gfx", 
-                        Buffer (0x0A)
-                        {
-                            "onboard-1"
-                        }
-                    })
-                }
+                
             }
 
             Device (WMID)
