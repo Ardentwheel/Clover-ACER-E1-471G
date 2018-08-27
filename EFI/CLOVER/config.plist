@@ -352,7 +352,7 @@
 		<false/>
 		<key>KernelCpu</key>
 		<false/>
-		<key>KernelIvyXCPM</key>
+		<key>KernelXCPM</key>
 		<true/>
 		<key>ForceKextsToLoad</key>
 		<array>
