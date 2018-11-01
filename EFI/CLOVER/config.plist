@@ -317,7 +317,7 @@
 			<key>Linux</key>
 			<false/>
 			<key>Tool</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>#ScreenResolution</key>
 		<string>1366x768</string>
