@@ -58,15 +58,14 @@
 
 
 #### Kext And Reference From
-  - [FakeSMC](http://www.hwsensors.com/releases)
+  - [Lilu](https://github.com/acidanthera/Lilu)
   - [CPUFriend](https://github.com/PMheart/CPUFriend)
-  - [IntelGraphicsFixup](https://sourceforge.net/projects/intelgraphicsfixup/)
-  - [AppleALC](https://github.com/vit9696/AppleALC)
+  - [WhateverGreen](https://github.com/acidanthera/WhateverGreen)
+  - [AirportBrcmFixup](https://github.com/acidanthera/AirportBrcmFixup)
+  - [AppleALC](https://github.com/acidanthera/AppleALC)
   - [Smart Touchpad (ELAN)](http://forum.osxlatitude.com/index.php?/topic/1948-elan-focaltech-and-synaptics-smart-touchpad-driver-mac-os-x/)
   - [Codec-Commander](https://github.com/RehabMan/EAPD-Codec-Commander)
-  - [ACPI-Battery-Driver](https://github.com/RehabMan/OS-X-ACPI-Battery-Driver)
   - [Realtek-Network](https://github.com/RehabMan/OS-X-Realtek-Network)
-  - [AirportBrcmFixup](https://sourceforge.net/projects/airportbrcmfixup/)
   - [BrcmPatchRAM](https://bitbucket.org/RehabMan/os-x-brcmpatchram)
   - ["RTSX" SDHC Card Readers](http://www.insanelymac.com/forum/topic/321080-sineteks-driver-for-realtek-rtsx-sdhc-card-readers/)
   - [AnyiSightCam](https://github.com/javenxww/E1-471g-MAC-10.11.5-clover/tree/master/EFI/CLOVER/kexts/10.11/)
